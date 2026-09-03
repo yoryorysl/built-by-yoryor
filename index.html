@@ -364,7 +364,18 @@
         }
 
         input,
-        textarea {
+textarea,
+select {
+    select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    background: white;
+}
             width: 100%;
             padding: 15px;
             margin-bottom: 15px;
@@ -995,7 +1006,31 @@
             <form
                 action="https://formspree.io/f/xbgjyekq"
                 method="POST">
+<select
+    name="project_type"
+    required>
 
+    <option value="">
+        What type of website do you need?
+    </option>
+
+    <option value="Business Website">
+        Business Website
+    </option>
+
+    <option value="Online Store">
+        Online Store
+    </option>
+
+    <option value="Personal Website">
+        Personal Website
+    </option>
+
+    <option value="Other">
+        Other
+    </option>
+
+</select>
                 <input
                     type="text"
                     name="name"
