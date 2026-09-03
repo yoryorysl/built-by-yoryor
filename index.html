@@ -1130,6 +1130,22 @@ select {
         </p>
 
     </footer>
+<script>
+const exchangeRate = 1323.47;
 
+function changeCurrency() {
+    const currency = document.getElementById("currency").value;
+
+    document.querySelectorAll(".price").forEach(price => {
+        const usd = parseFloat(price.dataset.usd);
+
+        if (currency === "NGN") {
+            price.textContent = "₦" + Math.round(usd * exchangeRate).toLocaleString();
+        } else {
+            price.textContent = "$" + usd.toLocaleString();
+        }
+    });
+}
+</script>
 </body>
 </html>
