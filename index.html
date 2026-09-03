@@ -146,7 +146,7 @@
             padding: 30px;
             margin-bottom: 20px;
             border-radius: 12px;
-            text-align: left;
+            text-align: center;
         }
 
         .project h3 {
@@ -161,6 +161,19 @@
             padding: 11px 20px;
             border-radius: 7px;
             text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-links {
+            margin-top: 25px;
+        }
+
+        .contact-links p {
+            margin: 15px auto;
+        }
+
+        .contact-links a {
+            color: #111;
             font-weight: bold;
         }
 
@@ -195,6 +208,10 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.85;
         }
 
         footer {
@@ -280,6 +297,7 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </nav>
+
 
     <header id="home">
 
@@ -382,7 +400,8 @@
         <h2>My Projects</h2>
 
         <p>
-            Here are some of the types of websites I build.
+            I'm currently building my portfolio of professional
+            website projects.
         </p>
 
         <div class="projects">
@@ -392,17 +411,18 @@
                 <h3>💼 Business Website</h3>
 
                 <p>
-                    A modern website designed to help a business
-                    showcase its services online.
+                    A professional business website project
+                    showcase is coming soon.
                 </p>
 
                 <a
-    class="project-button"
-    href="#"
-    onclick="alert('Project showcase coming soon!'); return false;">
-    Coming Soon
-</a>
- </div>
+                    class="project-button"
+                    href="#"
+                    onclick="alert('Project showcase coming soon!'); return false;">
+                    Coming Soon
+                </a>
+
+            </div>
 
 
             <div class="project">
@@ -410,15 +430,15 @@
                 <h3>🛒 Online Store</h3>
 
                 <p>
-                    A clean online store designed for displaying
-                    products and helping customers place orders.
+                    A modern online store project showcase
+                    is coming soon.
                 </p>
 
                 <a
                     class="project-button"
-                    href="https://example.com"
-                    target="_blank">
-                    View Project
+                    href="#"
+                    onclick="alert('Project showcase coming soon!'); return false;">
+                    Coming Soon
                 </a>
 
             </div>
@@ -429,15 +449,15 @@
                 <h3>👤 Personal Website</h3>
 
                 <p>
-                    A professional personal website for showcasing
-                    skills, experience and work.
+                    A professional personal website project
+                    showcase is coming soon.
                 </p>
 
                 <a
                     class="project-button"
-                    href="https://example.com"
-                    target="_blank">
-                    View Project
+                    href="#"
+                    onclick="alert('Project showcase coming soon!'); return false;">
+                    Coming Soon
                 </a>
 
             </div>
@@ -449,96 +469,55 @@
 
     <section id="contact">
 
-    <h2>Let's Work Together</h2>
+        <h2>Let's Work Together</h2>
 
-    <p>
-        Have a website idea? Tell me about your project.
-    </p>
+        <p>
+            Have a website idea? Tell me about your project.
+        </p>
 
-    <p>
-        📧 <strong>Email:</strong>
-        <a href="mailto:treasureyoryor@gmail.com">
-            treasureyoryor@gmail.com
-        </a>
-    </p>
 
-    <p>
-        📱 <strong>WhatsApp:</strong>
-        <a
-            href="https://wa.me/2348068782377"
-            target="_blank">
-            Chat with me on WhatsApp
-        </a>
-    </p>
+        <div class="contact-links">
 
-    <form
-    action="https://formspree.io/f/xbgjyekq"
-    method="POST">
+            <p>
+                📧 <strong>Email:</strong>
+                <a href="mailto:treasureyoryor@gmail.com">
+                    treasureyoryor@gmail.com
+                </a>
+            </p>
 
-    <input
-        type="text"
-        name="name"
-        placeholder="Your Name"
-        required
-    >
 
-    <input
-        type="email"
-        name="email"
-        placeholder="Your Email"
-        required
-    >
+            <p>
+                📱 <strong>WhatsApp:</strong>
+                <a
+                    href="https://wa.me/2348068782377"
+                    target="_blank">
+                    Chat with me on WhatsApp
+                </a>
+            </p>
 
-    <textarea
-        name="message"
-        placeholder="Tell me about your project"
-        required
-    ></textarea>
+        </div>
 
-    <button type="submit">
-        Send Message
-    </button>
 
-</form>
-
-        <input
-            type="text"
-            placeholder="Your Name"
-            required
-        >
-
-        <input
-            type="email"
-            placeholder="Your Email"
-            required
-        >
-
-        <textarea
-            placeholder="Tell me about your project"
-            required
-        ></textarea>
-
-        <button type="submit">
-            Send Message
-        </button>
-
-    </form>
-
-</section>
+        <form
+            action="https://formspree.io/f/xbgjyekq"
+            method="POST">
 
             <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
                 required
             >
 
             <input
                 type="email"
+                name="email"
                 placeholder="Your Email"
                 required
             >
 
             <textarea
+                name="message"
                 placeholder="Tell me about your project"
                 required
             ></textarea>
