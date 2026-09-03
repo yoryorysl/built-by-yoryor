@@ -1179,7 +1179,7 @@ form.addEventListener("submit", async function(event) {
 
     if (response.ok) {
         formStatus.textContent = "✅ Message sent successfully! I'll get back to you soon.";
-        form.reset();
+        document.getElementById("contact-form").reset();
     } else {
         formStatus.textContent = "❌ Something went wrong. Please try again.";
     }
