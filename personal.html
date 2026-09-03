@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alex Morgan | Personal Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0b0b;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #111;
+            color: white;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 620px;
+            background:
+                radial-gradient(circle at top, #444 0%, #111 45%, #050505 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #555;
+            border-radius: 30px;
+            color: #ccc;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 26px;
+            margin: 5px;
+            border-radius: 8px;
+            background: white;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid #555;
+        }
+
+        /* SECTIONS */
+
+        section {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 70px 25px;
+            background: white;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            max-width: 650px;
+            margin: 0 auto 40px;
+            color: #777;
+        }
+
+        /* ABOUT */
+
+        .about {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        /* SKILLS */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .skill {
+            background: #f3f3f3;
+            padding: 22px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        /* SERVICES */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service {
+            background: #f3f3f3;
+            padding: 35px 20px;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-6px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: #666;
+        }
+
+        /* EXPERIENCE */
+
+        .experience {
+            max-width: 750px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .experience-item {
+            border-left: 3px solid #222;
+            padding: 5px 0 25px 25px;
+            margin-bottom: 20px;
+        }
+
+        .experience-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .experience-item span {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .experience-item p {
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /* CTA */
+
+        .cta {
+            background: #111;
+            color: white;
+        }
+
+        .cta p {
+            color: #bbb;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .contact p {
+            margin: 12px 0;
+        }
+
+        .contact a {
+            color: #111;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #050505;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            color: #999;
+            margin-top: 7px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 5px;
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 560px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                margin: 12px 10px;
+                padding: 50px 20px;
+            }
+
+            section h2 {
+                font-size: 29px;
+            }
+
+            .skills,
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .button {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            Alex Morgan
+        </div>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#services">Services</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                CREATIVE PROFESSIONAL
+            </div>
+
+            <h1>
+                Alex Morgan
+            </h1>
+
+            <h2>
+                Designer • Creator • Problem Solver
+            </h2>
+
+            <p>
+                I help people and businesses turn ideas into
+                meaningful digital experiences.
+            </p>
+
+            <a class="button" href="#contact">
+                Work With Me
+            </a>
+
+            <a class="button secondary" href="#about">
+                Learn More
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <h2>
+            About Me
+        </h2>
+
+        <p class="intro">
+            A personal website designed to introduce a professional,
+            showcase skills and make it easy for people to connect.
+        </p>
+
+        <div class="about">
+
+            <p>
+                I'm Alex, a creative professional who enjoys
+                solving problems, learning new things and creating
+                work that makes a difference.
+            </p>
+
+            <br>
+
+            <p>
+                I believe great work starts with understanding
+                people, their goals and the challenges they want
+                to overcome.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <h2>
+            My Skills
+        </h2>
+
+        <p class="intro">
+            A selection of skills and areas of expertise.
+        </p>
+
+        <div class="skills">
+
+            <div class="skill">
+                🎨 Creative Design
+            </div>
+
+            <div class="skill">
+                💡 Problem Solving
+            </div>
+
+            <div class="skill">
+                📱 Digital Strategy
+            </div>
+
+            <div class="skill">
+                🤝 Communication
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+        <h2>
+            What I Do
+        </h2>
+
+        <p class="intro">
+            Helping individuals and businesses turn ideas
+            into useful and professional results.
+        </p>
+
+        <div class="services">
+
+            <div class="service">
+
+                <div class="service-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Digital Projects
+                </h3>
+
+                <p>
+                    Creating modern digital experiences
+                    that are simple and effective.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">
+                    🚀
+                </div>
+
+                <h3>
+                    Project Development
+                </h3>
+
+                <p>
+                    Turning ideas into structured projects
+                    from concept to completion.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Creative Solutions
+                </h3>
+
+                <p>
+                    Finding practical and creative solutions
+                    to challenging problems.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+
+    <section id="experience">
+
+        <h2>
+            Experience
+        </h2>
+
+        <p class="intro">
+            A simple example of how professional experience
+            can be presented online.
+        </p>
+
+        <div class="experience">
+
+            <div class="experience-item">
+
+                <h3>
+                    Creative Professional
+                </h3>
+
+                <span>
+                    2024 – Present
+                </span>
+
+                <p>
+                    Working on creative digital projects and
+                    helping clients develop their ideas.
+                </p>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <h3>
+                    Digital Projects
+                </h3>
+
+                <span>
+                    2022 – 2024
+                </span>
+
+                <p>
+                    Developed projects focused on communication,
+                    design and digital experiences.
+                </p>
+
+            </div>
+
+
+            <div class="experience-item">
+
+                <h3>
+                    Learning & Development
+                </h3>
+
+                <span>
+                    2020 – 2022
+                </span>
+
+                <p>
+                    Built knowledge through continuous learning,
+                    experimentation and practical projects.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <h2>
+            Have an Idea?
+        </h2>
+
+        <p>
+            Let's turn your idea into something meaningful.
+        </p>
+
+        <a class="button" href="#contact">
+            Let's Talk
+        </a>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="contact">
+
+            <h2>
+                Get In Touch
+            </h2>
+
+            <p class="intro">
+                Whether you have a project, an opportunity or
+                simply want to connect, I'd love to hear from you.
+            </p>
+
+            <p>
+                📧 Email:
+                <a href="mailto:hello@example.com">
+                    hello@example.com
+                </a>
+            </p>
+
+            <p>
+                📱 Phone:
+                <a href="tel:+2348000000000">
+                    +234 800 000 0000
+                </a>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>
+            Alex Morgan
+        </h3>
+
+        <p>
+            Creative professional. Problem solver. Creator.
+        </p>
+
+        <p>
+            © 2026 Alex Morgan. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
