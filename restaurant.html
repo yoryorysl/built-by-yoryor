@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Savor House | Restaurant</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f5f1;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #181512;
+            color: white;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 650px;
+            background:
+                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+                radial-gradient(circle at center, #806b55, #181512);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .tag {
+            display: inline-block;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            padding: 8px 18px;
+            margin-bottom: 22px;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: white;
+            color: #181512;
+            text-decoration: none;
+            padding: 15px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid #aaa;
+        }
+
+        /* SECTIONS */
+
+        section {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 70px 25px;
+            background: white;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            max-width: 650px;
+            margin: 0 auto 40px;
+            color: #777;
+        }
+
+        /* MENU */
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .dish {
+            background: #f4f1eb;
+            padding: 30px 20px;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .dish:hover {
+            transform: translateY(-6px);
+        }
+
+        .dish-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .dish h3 {
+            margin-bottom: 8px;
+        }
+
+        .dish p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            padding: 30px 20px;
+            border: 1px solid #ddd;
+            border-radius: 14px;
+        }
+
+        .feature-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .feature h3 {
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: #777;
+        }
+
+        /* TESTIMONIALS */
+
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .review {
+            background: #f4f1eb;
+            padding: 30px 20px;
+            border-radius: 14px;
+        }
+
+        .stars {
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+
+        .review p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .review strong {
+            font-size: 14px;
+        }
+
+        /* CTA */
+
+        .cta {
+            background: #181512;
+            color: white;
+        }
+
+        .cta p {
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .contact p {
+            margin: 12px 0;
+        }
+
+        .contact a {
+            color: #222;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #181512;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            color: #aaa;
+            margin-top: 7px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 5px;
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 570px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                margin: 12px 10px;
+                padding: 50px 20px;
+            }
+
+            section h2 {
+                font-size: 29px;
+            }
+
+            .menu,
+            .features,
+            .reviews {
+                grid-template-columns: 1fr;
+            }
+
+            .button {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            Savor House
+        </div>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                FINE DINING
+            </div>
+
+            <h1>
+                Taste Something Wonderful
+            </h1>
+
+            <p>
+                Fresh ingredients, memorable flavors and
+                a dining experience made for special moments.
+            </p>
+
+            <a class="button" href="#menu">
+                Explore Our Menu
+            </a>
+
+            <a class="button secondary" href="#contact">
+                Reserve a Table
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- MENU -->
+
+    <section id="menu">
+
+        <h2>
+            Our Signature Menu
+        </h2>
+
+        <p class="intro">
+            A selection of customer favorites prepared
+            with quality ingredients and attention to detail.
+        </p>
+
+        <div class="menu">
+
+            <div class="dish">
+
+                <div class="dish-icon">
+                    🍝
+                </div>
+
+                <h3>
+                    Creamy Pasta
+                </h3>
+
+                <p>
+                    Rich creamy pasta with herbs,
+                    vegetables and our signature sauce.
+                </p>
+
+                <div class="price">
+                    $18
+                </div>
+
+            </div>
+
+
+            <div class="dish">
+
+                <div class="dish-icon">
+                    🥩
+                </div>
+
+                <h3>
+                    Grilled Steak
+                </h3>
+
+                <p>
+                    Tender grilled steak served with
+                    seasonal vegetables and potatoes.
+                </p>
+
+                <div class="price">
+                    $28
+                </div>
+
+            </div>
+
+
+            <div class="dish">
+
+                <div class="dish-icon">
+                    🍣
+                </div>
+
+                <h3>
+                    Fresh Sushi
+                </h3>
+
+                <p>
+                    Carefully prepared sushi made with
+                    fresh ingredients and balanced flavors.
+                </p>
+
+                <div class="price">
+                    $22
+                </div>
+
+            </div>
+
+
+            <div class="dish">
+
+                <div class="dish-icon">
+                    🍔
+                </div>
+
+                <h3>
+                    Classic Burger
+                </h3>
+
+                <p>
+                    Juicy grilled beef, fresh vegetables
+                    and our house sauce.
+                </p>
+
+                <div class="price">
+                    $15
+                </div>
+
+            </div>
+
+
+            <div class="dish">
+
+                <div class="dish-icon">
+                    🍗
+                </div>
+
+                <h3>
+                    Herb Chicken
+                </h3>
+
+                <p>
+                    Tender roasted chicken with herbs,
+                    vegetables and house seasoning.
+                </p>
+
+                <div class="price">
+                    $20
+                </div>
+
+            </div>
+
+
+            <div class="dish">
+
+                <div class="dish-icon">
+                    🍰
+                </div>
+
+                <h3>
+                    Signature Dessert
+                </h3>
+
+                <p>
+                    A delicious dessert created to finish
+                    your dining experience perfectly.
+                </p>
+
+                <div class="price">
+                    $10
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <h2>
+            Our Story
+        </h2>
+
+        <p class="intro">
+            Good food brings people together.
+        </p>
+
+        <div class="about">
+
+            <p>
+                Savor House was created with one simple idea:
+                make every meal an experience worth remembering.
+            </p>
+
+            <br>
+
+            <p>
+                From carefully selected ingredients to warm
+                hospitality, every detail is designed to make
+                our guests feel welcome.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section>
+
+        <h2>
+            The Savor House Experience
+        </h2>
+
+        <p class="intro">
+            Everything you need for a memorable dining experience.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🥬
+                </div>
+
+                <h3>
+                    Fresh Ingredients
+                </h3>
+
+                <p>
+                    Quality ingredients selected for
+                    freshness and flavor.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    👨‍🍳
+                </div>
+
+                <h3>
+                    Skilled Chefs
+                </h3>
+
+                <p>
+                    Carefully prepared dishes with
+                    attention to every detail.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    Warm Hospitality
+                </h3>
+
+                <p>
+                    Friendly service in a comfortable
+                    and welcoming environment.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REVIEWS -->
+
+    <section id="reviews">
+
+        <h2>
+            What Our Guests Say
+        </h2>
+
+        <p class="intro">
+            A few words from our happy customers.
+        </p>
+
+        <div class="reviews">
+
+            <div class="review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "The food was excellent and the atmosphere
+                    was beautiful. I'll definitely be back."
+                </p>
+
+                <strong>
+                    — Alex M.
+                </strong>
+
+            </div>
+
+
+            <div class="review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Wonderful service, delicious food and
+                    a very relaxing experience."
+                </p>
+
+                <strong>
+                    — Sarah K.
+                </strong>
+
+            </div>
+
+
+            <div class="review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "One of my favorite places to enjoy a
+                    great meal with friends."
+                </p>
+
+                <strong>
+                    — Daniel R.
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <h2>
+            Make Your Next Meal Special
+        </h2>
+
+        <p>
+            Come enjoy great food, good company and
+            an experience you'll remember.
+        </p>
+
+        <a class="button" href="#contact">
+            Contact Us
+        </a>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="contact">
+
+            <h2>
+                Visit Savor House
+            </h2>
+
+            <p class="intro">
+                We'd love to welcome you.
+            </p>
+
+            <p>
+                📍 25 Main Street, City Center
+            </p>
+
+            <p>
+                📞 <a href="tel:+2348000000000">
+                    +234 800 000 0000
+                </a>
+            </p>
+
+            <p>
+                📧 <a href="mailto:hello@savorhouse.com">
+                    hello@savorhouse.com
+                </a>
+            </p>
+
+            <p>
+                🕐 Monday – Sunday: 10:00 AM – 10:00 PM
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>
+            Savor House
+        </h3>
+
+        <p>
+            Great food. Great moments.
+        </p>
+
+        <p>
+            © 2026 Savor House. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
