@@ -1,1610 +1,1156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Built by Yoryor | Web Developer</title>
-
-    <meta
-        name="description"
-        content="Built by Yoryor — professional, modern and responsive websites for businesses, brands and individuals."
-    >
-
-    <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Built by Yoryor | Web Developer</title>
+<meta name="description" content="Built by Yoryor — professional, modern and responsive websites for businesses, brands and individuals.">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-
-html {
-    scroll-behavior: smooth;
-    width: 100%;
-    overflow-x: hidden;
+html{
+    scroll-behavior:smooth;
+    overflow-x:hidden;
 }
-
-body {
-    width: 100%;
-    min-width: 0;
-    overflow-x: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #080808;
-    color: #f5f5f5;
-    line-height: 1.6;
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080808;
+    color:#fff;
+    line-height:1.6;
+    overflow-x:hidden;
 }
-
-img {
-    max-width: 100%;
+a{
+    color:inherit;
 }
-
-a {
-    color: inherit;
+img{
+    max-width:100%;
 }
-
 /* =========================
    NAVIGATION
 ========================= */
-
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    background: rgba(5, 5, 5, 0.95);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,5,5,.96);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
-
-.nav-container {
-    width: 100%;
-    max-width: 1250px;
-    min-height: 72px;
-    margin: auto;
-    padding: 12px clamp(16px, 5vw, 60px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+.nav-container{
+    width:100%;
+    max-width:1250px;
+    margin:auto;
+    padding:12px clamp(15px,5vw,60px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    font-size: clamp(12px, 1.3vw, 15px);
-    font-weight: 700;
-    letter-spacing: 1.4px;
-    white-space: nowrap;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-size:clamp(11px,1.3vw,15px);
+    font-weight:700;
+    letter-spacing:1.5px;
+    white-space:nowrap;
+    text-decoration:none;
 }
-
-.logo-mark {
-    width: clamp(32px, 3vw, 38px);
-    height: clamp(32px, 3vw, 38px);
-    flex-shrink: 0;
+.logo-mark{
+    width:38px;
+    height:38px;
+    flex-shrink:0;
 }
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: clamp(10px, 1.8vw, 22px);
-    list-style: none;
+.nav-links{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    align-items:center;
+    gap:clamp(9px,1.7vw,22px);
+    list-style:none;
 }
-
-.nav-links a {
-    text-decoration: none;
-    font-size: clamp(11px, 1.2vw, 14px);
-    color: #ddd;
-    transition: 0.3s ease;
+.nav-links a{
+    text-decoration:none;
+    color:#ddd;
+    font-size:clamp(11px,1.2vw,14px);
+    transition:.3s;
 }
-
-.nav-links a:hover {
-    color: #f5c451;
+.nav-links a:hover{
+    color:#f5c451;
 }
-
 /* =========================
    HERO
 ========================= */
-
-.hero {
-    position: relative;
-    width: 100%;
-    min-height: min(90vh, 900px);
-    height: auto;
-    overflow: hidden;
-    background: #050505;
+.hero{
+    position:relative;
+    width:100%;
+    background:#050505;
+    overflow:hidden;
 }
-
-.hero-background-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    display: block;
-    z-index: 0;
+/*
+ IMPORTANT:
+ The image is NOT cropped.
+ It keeps its natural proportions and
+ scales to the width of the device.
+*/
+.hero-art{
+    position:relative;
+    width:100%;
+    height:auto;
+    display:block;
 }
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.04),
-        rgba(0,0,0,0.30)
-    );
-    z-index: 1;
-    pointer-events: none;
+/* invisible working buttons */
+.hero-hotspot{
+    position:absolute;
+    z-index:5;
+    display:block;
+    text-decoration:none;
+    background:transparent;
 }
-
-.hero-content {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: clamp(28px, 7vh, 70px);
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    padding: 0 18px;
+/*
+ These two areas sit over the buttons
+ already designed inside your artwork.
+*/
+.work-hotspot{
+    left:51%;
+    bottom:10%;
+    width:20%;
+    height:7%;
 }
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    width: 100%;
+.contact-hotspot{
+    left:73%;
+    bottom:10%;
+    width:20%;
+    height:7%;
 }
-
-.hero .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 145px;
-    padding: 13px 22px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 700;
-    transition: 0.3s ease;
-}
-
-.hero .button.primary {
-    background: #f5c451;
-    color: #111;
-}
-
-.hero .button.secondary {
-    background: rgba(0,0,0,0.48);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.55);
-    backdrop-filter: blur(8px);
-}
-
-.hero .button:hover {
-    transform: translateY(-3px);
-}
-
 /* =========================
-   GENERAL SECTIONS
+   SECTION SYSTEM
 ========================= */
-
-section:not(.hero) {
-    width: 100%;
-    padding: clamp(65px, 8vw, 100px) clamp(18px, 7vw, 90px);
+section:not(.hero){
+    width:100%;
+    padding:clamp(65px,8vw,100px) clamp(18px,7vw,90px);
 }
-
-.section-container {
-    width: 100%;
-    max-width: 1100px;
-    margin: auto;
+.section-container{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
 }
-
-.section-title {
-    width: 100%;
-    max-width: 760px;
-    margin: 0 auto 42px;
-    text-align: center;
+.section-title{
+    max-width:760px;
+    margin:0 auto 42px;
+    text-align:center;
 }
-
-.section-title h2 {
-    font-size: clamp(28px, 4vw, 42px);
-    line-height: 1.15;
-    margin-bottom: 12px;
+.section-title h2{
+    font-size:clamp(28px,4vw,42px);
+    line-height:1.15;
+    margin-bottom:12px;
 }
-
-.section-title p {
-    color: #aaa;
-    font-size: clamp(14px, 1.6vw, 17px);
+.section-title p{
+    color:#aaa;
+    font-size:clamp(14px,1.6vw,17px);
 }
-
 /* =========================
    ABOUT
 ========================= */
-
-#about {
-    background: #0b0b0b;
+#about{
+    background:#0b0b0b;
 }
-
-.about-content {
-    width: 100%;
-    max-width: 850px;
-    margin: auto;
-    text-align: center;
+.about-content{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
 }
-
-.about-content p {
-    color: #c4c4c4;
-    font-size: clamp(15px, 1.7vw, 17px);
-    margin-bottom: 18px;
+.about-content p{
+    color:#c4c4c4;
+    font-size:clamp(15px,1.7vw,17px);
+    margin-bottom:18px;
 }
-
 /* =========================
    SERVICES
 ========================= */
-
-#services {
-    background: #101010;
+#services{
+    background:#101010;
 }
-
-.cards {
-    width: 100%;
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(16px, 2.5vw, 25px);
+.cards{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:24px;
 }
-
-.card {
-    min-width: 0;
-    background: #171717;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
-    padding: clamp(24px, 3vw, 34px) clamp(20px, 2.5vw, 28px);
-    transition: 0.3s ease;
+.card{
+    background:#171717;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:32px 25px;
+    transition:.3s;
 }
-
-.card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(245,196,81,0.45);
+.card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(245,196,81,.45);
 }
-
-.card-icon {
-    font-size: 30px;
-    margin-bottom: 15px;
+.card-icon{
+    font-size:30px;
+    margin-bottom:15px;
 }
-
-.card h3 {
-    margin-bottom: 10px;
-    font-size: clamp(18px, 2vw, 22px);
+.card h3{
+    margin-bottom:10px;
+    font-size:21px;
 }
-
-.card p {
-    color: #aaa;
-    font-size: 14px;
+.card p{
+    color:#aaa;
+    font-size:15px;
 }
-
 /* =========================
    WHY ME
 ========================= */
-
-#why {
-    background: #080808;
+#why{
+    background:#080808;
 }
-
-.why-grid {
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(16px, 2.5vw, 25px);
+.why-grid{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:22px;
 }
-
-.why-item {
-    min-width: 0;
-    text-align: center;
-    padding: 30px 20px;
-    background: #111;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.07);
+.why-item{
+    text-align:center;
+    padding:32px 20px;
+    background:#111;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.07);
 }
-
-.why-item strong {
-    display: block;
-    font-size: clamp(18px, 2vw, 21px);
-    margin-bottom: 10px;
+.why-icon{
+    font-size:30px;
+    margin-bottom:12px;
 }
-
-.why-item span {
-    color: #aaa;
-    font-size: 14px;
+.why-item strong{
+    display:block;
+    font-size:20px;
+    margin-bottom:9px;
 }
-
+.why-item span{
+    color:#aaa;
+    font-size:14px;
+}
 /* =========================
    PROJECTS
 ========================= */
-
-#projects {
-    background: #101010;
+#projects{
+    background:#101010;
 }
-
-.currency-box {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto 25px;
-    text-align: right;
+.currency-box{
+    max-width:1100px;
+    margin:0 auto 25px;
+    text-align:right;
 }
-
-.currency-box label {
-    color: #aaa;
-    margin-right: 8px;
-    font-size: 14px;
+.currency-box label{
+    color:#aaa;
+    margin-right:8px;
+    font-size:14px;
 }
-
-#currency {
-    background: #171717;
-    color: white;
-    border: 1px solid #444;
-    border-radius: 8px;
-    padding: 9px 12px;
+#currency{
+    background:#171717;
+    color:#fff;
+    border:1px solid #444;
+    border-radius:8px;
+    padding:9px 12px;
 }
-
-.project-grid {
-    width: 100%;
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(16px, 2.5vw, 25px);
+.project-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:22px;
 }
-
-.project {
-    min-width: 0;
-    background: #171717;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: 0.3s ease;
+.project{
+    background:#171717;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
 }
-
-.project:hover {
-    transform: translateY(-6px);
+.project:hover{
+    transform:translateY(-6px);
 }
-
-.project-preview {
-    min-height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-    background: linear-gradient(
-        135deg,
-        #191919,
-        #303030
-    );
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: 1px;
+.project-preview{
+    min-height:180px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    text-align:center;
+    background:linear-gradient(135deg,#191919,#303030);
+    font-size:17px;
+    font-weight:700;
+    letter-spacing:1px;
 }
-
-.project-content {
-    padding: clamp(20px, 2.5vw, 26px);
+.project-content{
+    padding:25px;
 }
-
-.project-content h3 {
-    margin-bottom: 8px;
-    font-size: 20px;
+.project-content h3{
+    margin-bottom:8px;
 }
-
-.project-content p {
-    color: #aaa;
-    font-size: 14px;
-    margin-bottom: 14px;
+.project-content p{
+    color:#aaa;
+    font-size:14px;
+    margin-bottom:14px;
 }
-
-.price {
-    display: block;
-    color: #f5c451;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 15px;
+.price{
+    display:block;
+    color:#f5c451;
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:15px;
 }
-
-.project-link {
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px 17px;
-    border-radius: 22px;
-    border: 1px solid #555;
-    font-size: 14px;
-    transition: 0.3s ease;
+.project-link{
+    display:inline-block;
+    text-decoration:none;
+    padding:10px 17px;
+    border-radius:22px;
+    border:1px solid #555;
+    font-size:14px;
+    transition:.3s;
 }
-
-.project-link:hover {
-    background: #f5c451;
-    color: #111;
-    border-color: #f5c451;
+.project-link:hover{
+    background:#f5c451;
+    color:#111;
+    border-color:#f5c451;
 }
-
-.tech-tags {
-    margin-top: 14px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
+.tech-tags{
+    margin-top:14px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
 }
-
-.tech-tags span {
-    background: #242424;
-    color: #bbb;
-    padding: 5px 9px;
-    border-radius: 12px;
-    font-size: 11px;
+.tech-tags span{
+    background:#242424;
+    color:#bbb;
+    padding:5px 9px;
+    border-radius:12px;
+    font-size:11px;
 }
-
 /* =========================
    TECH STACK
 ========================= */
-
-#tech {
-    background: #080808;
+#tech{
+    background:#080808;
 }
-
-.tech-grid {
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+.tech-grid{
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:11px;
 }
-
-.tech-item {
-    padding: 12px 17px;
-    background: #151515;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 25px;
-    color: #ddd;
-    font-size: 14px;
+.tech-item{
+    padding:13px 18px;
+    background:#151515;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:25px;
+    color:#ddd;
+    font-size:14px;
 }
-
 /* =========================
    CONTACT
 ========================= */
-
-#contact {
-    background: #101010;
+#contact{
+    background:#101010;
 }
-
-.contact-grid {
-    width: 100%;
-    max-width: 1050px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: clamp(25px, 5vw, 50px);
-    align-items: start;
+.contact-grid{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+    gap:40px;
+    align-items:start;
 }
-
-.contact-info {
-    min-width: 0;
+.contact-info h3{
+    font-size:27px;
+    margin-bottom:15px;
 }
-
-.contact-info h3 {
-    font-size: clamp(23px, 3vw, 28px);
-    margin-bottom: 15px;
+.contact-info>p{
+    color:#aaa;
+    margin-bottom:25px;
 }
-
-.contact-info > p {
-    color: #aaa;
-    margin-bottom: 25px;
+.contact-links{
+    display:flex;
+    flex-direction:column;
+    gap:13px;
 }
-
-.contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-    overflow-wrap: anywhere;
+.contact-links a{
+    color:#f5c451;
+    text-decoration:none;
+    overflow-wrap:anywhere;
 }
-
-.contact-links a {
-    color: #f5c451;
-    text-decoration: none;
+.qr-section{
+    margin-top:30px;
+    padding:22px;
+    background:#171717;
+    border-radius:18px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.08);
 }
-
-.qr-section {
-    margin-top: 30px;
-    padding: 22px;
-    background: #171717;
-    border-radius: 18px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.08);
+.qr-section h3{
+    margin-bottom:15px;
+    font-size:18px;
 }
-
-.qr-section h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
+.website-qr{
+    width:170px;
+    height:170px;
+    object-fit:contain;
+    background:#fff;
+    padding:8px;
+    border-radius:10px;
 }
-
-.website-qr {
-    width: 170px;
-    height: 170px;
-    max-width: 100%;
-    object-fit: contain;
-    background: white;
-    padding: 8px;
-    border-radius: 10px;
+.qr-section p{
+    color:#aaa;
+    font-size:13px;
+    margin-top:10px;
 }
-
-.qr-section p {
-    color: #aaa;
-    font-size: 13px;
-    margin-top: 10px;
+/* =========================
+   FORM
+========================= */
+form{
+    background:#171717;
+    padding:28px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
 }
-
-form {
-    width: 100%;
-    min-width: 0;
-    background: #171717;
-    padding: clamp(20px, 3vw, 30px);
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.08);
+.form-group{
+    margin-bottom:17px;
 }
-
-.form-group {
-    margin-bottom: 17px;
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+    font-size:13px;
+    color:#ccc;
 }
-
-.form-group label {
-    display: block;
-    margin-bottom: 7px;
-    font-size: 13px;
-    color: #ccc;
-}
-
 input,
 select,
-textarea {
-    width: 100%;
-    max-width: 100%;
-    padding: 13px 14px;
-    border-radius: 9px;
-    border: 1px solid #3d3d3d;
-    background: #0d0d0d;
-    color: white;
-    font-family: inherit;
-    font-size: 16px;
-    outline: none;
+textarea{
+    width:100%;
+    padding:13px 14px;
+    border-radius:9px;
+    border:1px solid #3d3d3d;
+    background:#0d0d0d;
+    color:#fff;
+    font-family:inherit;
+    font-size:16px;
+    outline:none;
 }
-
 input:focus,
 select:focus,
-textarea:focus {
-    border-color: #f5c451;
+textarea:focus{
+    border-color:#f5c451;
 }
-
-textarea {
-    min-height: 130px;
-    resize: vertical;
+textarea{
+    min-height:130px;
+    resize:vertical;
 }
-
-.submit-button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 28px;
-    background: #f5c451;
-    color: #111;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s ease;
+.submit-button{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:28px;
+    background:#f5c451;
+    color:#111;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
 }
-
-.submit-button:hover {
-    transform: translateY(-2px);
+.submit-button:hover{
+    transform:translateY(-2px);
 }
-
-.submit-button:disabled {
-    opacity: 0.65;
-    cursor: wait;
+.submit-button:disabled{
+    opacity:.65;
+    cursor:wait;
 }
-
-#formStatus {
-    margin-top: 15px;
-    text-align: center;
-    font-size: 14px;
+#formStatus{
+    margin-top:15px;
+    text-align:center;
+    font-size:14px;
 }
-
 /* =========================
    FOOTER
 ========================= */
-
-footer {
-    width: 100%;
-    background: #050505;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    text-align: center;
-    padding: 35px 20px;
+footer{
+    background:#050505;
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+    padding:35px 20px;
 }
-
-footer strong {
-    display: block;
-    font-size: 18px;
-    margin-bottom: 5px;
+footer strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:5px;
 }
-
-footer p {
-    color: #777;
-    font-size: 13px;
+footer p{
+    color:#777;
+    font-size:13px;
 }
-
 /* =========================
    TABLET
 ========================= */
-
-@media (max-width: 950px) {
-
-    .nav-container {
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 14px;
-        padding-bottom: 14px;
+@media(max-width:950px){
+    .nav-container{
+        flex-direction:column;
+        padding-top:14px;
+        padding-bottom:14px;
     }
-
-    .nav-links {
-        justify-content: center;
+    .nav-links{
+        justify-content:center;
     }
-
     .cards,
     .why-grid,
-    .project-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .project-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
     }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
+    .contact-grid{
+        grid-template-columns:1fr;
     }
-
-    .contact-info {
-        max-width: 700px;
-        margin: auto;
-        width: 100%;
+    .contact-info{
+        max-width:700px;
+        margin:auto;
     }
 }
-
 /* =========================
    PHONE
 ========================= */
-
-@media (max-width: 650px) {
-
-    .nav-container {
-        padding-left: 14px;
-        padding-right: 14px;
+@media(max-width:650px){
+    .nav-container{
+        padding-left:12px;
+        padding-right:12px;
     }
-
-    .nav-links {
-        width: 100%;
-        gap: 8px 13px;
+    .nav-links{
+        width:100%;
+        justify-content:center;
+        gap:8px 12px;
     }
-
-    .nav-links a {
-        font-size: 12px;
+    .nav-links a{
+        font-size:12px;
     }
-
     /*
-       On phones the complete background image
-       is allowed to breathe vertically instead
-       of being aggressively cropped.
+       The hero image remains FULL WIDTH.
+       It is no longer forced into a fixed
+       height, so it cannot be vertically
+       chopped by the browser.
     */
-
-    .hero {
-        min-height: 680px;
-        height: 680px;
+    .hero{
+        height:auto;
+        min-height:0;
     }
-
-    .hero-background-image {
-        object-fit: cover;
-        object-position: center center;
+    .hero-art{
+        width:100%;
+        height:auto;
     }
-
-    .hero-content {
-        bottom: 28px;
-        padding-left: 16px;
-        padding-right: 16px;
+    /*
+       Make the invisible image buttons
+       easier to tap on a phone.
+    */
+    .work-hotspot{
+        left:47%;
+        bottom:8%;
+        width:24%;
+        height:10%;
     }
-
-    .hero-buttons {
-        flex-direction: column;
-        width: 100%;
-        max-width: 300px;
+    .contact-hotspot{
+        left:72%;
+        bottom:8%;
+        width:25%;
+        height:10%;
     }
-
-    .hero .button {
-        width: 100%;
-        min-width: 0;
-        padding: 14px 20px;
+    section:not(.hero){
+        padding-left:18px;
+        padding-right:18px;
     }
-
-    section:not(.hero) {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    .section-title {
-        margin-bottom: 32px;
-    }
-
     .cards,
     .why-grid,
-    .project-grid {
-        grid-template-columns: 1fr;
+    .project-grid{
+        grid-template-columns:1fr;
     }
-
-    .currency-box {
-        text-align: left;
+    .currency-box{
+        text-align:left;
     }
-
-    .currency-box label {
-        display: block;
-        margin-bottom: 7px;
+    .currency-box label{
+        display:block;
+        margin-bottom:7px;
     }
-
-    #currency {
-        width: 100%;
+    #currency{
+        width:100%;
     }
-
-    .project-preview {
-        min-height: 160px;
+    .contact-grid{
+        gap:25px;
     }
-
-    .contact-grid {
-        gap: 25px;
-    }
-
-    .qr-section {
-        padding: 18px;
-    }
-
-    .website-qr {
-        width: 155px;
-        height: 155px;
+    .website-qr{
+        width:155px;
+        height:155px;
     }
 }
-
 /* =========================
    VERY SMALL PHONES
 ========================= */
-
-@media (max-width: 380px) {
-
-    .logo {
-        font-size: 11px;
-        letter-spacing: 1px;
+@media(max-width:380px){
+    .logo{
+        font-size:11px;
+        letter-spacing:1px;
     }
-
-    .logo-mark {
-        width: 30px;
-        height: 30px;
+    .logo-mark{
+        width:30px;
+        height:30px;
     }
-
-    .nav-links {
-        gap: 7px 10px;
+    .nav-links{
+        gap:7px 9px;
     }
-
-    .nav-links a {
-        font-size: 11px;
-    }
-
-    .hero {
-        min-height: 620px;
-        height: 620px;
-    }
-
-    .hero-content {
-        bottom: 22px;
-    }
-
-    .section-title h2 {
-        font-size: 27px;
+    .nav-links a{
+        font-size:11px;
     }
 }
 </style>
-</head>
-
 <body>
-
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
-
-    <nav>
-        <div class="nav-container">
-
-            <a href="#home" style="text-decoration:none;">
-                <div class="logo">
-
-                    <svg
-                        class="logo-mark"
-                        viewBox="0 0 100 100"
-                        aria-label="BY monogram logo"
-                    >
-                        <path
-                            d="M24 18
-                               C42 18 53 24 53 36
-                               C53 43 49 48 43 50
-                               C51 52 57 58 57 68
-                               C57 82 45 88 24 88
-                               Z
-                               M34 29
-                               V45
-                               H40
-                               C48 45 49 40 49 37
-                               C49 31 45 29 40 29
-                               Z
-                               M34 56
-                               V77
-                               H41
-                               C50 77 53 73 53 67
-                               C53 60 48 56 41 56
-                               Z"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="4"
-                            stroke-linejoin="round"
-                        />
-
-                        <path
-                            d="M50 18
-                               L67 48
-                               L84 18
-                               M67 48
-                               V88"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="4"
-                            stroke-linecap="square"
-                            stroke-linejoin="miter"
-                        />
-                    </svg>
-
-                    <span>BUILT BY YORYOR</span>
-
-                </div>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#why">Why Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#tech">Tech Stack</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-        </div>
-    </nav>
-
-
-    <!-- =========================
-         HERO
-         The image contains the
-         designed writing.
-    ========================= -->
-
-    <section class="hero" id="home">
-
-        <img
-            src="hero-background.png.PNG"
-            alt="Built by Yoryor web development"
-            class="hero-background-image"
-        >
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-            <div class="hero-buttons">
-
-                <a href="#contact" class="button primary">
-                    Hire Me
-                </a>
-
-                <a href="#projects" class="button secondary">
-                    View My Work
-                </a>
-
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================= -->
-
-    <section id="about">
-
-        <div class="section-container">
-
-            <div class="section-title">
-                <h2>About Me</h2>
-                <p>Building modern digital experiences with purpose.</p>
-            </div>
-
-            <div class="about-content">
-
-                <p>
-                    I’m Yoryor, a web developer focused on creating clean,
-                    modern and professional websites for businesses, brands
-                    and individuals.
-                </p>
-
-                <p>
-                    My goal is simple: build websites that look professional,
-                    work smoothly and give visitors a clear reason to take
-                    action.
-                </p>
-
-                <p>
-                    Every project is designed with responsiveness,
-                    usability and the client's goals in mind.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         SERVICES
-    ========================= -->
-
-    <section id="services">
-
+<!-- =========================
+     NAVIGATION
+========================= -->
+<nav>
+    <div class="nav-container">
+        <a href="#home" class="logo">
+            <svg
+                class="logo-mark"
+                viewBox="0 0 100 100"
+                aria-label="BY monogram logo"
+            >
+                <path
+                    d="M24 18
+                       C42 18 53 24 53 36
+                       C53 43 49 48 43 50
+                       C51 52 57 58 57 68
+                       C57 82 45 88 24 88
+                       Z
+                       M34 29
+                       V45
+                       H40
+                       C48 45 49 40 49 37
+                       C49 31 45 29 40 29
+                       Z
+                       M34 56
+                       V77
+                       H41
+                       C50 77 53 73 53 67
+                       C53 60 48 56 41 56
+                       Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="4"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M50 18
+                       L67 48
+                       L84 18
+                       M67 48
+                       V88"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="4"
+                    stroke-linecap="square"
+                    stroke-linejoin="miter"
+                />
+            </svg>
+            <span>BUILT BY YORYOR</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why">Why Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#tech">Tech Stack</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- =========================
+     HERO
+     The complete artwork is shown
+     without cropping.
+     The invisible hotspots make the
+     artwork's own buttons functional.
+========================= -->
+<section class="hero" id="home">
+    <img
+        src="hero-background.png.PNG"
+        alt="Built by Yoryor professional web development"
+        class="hero-art"
+    >
+    <a
+        href="#projects"
+        class="hero-hotspot work-hotspot"
+        aria-label="View My Work"
+        title="View My Work"
+    ></a>
+    <a
+        href="#contact"
+        class="hero-hotspot contact-hotspot"
+        aria-label="Get In Touch"
+        title="Get In Touch"
+    ></a>
+</section>
+<!-- =========================
+     ABOUT
+========================= -->
+<section id="about">
+    <div class="section-container">
         <div class="section-title">
-            <h2>What I Build</h2>
-            <p>Professional websites designed around your goals.</p>
+            <h2>About Me</h2>
+            <p>Building modern digital experiences with purpose.</p>
         </div>
-
-        <div class="cards">
-
-            <div class="card">
-                <div class="card-icon">◈</div>
-                <h3>Business Websites</h3>
-                <p>
-                    Professional websites that establish credibility,
-                    explain your services and help customers contact you.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">▣</div>
-                <h3>Online Stores</h3>
-                <p>
-                    Modern ecommerce experiences designed to present
-                    products clearly and make purchasing simple.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">◇</div>
-                <h3>Personal Websites</h3>
-                <p>
-                    Clean personal and portfolio websites for individuals,
-                    creators and professionals.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         WHY ME
-    ========================= -->
-
-    <section id="why">
-
-        <div class="section-title">
-            <h2>Why Work With Me?</h2>
-            <p>A professional approach from design to delivery.</p>
-        </div>
-
-        <div class="why-grid">
-
-            <div class="why-item">
-                <strong>Mobile Friendly</strong>
-                <span>
-                    Your website is designed to work across phones,
-                    tablets and desktop screens.
-                </span>
-            </div>
-
-            <div class="why-item">
-                <strong>Fast & Simple</strong>
-                <span>
-                    Clean layouts and focused experiences make websites
-                    easier for visitors to use.
-                </span>
-            </div>
-
-            <div class="why-item">
-                <strong>Goal Focused</strong>
-                <span>
-                    Every section has a purpose, whether that is getting
-                    enquiries, showcasing work or selling products.
-                </span>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         PROJECTS
-    ========================= -->
-
-    <section id="projects">
-
-        <div class="section-title">
-            <h2>Selected Projects</h2>
-            <p>Web experiences built for different business needs.</p>
-        </div>
-
-        <div class="currency-box">
-
-            <label for="currency">
-                Display prices in:
-            </label>
-
-            <select id="currency">
-                <option value="USD">USD ($)</option>
-                <option value="NGN">NGN (₦)</option>
-            </select>
-
-        </div>
-
-        <div class="project-grid">
-
-            <!-- BUSINESS -->
-
-            <article class="project">
-
-                <div class="project-preview">
-                    BUSINESS WEBSITE
-                </div>
-
-                <div class="project-content">
-
-                    <h3>Business Website</h3>
-
-                    <p>
-                        A professional business website designed to
-                        establish trust and generate enquiries.
-                    </p>
-
-                    <span
-                        class="price"
-                        data-usd="100"
-                    >
-                        $100
-                    </span>
-
-                    <a
-                        href="business.html"
-                        class="project-link"
-                    >
-                        View Project
-                    </a>
-
-                    <div class="tech-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>Responsive</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- RESTAURANT -->
-
-            <article class="project">
-
-                <div class="project-preview">
-                    RESTAURANT WEBSITE
-                </div>
-
-                <div class="project-content">
-
-                    <h3>Restaurant Website</h3>
-
-                    <p>
-                        A modern restaurant experience for menus,
-                        services, locations and customer enquiries.
-                    </p>
-
-                    <span
-                        class="price"
-                        data-usd="150"
-                    >
-                        $150
-                    </span>
-
-                    <a
-                        href="restaurant.html"
-                        class="project-link"
-                    >
-                        View Project
-                    </a>
-
-                    <div class="tech-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>UI Design</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PERSONAL -->
-
-            <article class="project">
-
-                <div class="project-preview">
-                    PERSONAL PORTFOLIO
-                </div>
-
-                <div class="project-content">
-
-                    <h3>Personal Portfolio</h3>
-
-                    <p>
-                        A clean personal website for presenting skills,
-                        projects and professional information.
-                    </p>
-
-                    <span
-                        class="price"
-                        data-usd="120"
-                    >
-                        $120
-                    </span>
-
-                    <a
-                        href="personal.html"
-                        class="project-link"
-                    >
-                        View Project
-                    </a>
-
-                    <div class="tech-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>Responsive</span>
-                    </div>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         TECH STACK
-    ========================= -->
-
-    <section id="tech">
-
-        <div class="section-title">
-            <h2>Tech Stack</h2>
-            <p>Tools and technologies I use to build websites.</p>
-        </div>
-
-        <div class="tech-grid">
-
-            <div class="tech-item">HTML5</div>
-            <div class="tech-item">CSS3</div>
-            <div class="tech-item">JavaScript</div>
-            <div class="tech-item">Responsive Design</div>
-            <div class="tech-item">GitHub</div>
-            <div class="tech-item">Cloudflare</div>
-            <div class="tech-item">UI Design</div>
-            <div class="tech-item">Web Development</div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACT
-    ========================= -->
-
-    <section id="contact">
-
-        <div class="section-title">
-            <h2>Let's Work Together</h2>
+        <div class="about-content">
             <p>
-                Have a project in mind? Tell me what you need.
+                I’m Yoryor, a web developer focused on creating clean,
+                modern and professional websites for businesses,
+                brands and individuals.
+            </p>
+            <p>
+                My goal is simple: build websites that look professional,
+                work smoothly and give visitors a clear reason to take
+                action.
+            </p>
+            <p>
+                Every project is designed with responsiveness,
+                usability and the client's goals in mind.
             </p>
         </div>
-
-        <div class="contact-grid">
-
-            <!-- CONTACT INFORMATION -->
-
-            <div class="contact-info">
-
-                <h3>Start Your Project</h3>
-
-                <p>
-                    Whether you need a business website, online store
-                    or personal website, send me your project details
-                    and I'll get back to you.
-                </p>
-
-                <div class="contact-links">
-
-                    <a href="mailto:builtbyyoryor@gmail.com">
-                        Email: builtbyyoryor@gmail.com
-                    </a>
-
-                    <a
-                        href="https://wa.me/2348068782377"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        WhatsApp: Chat With Me
-                    </a>
-
-                </div>
-
-
-                <!-- QR -->
-
-                <div class="qr-section">
-
-                    <h3>Scan to Visit My Website</h3>
-
-                    <img
-                        src="built-by-yoryor-qr-code.png"
-                        alt="QR code for Built by Yoryor"
-                        class="website-qr"
-                    >
-
-                    <p>
-                        Scan the QR code to visit Built by Yoryor.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- CONTACT FORM -->
-
-            <form
-                id="contactForm"
-                action="https://formspree.io/f/xbgjyekq"
-                method="POST"
-            >
-
-                <div class="form-group">
-
-                    <label for="projectType">
-                        Project Type
-                    </label>
-
-                    <select
-                        id="projectType"
-                        name="project_type"
-                        required
-                    >
-                        <option value="">
-                            Select project type
-                        </option>
-
-                        <option value="Business Website">
-                            Business Website
-                        </option>
-
-                        <option value="Online Store">
-                            Online Store
-                        </option>
-
-                        <option value="Personal Website">
-                            Personal Website
-                        </option>
-
-                        <option value="Other">
-                            Other
-                        </option>
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="budget">
-                        Budget
-                    </label>
-
-                    <select
-                        id="budget"
-                        name="budget"
-                        required
-                    >
-                        <option value="">
-                            Select your budget
-                        </option>
-
-                        <option value="Under $100">
-                            Under $100
-                        </option>
-
-                        <option value="$100 - $250">
-                            $100 - $250
-                        </option>
-
-                        <option value="$250 - $500">
-                            $250 - $500
-                        </option>
-
-                        <option value="$500+">
-                            $500+
-                        </option>
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="name">
-                        Your Name
-                    </label>
-
-                    <input
-                        id="name"
-                        type="text"
-                        name="name"
-                        placeholder="Your name"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="email">
-                        Email Address
-                    </label>
-
-                    <input
-                        id="email"
-                        type="email"
-                        name="email"
-                        placeholder="you@example.com"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="message">
-                        Tell Me About Your Project
-                    </label>
-
-                    <textarea
-                        id="message"
-                        name="message"
-                        placeholder="Tell me what you want to build..."
-                        required
-                    ></textarea>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="submit-button"
-                    id="submitButton"
-                >
-                    Send Project Request
-                </button>
-
-                <div id="formStatus"></div>
-
-            </form>
-
+    </div>
+</section>
+<!-- =========================
+     SERVICES
+========================= -->
+<section id="services">
+    <div class="section-title">
+        <h2>What I Build</h2>
+        <p>Professional websites designed around your goals.</p>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <div class="card-icon">◈</div>
+            <h3>Business Websites</h3>
+            <p>
+                Professional websites that establish credibility,
+                explain your services and help customers contact you.
+            </p>
         </div>
-
-    </section>
-
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
-    <footer>
-
-        <strong>Built by Yoryor</strong>
-
+        <div class="card">
+            <div class="card-icon">▣</div>
+            <h3>Online Stores</h3>
+            <p>
+                Modern ecommerce experiences designed to present
+                products clearly and make purchasing simple.
+            </p>
+        </div>
+        <div class="card">
+            <div class="card-icon">◇</div>
+            <h3>Personal Websites</h3>
+            <p>
+                Clean personal and portfolio websites for individuals,
+                creators and professionals.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- =========================
+     WHY ME
+========================= -->
+<section id="why">
+    <div class="section-title">
+        <h2>Why Work With Me?</h2>
+        <p>A professional approach from design to delivery.</p>
+    </div>
+    <div class="why-grid">
+        <div class="why-item">
+            <div class="why-icon">◉</div>
+            <strong>Mobile Friendly</strong>
+            <span>
+                Your website is designed to work across phones,
+                tablets and desktop screens.
+            </span>
+        </div>
+        <div class="why-item">
+            <div class="why-icon">⚡</div>
+            <strong>Fast & Simple</strong>
+            <span>
+                Clean layouts and focused experiences make websites
+                easier for visitors to use.
+            </span>
+        </div>
+        <div class="why-item">
+            <div class="why-icon">◎</div>
+            <strong>Goal Focused</strong>
+            <span>
+                Every section has a purpose, whether that is getting
+                enquiries, showcasing work or selling products.
+            </span>
+        </div>
+    </div>
+</section>
+<!-- =========================
+     PROJECTS
+========================= -->
+<section id="projects">
+    <div class="section-title">
+        <h2>Selected Projects</h2>
+        <p>Web experiences built for different business needs.</p>
+    </div>
+    <div class="currency-box">
+        <label for="currency">
+            Display prices in:
+        </label>
+        <select id="currency">
+            <option value="USD">USD ($)</option>
+            <option value="NGN">NGN (₦)</option>
+        </select>
+    </div>
+    <div class="project-grid">
+        <article class="project">
+            <div class="project-preview">
+                BUSINESS WEBSITE
+            </div>
+            <div class="project-content">
+                <h3>Business Website</h3>
+                <p>
+                    A professional business website designed to
+                    establish trust and generate enquiries.
+                </p>
+                <span class="price" data-usd="100">
+                    $100
+                </span>
+                <a href="business.html" class="project-link">
+                    View Project
+                </a>
+                <div class="tech-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Responsive</span>
+                </div>
+            </div>
+        </article>
+        <article class="project">
+            <div class="project-preview">
+                RESTAURANT WEBSITE
+            </div>
+            <div class="project-content">
+                <h3>Restaurant Website</h3>
+                <p>
+                    A modern restaurant experience for menus,
+                    services, locations and customer enquiries.
+                </p>
+                <span class="price" data-usd="150">
+                    $150
+                </span>
+                <a href="restaurant.html" class="project-link">
+                    View Project
+                </a>
+                <div class="tech-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>UI Design</span>
+                </div>
+            </div>
+        </article>
+        <article class="project">
+            <div class="project-preview">
+                PERSONAL PORTFOLIO
+            </div>
+            <div class="project-content">
+                <h3>Personal Portfolio</h3>
+                <p>
+                    A clean personal website for presenting skills,
+                    projects and professional information.
+                </p>
+                <span class="price" data-usd="120">
+                    $120
+                </span>
+                <a href="personal.html" class="project-link">
+                    View Project
+                </a>
+                <div class="tech-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Responsive</span>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+<!-- =========================
+     TECH STACK
+========================= -->
+<section id="tech">
+    <div class="section-title">
+        <h2>Tech Stack</h2>
+        <p>Tools and technologies I use to build websites.</p>
+    </div>
+    <div class="tech-grid">
+        <div class="tech-item">HTML5</div>
+        <div class="tech-item">CSS3</div>
+        <div class="tech-item">JavaScript</div>
+        <div class="tech-item">Responsive Design</div>
+        <div class="tech-item">GitHub</div>
+        <div class="tech-item">Cloudflare</div>
+        <div class="tech-item">UI Design</div>
+        <div class="tech-item">Web Development</div>
+    </div>
+</section>
+<!-- =========================
+     CONTACT
+========================= -->
+<section id="contact">
+    <div class="section-title">
+        <h2>Let's Work Together</h2>
         <p>
-            Professional websites built with purpose.
+            Have a project in mind? Tell me what you need.
         </p>
-
-        <p style="margin-top:8px;">
-            © 2026 Built by Yoryor. All rights reserved.
-        </p>
-
-    </footer>
-
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
-
-    <script>
-
-        /* =========================
-           CURRENCY CONVERSION
-        ========================= */
-
-        const currencySelector =
-            document.getElementById("currency");
-
-        const prices =
-            document.querySelectorAll(".price");
-
-        const exchangeRate = 1323.47;
-
-        function updatePrices() {
-
-            const currency =
-                currencySelector.value;
-
-            prices.forEach(function(price) {
-
-                const usd =
-                    Number(price.dataset.usd);
-
-                if (currency === "NGN") {
-
-                    const naira =
-                        Math.round(usd * exchangeRate);
-
-                    price.textContent =
-                        "₦" + naira.toLocaleString("en-NG");
-
-                } else {
-
-                    price.textContent =
-                        "$" + usd.toLocaleString();
-
-                }
-
-            });
-
+    </div>
+    <div class="contact-grid">
+        <div class="contact-info">
+            <h3>Start Your Project</h3>
+            <p>
+                Whether you need a business website, online store
+                or personal website, send me your project details
+                and I'll get back to you.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:builtbyyoryor@gmail.com">
+                    Email: builtbyyoryor@gmail.com
+                </a>
+                <a
+                    href="https://wa.me/2348068782377"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    WhatsApp: Chat With Me
+                </a>
+            </div>
+            <div class="qr-section">
+                <h3>Scan to Visit My Website</h3>
+                <img
+                    src="built-by-yoryor-qr-code.png"
+                    alt="QR code for Built by Yoryor"
+                    class="website-qr"
+                >
+                <p>
+                    Scan the QR code to visit Built by Yoryor.
+                </p>
+            </div>
+        </div>
+        <form
+            id="contactForm"
+            action="https://formspree.io/f/xbgjyekq"
+            method="POST"
+        >
+            <div class="form-group">
+                <label for="projectType">
+                    Project Type
+                </label>
+                <select
+                    id="projectType"
+                    name="project_type"
+                    required
+                >
+                    <option value="">
+                        Select project type
+                    </option>
+                    <option value="Business Website">
+                        Business Website
+                    </option>
+                    <option value="Online Store">
+                        Online Store
+                    </option>
+                    <option value="Personal Website">
+                        Personal Website
+                    </option>
+                    <option value="Other">
+                        Other
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="budget">
+                    Budget
+                </label>
+                <select
+                    id="budget"
+                    name="budget"
+                    required
+                >
+                    <option value="">
+                        Select your budget
+                    </option>
+                    <option value="Under $100">
+                        Under $100
+                    </option>
+                    <option value="$100 - $250">
+                        $100 - $250
+                    </option>
+                    <option value="$250 - $500">
+                        $250 - $500
+                    </option>
+                    <option value="$500+">
+                        $500+
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">
+                    Your Name
+                </label>
+                <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                >
+            </div>
+            <div class="form-group">
+                <label for="email">
+                    Email Address
+                </label>
+                <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                >
+            </div>
+            <div class="form-group">
+                <label for="message">
+                    Tell Me About Your Project
+                </label>
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell me what you want to build..."
+                    required
+                ></textarea>
+            </div>
+            <button
+                type="submit"
+                class="submit-button"
+                id="submitButton"
+            >
+                Send Project Request
+            </button>
+            <div id="formStatus"></div>
+        </form>
+    </div>
+</section>
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+    <strong>Built by Yoryor</strong>
+    <p>
+        Professional websites built with purpose.
+    </p>
+    <p style="margin-top:8px;">
+        © 2026 Built by Yoryor. All rights reserved.
+    </p>
+</footer>
+<script>
+/* =========================
+   CURRENCY
+========================= */
+const currencySelector =
+    document.getElementById("currency");
+const prices =
+    document.querySelectorAll(".price");
+const exchangeRate = 1323.47;
+function updatePrices(){
+    const currency =
+        currencySelector.value;
+    prices.forEach(function(price){
+        const usd =
+            Number(price.dataset.usd);
+        if(currency === "NGN"){
+            const naira =
+                Math.round(usd * exchangeRate);
+            price.textContent =
+                "₦" + naira.toLocaleString("en-NG");
+        }else{
+            price.textContent =
+                "$" + usd.toLocaleString();
         }
-
-        currencySelector.addEventListener(
-            "change",
-            updatePrices
-        );
-
-
-        /* =========================
-           CONTACT FORM
-        ========================= */
-
-        const contactForm =
-            document.getElementById("contactForm");
-
-        const formStatus =
-            document.getElementById("formStatus");
-
-        const submitButton =
-            document.getElementById("submitButton");
-
-
-        contactForm.addEventListener(
-            "submit",
-            async function(event) {
-
-                event.preventDefault();
-
-                submitButton.disabled = true;
-
-                submitButton.textContent =
-                    "Sending...";
-
-                formStatus.textContent = "";
-
-                const formData =
-                    new FormData(contactForm);
-
-                try {
-
-                    const response =
-                        await fetch(
-                            contactForm.action,
-                            {
-                                method: "POST",
-                                body: formData,
-                                headers: {
-                                    "Accept":
-                                        "application/json"
-                                }
-                            }
-                        );
-
-                    if (response.ok) {
-
-                        formStatus.textContent =
-                            "Message sent successfully. I'll get back to you soon.";
-
-                        formStatus.style.color =
-                            "#7ee787";
-
-                        contactForm.reset();
-
-                    } else {
-
-                        formStatus.textContent =
-                            "Something went wrong. Please try again.";
-
-                        formStatus.style.color =
-                            "#ff7b72";
+    });
+}
+currencySelector.addEventListener(
+    "change",
+    updatePrices
+);
+/* =========================
+   CONTACT FORM
+========================= */
+const contactForm =
+    document.getElementById("contactForm");
+const formStatus =
+    document.getElementById("formStatus");
+const submitButton =
+    document.getElementById("submitButton");
+contactForm.addEventListener(
+    "submit",
+    async function(event){
+        event.preventDefault();
+        submitButton.disabled = true;
+        submitButton.textContent =
+            "Sending...";
+        formStatus.textContent = "";
+        const formData =
+            new FormData(contactForm);
+        try{
+            const response =
+                await fetch(
+                    contactForm.action,
+                    {
+                        method:"POST",
+                        body:formData,
+                        headers:{
+                            "Accept":
+                                "application/json"
+                        }
                     }
-
-                } catch (error) {
-
-                    formStatus.textContent =
-                        "Unable to send the message right now. Please try again.";
-
-                    formStatus.style.color =
-                        "#ff7b72";
-
-                } finally {
-
-                    submitButton.disabled = false;
-
-                    submitButton.textContent =
-                        "Send Project Request";
-                }
-
+                );
+            if(response.ok){
+                formStatus.textContent =
+                    "Message sent successfully. I'll get back to you soon.";
+                formStatus.style.color =
+                    "#7ee787";
+                contactForm.reset();
+            }else{
+                formStatus.textContent =
+                    "Something went wrong. Please try again.";
+                formStatus.style.color =
+                    "#ff7b72";
             }
-        );
-
-    </script>
-
+        }catch(error){
+            formStatus.textContent =
+                "Unable to send the message right now. Please try again.";
+            formStatus.style.color =
+                "#ff7b72";
+        }finally{
+            submitButton.disabled = false;
+            submitButton.textContent =
+                "Send Project Request";
+        }
+    }
+);
+</script>
 </body>
 </html>
