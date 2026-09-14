@@ -6,9 +6,17 @@
 
     <title>Built by Yoryor | Web Developer</title>
 
-    <meta name="description" content="Built by Yoryor — professional, modern and responsive websites for businesses, brands and individuals.">
+    <meta
+        name="description"
+        content="Built by Yoryor — professional, modern and responsive websites for businesses, brands and individuals."
+    >
 
     <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -31,164 +39,73 @@
             color: inherit;
         }
 
+        img {
+            max-width: 100%;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
         nav {
             position: sticky;
             top: 0;
             z-index: 1000;
+
             background: #111;
             color: white;
+
             padding: 16px 5%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
         .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-}
+            display: flex;
+            align-items: center;
+            gap: 10px;
 
-.logo-mark {
-    width: 38px;
-    height: 38px;
-    flex-shrink: 0;
-}
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .logo-mark {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+        }
 
         nav ul {
             list-style: none;
+
             display: flex;
+            align-items: center;
             gap: 20px;
         }
 
-        nav a:hover {
-            opacity: 0.7;
+        nav a {
+            transition: 0.25s ease;
         }
+
+        nav a:hover {
+            color: #f5c451;
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
 
         section {
             padding: 80px 7%;
             text-align: center;
         }
-
-        .hero {
-    position: relative;
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 100px 7%;
-    color: white;
-
-    background: #050505;
-
-    overflow: hidden;
-}
-.hero-background-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: 0;
-    opacity: 1;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 1;
-    pointer-events: none;
-}
-
-.hero > *:not(.hero-background-image) {
-    position: relative;
-    z-index: 2;
-}
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(
-            circle at 75% 45%,
-            rgba(255, 190, 60, 0.16),
-            transparent 35%
-        );
-    pointer-events: none;
-}
-
-.hero > * {
-    position: relative;
-    z-index: 2;
-}
-
-.hero small {
-    display: inline-block;
-    margin-bottom: 12px;
-    padding: 8px 18px;
-    border: 1px solid rgba(255,255,255,0.35);
-    border-radius: 30px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    color: #f5c451;
-    background: rgba(0,0,0,0.25);
-    backdrop-filter: blur(8px);
-}
-
-.hero h1 {
-    font-size: clamp(48px, 9vw, 88px);
-    line-height: 1;
-    margin: 15px 0;
-    letter-spacing: -2px;
-    font-weight: 800;
-    text-shadow: 0 5px 30px rgba(0,0,0,0.5);
-}
-
-.hero h2 {
-    font-size: clamp(22px, 4vw, 36px);
-    margin-bottom: 18px;
-    color: #f5c451;
-    font-weight: 700;
-}
-
-.hero p {
-    max-width: 680px;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 30px;
-    font-size: 17px;
-}
-
-.hero .button {
-    border-radius: 30px;
-    padding: 14px 26px;
-    transition: 0.3s ease;
-}
-
-.hero .button:first-child {
-    background: #f5c451;
-    color: #111;
-    border-color: #f5c451;
-}
-
-.hero .button.secondary {
-    background: rgba(255,255,255,0.08);
-    color: white;
-    border-color: rgba(255,255,255,0.5);
-    backdrop-filter: blur(8px);
-}
-
-.hero .button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
 
         h2.section-title {
             font-size: 36px;
@@ -201,26 +118,279 @@
             color: #666;
         }
 
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+
+            min-height: 90vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 100px 7%;
+
+            color: white;
+
+            background: #050505;
+
+            overflow: hidden;
+        }
+
+        .hero-background-image {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            max-width: none;
+
+            object-fit: cover;
+            object-position: center;
+
+            z-index: 0;
+        }
+
+        /* Dark overlay */
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.42),
+                    rgba(0,0,0,0.70)
+                );
+
+            z-index: 1;
+
+            pointer-events: none;
+        }
+
+        /* Gold glow */
+        .hero::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 75% 45%,
+                    rgba(255,190,60,0.16),
+                    transparent 35%
+                );
+
+            z-index: 2;
+
+            pointer-events: none;
+        }
+
+        .hero > *:not(.hero-background-image) {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero small {
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            padding: 8px 18px;
+
+            border: 1px solid rgba(255,255,255,0.35);
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            color: #f5c451;
+
+            background: rgba(0,0,0,0.25);
+
+            backdrop-filter: blur(8px);
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 9vw, 88px);
+
+            line-height: 1;
+
+            margin: 15px 0;
+
+            letter-spacing: -2px;
+
+            font-weight: 800;
+
+            text-shadow:
+                0 5px 30px rgba(0,0,0,0.6);
+        }
+
+        .hero h2 {
+            font-size: clamp(22px, 4vw, 36px);
+
+            margin-bottom: 18px;
+
+            color: #f5c451;
+
+            font-weight: 700;
+        }
+
+        .hero p {
+            max-width: 680px;
+
+            color: rgba(255,255,255,0.88);
+
+            margin-bottom: 30px;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           HERO BUTTONS
+        ========================= */
+
+        .buttons {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-width: 140px;
+
+            padding: 14px 26px;
+
+            border: 1px solid transparent;
+
+            border-radius: 30px;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .hero .button:first-child {
+            background: #f5c451;
+
+            color: #111;
+
+            border-color: #f5c451;
+        }
+
+        .hero .button.secondary {
+            background: rgba(255,255,255,0.08);
+
+            color: white;
+
+            border-color: rgba(255,255,255,0.55);
+
+            backdrop-filter: blur(8px);
+        }
+
+        .hero .button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.35);
+        }
+
+        .hero .button:first-child:hover {
+            background: #ffd66d;
+        }
+
+        .hero .button.secondary:hover {
+            background: rgba(255,255,255,0.18);
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
         .about-text {
             max-width: 750px;
+
             margin: auto;
+
             color: #555;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        #services {
+            background: #f7f7f7;
         }
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
+
             max-width: 1100px;
+
             margin: auto;
         }
 
         .card {
             padding: 30px 20px;
+
             border: 1px solid #ddd;
+
             border-radius: 14px;
+
             background: white;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.06);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.10);
         }
 
         .card h3 {
@@ -231,15 +401,21 @@
             color: #666;
         }
 
-        #services {
-            background: #f7f7f7;
-        }
+
+        /* =========================
+           WHY ME
+        ========================= */
 
         .why-list {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
+
             max-width: 1000px;
+
             margin: auto;
         }
 
@@ -255,40 +431,70 @@
             color: #666;
         }
 
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
         .currency-box {
             text-align: center;
+
             margin: 0 auto 30px;
+
             padding: 15px;
         }
 
         .currency-box label {
             font-weight: bold;
+
             margin-right: 8px;
         }
 
         .currency-box select {
             padding: 10px 14px;
+
             border-radius: 8px;
+
             border: 1px solid #ccc;
+
             font-size: 14px;
+
             background: white;
+
             cursor: pointer;
         }
 
         .projects {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
+
             max-width: 1150px;
+
             margin: auto;
         }
 
         .project {
             border: 1px solid #ddd;
+
             border-radius: 14px;
+
             padding: 20px;
+
             background: white;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.06);
+
+            transition:
+                transform 0.25s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
         }
 
         .project h3 {
@@ -305,44 +511,63 @@
 
         .preview-browser {
             background: #111;
+
             border-radius: 12px;
+
             overflow: hidden;
+
             border: 1px solid #ddd;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.12);
         }
 
         .browser-bar {
             background: #222;
+
             padding: 9px 12px;
+
             text-align: left;
         }
 
         .browser-bar span {
             display: inline-block;
+
             width: 8px;
             height: 8px;
+
             background: #777;
+
             border-radius: 50%;
+
             margin-right: 5px;
         }
 
         .preview-content {
             background: #f5f5f5;
+
             padding: 28px 15px;
+
             min-height: 145px;
         }
 
         .preview-title {
             font-size: 16px;
+
             font-weight: bold;
+
             margin-bottom: 12px;
         }
 
         .preview-line {
             width: 75%;
+
             height: 7px;
+
             background: #bbb;
+
             border-radius: 10px;
+
             margin: 7px auto;
         }
 
@@ -352,92 +577,170 @@
 
         .preview-boxes {
             display: flex;
+
             gap: 8px;
+
             margin-top: 20px;
         }
 
         .preview-boxes div {
             flex: 1;
+
             height: 45px;
+
             background: #ddd;
+
             border-radius: 6px;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
         }
 
         .tech-tags {
             display: flex;
+
             flex-wrap: wrap;
+
             justify-content: center;
+
             gap: 8px;
+
             margin-top: 18px;
         }
 
         .tech-tags span {
             background: #111;
+
             color: white;
+
             padding: 6px 10px;
+
             border-radius: 20px;
+
             font-size: 11px;
+
             font-weight: bold;
         }
 
         .price {
             font-size: 22px;
+
             font-weight: bold;
+
             margin: 15px 0;
         }
 
         .project-button {
             display: inline-block;
+
             margin-top: 20px;
+
             padding: 11px 18px;
+
             background: #111;
+
             color: white;
+
             border-radius: 7px;
+
             font-weight: bold;
+
+            transition: 0.25s ease;
         }
+
+        .project-button:hover {
+            background: #f5c451;
+
+            color: #111;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           TECH STACK
+        ========================= */
 
         .tech-stack {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
             gap: 18px;
+
             max-width: 1000px;
+
             margin: auto;
         }
 
         .tech {
             border: 1px solid #ddd;
+
             padding: 20px;
+
             border-radius: 12px;
+
             font-weight: bold;
+
             background: white;
+
+            transition: 0.25s ease;
         }
-.qr-section {
-    margin: 30px auto;
-    text-align: center;
-}
 
-.qr-section h3 {
-    margin-bottom: 15px;
-    font-size: 20px;
-}
+        .tech:hover {
+            transform: translateY(-3px);
 
-.website-qr {
-    width: 180px;
-    height: 180px;
-    display: block;
-    margin: 0 auto 12px;
-    border: 8px solid white;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.08);
+        }
 
-.qr-section p {
-    color: #666;
-    font-size: 14px;
-}
+
+        /* =========================
+           QR CODE
+        ========================= */
+
+        .qr-section {
+            margin: 30px auto;
+
+            text-align: center;
+        }
+
+        .qr-section h3 {
+            margin-bottom: 15px;
+
+            font-size: 20px;
+        }
+
+        .website-qr {
+            width: 180px;
+            height: 180px;
+
+            display: block;
+
+            margin: 0 auto 12px;
+
+            border: 8px solid white;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .qr-section p {
+            color: #666;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
         #contact {
             background: #f7f7f7;
         }
@@ -452,13 +755,23 @@
 
         .contact-info a {
             font-weight: bold;
+
+            transition: 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: #d19f22;
         }
 
         form {
             max-width: 650px;
+
             margin: auto;
+
             display: flex;
+
             flex-direction: column;
+
             gap: 15px;
         }
 
@@ -466,45 +779,91 @@
         textarea,
         select {
             width: 100%;
+
             padding: 14px;
+
             border: 1px solid #ccc;
+
             border-radius: 8px;
+
             font-family: inherit;
+
             font-size: 15px;
+
             background: white;
+
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #111;
+
+            box-shadow:
+                0 0 0 2px rgba(0,0,0,0.06);
         }
 
         textarea {
             min-height: 150px;
+
             resize: vertical;
         }
 
         button[type="submit"] {
             padding: 14px;
+
             border: none;
+
             border-radius: 8px;
+
             background: #111;
+
             color: white;
+
             font-size: 16px;
+
             font-weight: bold;
+
             cursor: pointer;
+
+            transition: 0.25s ease;
         }
 
         button[type="submit"]:hover {
-            opacity: 0.85;
+            background: #f5c451;
+
+            color: #111;
+        }
+
+        button[type="submit"]:disabled {
+            opacity: 0.6;
+
+            cursor: not-allowed;
         }
 
         #form-status {
             margin-top: 5px;
+
             font-weight: bold;
+
             text-align: center;
+
             min-height: 24px;
         }
 
+
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
             background: #111;
+
             color: white;
+
             text-align: center;
+
             padding: 35px 20px;
         }
 
@@ -512,16 +871,26 @@
             margin: 5px 0;
         }
 
+
+        /* =========================
+           TABLET
+        ========================= */
+
         @media (max-width: 800px) {
+
             nav {
                 flex-direction: column;
+
                 gap: 12px;
             }
 
             nav ul {
                 gap: 10px;
+
                 flex-wrap: wrap;
+
                 justify-content: center;
+
                 font-size: 13px;
             }
 
@@ -532,21 +901,50 @@
             }
 
             .tech-stack {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
+
         }
 
+
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 600px) {
+
             section {
                 padding: 60px 5%;
             }
 
             .hero {
                 min-height: 85vh;
+
+                padding:
+                    90px 5%;
             }
 
             .hero h1 {
                 font-size: 46px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .buttons {
+                width: 100%;
+
+                flex-direction: column;
+            }
+
+            .button {
+                width: min(100%, 280px);
             }
 
             h2.section-title {
@@ -554,204 +952,411 @@
             }
 
             .tech-stack {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    1fr 1fr;
             }
+
         }
+
     </style>
 </head>
 
+
 <body>
 
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
     <nav>
+
         <div class="logo">
-    <svg class="logo-mark" viewBox="0 0 100 100" aria-label="BY monogram logo">
-        
-        <!-- Elegant B -->
-        <path
-            d="M24 18
-               C42 18 53 24 53 36
-               C53 43 49 48 43 50
-               C51 52 57 58 57 68
-               C57 82 45 88 24 88
-               Z
-               M34 29
-               V45
-               H40
-               C48 45 49 40 49 37
-               C49 31 45 29 40 29
-               Z
-               M34 56
-               V77
-               H41
-               C50 77 53 73 53 67
-               C53 60 48 56 41 56
-               Z"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="4"
-            stroke-linejoin="round"/>
 
-        <!-- Elegant Y -->
-        <path
-            d="M50 18
-               L67 48
-               L84 18
-               M67 48
-               V88"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="4"
-            stroke-linecap="square"
-            stroke-linejoin="miter"/>
+            <svg
+                class="logo-mark"
+                viewBox="0 0 100 100"
+                aria-label="BY monogram logo">
 
-    </svg>
+                <!-- B -->
 
-    <span>BUILT BY YORYOR</span>
-</div>
+                <path
+                    d="M24 18
+                       C42 18 53 24 53 36
+                       C53 43 49 48 43 50
+                       C51 52 57 58 57 68
+                       C57 82 45 88 24 88
+                       Z
+
+                       M34 29
+                       V45
+                       H40
+                       C48 45 49 40 49 37
+                       C49 31 45 29 40 29
+                       Z
+
+                       M34 56
+                       V77
+                       H41
+                       C50 77 53 73 53 67
+                       C53 60 48 56 41 56
+                       Z"
+
+                    fill="none"
+
+                    stroke="currentColor"
+
+                    stroke-width="4"
+
+                    stroke-linejoin="round"
+                />
+
+
+                <!-- Y -->
+
+                <path
+                    d="M50 18
+                       L67 48
+                       L84 18
+                       M67 48
+                       V88"
+
+                    fill="none"
+
+                    stroke="currentColor"
+
+                    stroke-width="4"
+
+                    stroke-linecap="square"
+
+                    stroke-linejoin="miter"
+                />
+
+            </svg>
+
+
+            <span>BUILT BY YORYOR</span>
+
+        </div>
+
 
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#why">Why Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#tech">Tech Stack</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#services">Services</a>
+            </li>
+
+            <li>
+                <a href="#why">Why Me</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#tech">Tech Stack</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
         </ul>
+
     </nav>
 
-    <section class="hero">
 
-    <img src="hero-background.png.PNG" alt="" class="hero-background-image">
 
-    <small>WEB DEVELOPER</small>
+    <!-- =========================
+         HERO
+    ========================= -->
 
-        <h1>Built by Yoryor</h1>
+    <section
+        class="hero"
+        id="home">
 
-        <h2>Professional Websites. Built with Purpose.</h2>
+
+        <img
+            src="hero-background.png.PNG"
+            alt=""
+            class="hero-background-image"
+        >
+
+
+        <small>
+            WEB DEVELOPER
+        </small>
+
+
+        <h1>
+            Built by Yoryor
+        </h1>
+
+
+        <h2>
+            Professional Websites. Built with Purpose.
+        </h2>
+
 
         <p>
             I create modern, responsive and professional websites
             for businesses, brands and individuals.
         </p>
 
+
         <div class="buttons">
-            <a class="button" href="#contact">Hire Me</a>
-            <a class="button secondary" href="#projects">View My Work</a>
+
+            <a
+                class="button"
+                href="#contact">
+
+                Hire Me
+
+            </a>
+
+
+            <a
+                class="button secondary"
+                href="#projects">
+
+                View My Work
+
+            </a>
+
         </div>
 
     </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
     <section id="about">
 
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title">
+            About Me
+        </h2>
+
 
         <p class="section-intro">
+
             I build clean and modern websites designed to help
             people and businesses establish a strong online presence.
+
         </p>
 
+
         <p class="about-text">
+
             My focus is on creating websites that look professional,
             work smoothly on mobile devices and clearly communicate
             what a business or individual has to offer.
+
         </p>
 
     </section>
+
+
+
+    <!-- =========================
+         SERVICES
+    ========================= -->
 
     <section id="services">
 
-        <h2 class="section-title">My Services</h2>
+        <h2 class="section-title">
+            My Services
+        </h2>
+
 
         <p class="section-intro">
+
             Website solutions designed around your goals.
+
         </p>
+
 
         <div class="cards">
 
+
             <div class="card">
-                <h3>Business Websites</h3>
+
+                <h3>
+                    Business Websites
+                </h3>
+
                 <p>
+
                     Professional websites that help businesses
                     establish credibility and attract customers.
+
                 </p>
+
             </div>
 
+
             <div class="card">
-                <h3>Online Stores</h3>
+
+                <h3>
+                    Online Stores
+                </h3>
+
                 <p>
+
                     Modern ecommerce websites designed to showcase
                     products and make online shopping easier.
+
                 </p>
+
             </div>
 
+
             <div class="card">
-                <h3>Personal Websites</h3>
+
+                <h3>
+                    Personal Websites
+                </h3>
+
                 <p>
+
                     Clean personal websites for portfolios,
                     professionals, creators and individuals.
+
                 </p>
+
             </div>
+
 
         </div>
 
     </section>
+
+
+
+    <!-- =========================
+         WHY ME
+    ========================= -->
 
     <section id="why">
 
-        <h2 class="section-title">Why Work With Me?</h2>
+        <h2 class="section-title">
+            Why Work With Me?
+        </h2>
+
 
         <div class="why-list">
 
+
             <div class="why-item">
-                <h3>📱 Mobile Friendly</h3>
+
+                <h3>
+                    📱 Mobile Friendly
+                </h3>
+
                 <p>
+
                     Websites designed to work properly across
                     phones, tablets and computers.
+
                 </p>
+
             </div>
 
+
             <div class="why-item">
-                <h3>⚡ Fast & Simple</h3>
+
+                <h3>
+                    ⚡ Fast & Simple
+                </h3>
+
                 <p>
+
                     Clean websites without unnecessary complexity.
+
                 </p>
+
             </div>
 
+
             <div class="why-item">
-                <h3>🎯 Goal Focused</h3>
+
+                <h3>
+                    🎯 Goal Focused
+                </h3>
+
                 <p>
+
                     Every website is designed around the purpose
                     you want it to achieve.
+
                 </p>
+
             </div>
+
 
         </div>
 
     </section>
 
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
     <section id="projects">
 
-        <h2 class="section-title">My Projects</h2>
+        <h2 class="section-title">
+            My Projects
+        </h2>
+
 
         <p class="section-intro">
+
             A selection of websites built to demonstrate my skills.
+
         </p>
+
 
         <div class="currency-box">
 
-            <label for="currency">Currency:</label>
+            <label for="currency">
+                Currency:
+            </label>
 
-            <select id="currency" onchange="changeCurrency()">
-                <option value="USD">$ USD</option>
-                <option value="NGN">₦ NGN</option>
+
+            <select
+                id="currency">
+
+                <option value="USD">
+                    $ USD
+                </option>
+
+                <option value="NGN">
+                    ₦ NGN
+                </option>
+
             </select>
 
         </div>
 
+
+
         <div class="projects">
 
-            <!-- PROJECT 01 -->
+
+            <!-- PROJECT 1 -->
 
             <div class="project">
 
@@ -760,10 +1365,13 @@
                     <div class="preview-browser">
 
                         <div class="browser-bar">
+
                             <span></span>
                             <span></span>
                             <span></span>
+
                         </div>
+
 
                         <div class="preview-content">
 
@@ -772,12 +1380,16 @@
                             </div>
 
                             <div class="preview-line"></div>
+
                             <div class="preview-line short"></div>
 
+
                             <div class="preview-boxes">
+
                                 <div></div>
                                 <div></div>
                                 <div></div>
+
                             </div>
 
                         </div>
@@ -786,34 +1398,52 @@
 
                 </div>
 
+
                 <h3>
                     💼 Business Website
                 </h3>
 
+
                 <p>
+
                     A professional business website designed
                     to help a company establish a strong
                     online presence.
+
                 </p>
 
-                <div class="price" data-usd="100">$100</div>
+
+                <div
+                    class="price"
+                    data-usd="100">
+
+                    $100
+
+                </div>
+
 
                 <div class="tech-tags">
+
                     <span>HTML</span>
                     <span>CSS</span>
                     <span>Responsive</span>
+
                 </div>
+
 
                 <a
                     class="project-button"
                     href="business.html">
+
                     View Live Project
+
                 </a>
 
             </div>
 
 
-            <!-- PROJECT 02 -->
+
+            <!-- PROJECT 2 -->
 
             <div class="project">
 
@@ -822,10 +1452,13 @@
                     <div class="preview-browser">
 
                         <div class="browser-bar">
+
                             <span></span>
                             <span></span>
                             <span></span>
+
                         </div>
+
 
                         <div class="preview-content">
 
@@ -834,12 +1467,16 @@
                             </div>
 
                             <div class="preview-line"></div>
+
                             <div class="preview-line short"></div>
 
+
                             <div class="preview-boxes">
+
                                 <div>🍝</div>
                                 <div>🥩</div>
                                 <div>🍰</div>
+
                             </div>
 
                         </div>
@@ -848,34 +1485,52 @@
 
                 </div>
 
+
                 <h3>
                     🍽️ Restaurant Website
                 </h3>
 
+
                 <p>
+
                     A modern restaurant website featuring
                     a menu, customer reviews and contact
                     information.
+
                 </p>
 
-                <div class="price" data-usd="150">$150</div>
+
+                <div
+                    class="price"
+                    data-usd="150">
+
+                    $150
+
+                </div>
+
 
                 <div class="tech-tags">
+
                     <span>HTML</span>
                     <span>CSS</span>
                     <span>Responsive</span>
+
                 </div>
+
 
                 <a
                     class="project-button"
                     href="restaurant.html">
+
                     View Live Project
+
                 </a>
 
             </div>
 
 
-            <!-- PROJECT 03 -->
+
+            <!-- PROJECT 3 -->
 
             <div class="project">
 
@@ -884,10 +1539,13 @@
                     <div class="preview-browser">
 
                         <div class="browser-bar">
+
                             <span></span>
                             <span></span>
                             <span></span>
+
                         </div>
+
 
                         <div class="preview-content">
 
@@ -896,12 +1554,16 @@
                             </div>
 
                             <div class="preview-line"></div>
+
                             <div class="preview-line short"></div>
 
+
                             <div class="preview-boxes">
+
                                 <div>💻</div>
                                 <div>🎨</div>
                                 <div>🚀</div>
+
                             </div>
 
                         </div>
@@ -910,29 +1572,105 @@
 
                 </div>
 
+
                 <h3>
                     👤 Personal Portfolio
                 </h3>
 
+
                 <p>
+
                     A clean personal portfolio website designed
                     to showcase skills, experience and services.
+
                 </p>
 
-                <div class="price" data-usd="120">$120</div>
+
+                <div
+                    class="price"
+                    data-usd="120">
+
+                    $120
+
+                </div>
+
 
                 <div class="tech-tags">
+
                     <span>HTML</span>
                     <span>CSS</span>
                     <span>Responsive</span>
+
                 </div>
+
 
                 <a
                     class="project-button"
                     href="personal.html">
+
                     View Live Project
+
                 </a>
 
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TECH STACK
+    ========================= -->
+
+    <section id="tech">
+
+        <h2 class="section-title">
+            Tech Stack
+        </h2>
+
+
+        <p class="section-intro">
+
+            Tools and technologies I use to build websites.
+
+        </p>
+
+
+        <div class="tech-stack">
+
+            <div class="tech">
+                HTML5
+            </div>
+
+            <div class="tech">
+                CSS3
+            </div>
+
+            <div class="tech">
+                JavaScript
+            </div>
+
+            <div class="tech">
+                Responsive Design
+            </div>
+
+            <div class="tech">
+                GitHub
+            </div>
+
+            <div class="tech">
+                Cloudflare
+            </div>
+
+            <div class="tech">
+                UI Design
+            </div>
+
+            <div class="tech">
+                Web Development
             </div>
 
         </div>
@@ -940,71 +1678,89 @@
     </section>
 
 
-    <section id="tech">
 
-        <h2 class="section-title">Tech Stack</h2>
-
-        <p class="section-intro">
-            Tools and technologies I use to build websites.
-        </p>
-
-        <div class="tech-stack">
-
-            <div class="tech">HTML5</div>
-            <div class="tech">CSS3</div>
-            <div class="tech">JavaScript</div>
-            <div class="tech">Responsive Design</div>
-            <div class="tech">GitHub</div>
-            <div class="tech">GitHub Pages</div>
-            <div class="tech">UI Design</div>
-            <div class="tech">Web Development</div>
-
-        </div>
-
-    </section>
-
+    <!-- =========================
+         CONTACT
+    ========================= -->
 
     <section id="contact">
 
-        <h2 class="section-title">Let's Work Together</h2>
+        <h2 class="section-title">
+            Let's Work Together
+        </h2>
+
 
         <p class="section-intro">
-            Have a website project in mind? Send me the details.
+
+            Have a website project in mind?
+            Send me the details.
+
         </p>
-<div class="qr-section">
-    <h3>Scan to Visit My Website</h3>
 
-    <img
-        src="built-by-yoryor-qr-code.png"
-        alt="QR code for Built by Yoryor"
-        class="website-qr">
 
-    <p>Scan the QR code to visit Built by Yoryor.</p>
-</div>
-        <div class="contact-info">
 
-            <p>
-                📧
-                <a href="mailto:builtbyyoryor@gmail.com">
-                    builtbyyoryor@gmail.com
-                </a>
-            </p>
+        <div class="qr-section">
+
+            <h3>
+                Scan to Visit My Website
+            </h3>
+
+
+            <img
+                src="built-by-yoryor-qr-code.png"
+                alt="QR code for Built by Yoryor"
+                class="website-qr"
+            >
+
 
             <p>
-                📱
-                <a
-                    href="https://wa.me/2348068782377"
-                    target="_blank">
-                    WhatsApp
-                </a>
+                Scan the QR code to visit Built by Yoryor.
             </p>
 
         </div>
+
+
+
+        <div class="contact-info">
+
+            <p>
+
+                📧
+
+                <a
+                    href="mailto:builtbyyoryor@gmail.com">
+
+                    builtbyyoryor@gmail.com
+
+                </a>
+
+            </p>
+
+
+            <p>
+
+                📱
+
+                <a
+                    href="https://wa.me/2348068782377"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    WhatsApp
+
+                </a>
+
+            </p>
+
+        </div>
+
+
 
         <form
             id="contact-form"
             action="https://formspree.io/f/xbgjyekq"
             method="POST">
+
 
             <select
                 name="project_type"
@@ -1031,6 +1787,7 @@
                 </option>
 
             </select>
+
 
 
             <select
@@ -1060,18 +1817,23 @@
             </select>
 
 
+
             <input
                 type="text"
                 name="name"
                 placeholder="Your Name"
-                required>
+                required
+            >
+
 
 
             <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
-                required>
+                required
+            >
+
 
 
             <textarea
@@ -1080,9 +1842,15 @@
                 required></textarea>
 
 
-            <button type="submit">
+
+            <button
+                type="submit"
+                id="submit-button">
+
                 Send Message
+
             </button>
+
 
             <p id="form-status"></p>
 
@@ -1091,15 +1859,24 @@
     </section>
 
 
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
     <footer>
 
         <p>
-            <strong>Built by Yoryor</strong>
+            <strong>
+                Built by Yoryor
+            </strong>
         </p>
+
 
         <p>
             Professional websites built with purpose.
         </p>
+
 
         <p>
             © 2026 Built by Yoryor
@@ -1108,21 +1885,38 @@
     </footer>
 
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
     <script>
 
+        /* =========================
+           CURRENCY
+        ========================= */
+
         const exchangeRate = 1323.47;
+
+        const currencySelector =
+            document.getElementById("currency");
+
 
         function changeCurrency() {
 
             const currency =
-                document.getElementById("currency").value;
+                currencySelector.value;
+
 
             document
                 .querySelectorAll(".price")
                 .forEach(price => {
 
                     const usd =
-                        parseFloat(price.dataset.usd);
+                        parseFloat(
+                            price.dataset.usd
+                        );
+
 
                     if (currency === "NGN") {
 
@@ -1145,11 +1939,33 @@
         }
 
 
+        currencySelector.addEventListener(
+            "change",
+            changeCurrency
+        );
+
+
+
+        /* =========================
+           CONTACT FORM
+        ========================= */
+
         const form =
-            document.getElementById("contact-form");
+            document.getElementById(
+                "contact-form"
+            );
+
 
         const formStatus =
-            document.getElementById("form-status");
+            document.getElementById(
+                "form-status"
+            );
+
+
+        const submitButton =
+            document.getElementById(
+                "submit-button"
+            );
 
 
         form.addEventListener(
@@ -1158,11 +1974,20 @@
 
                 event.preventDefault();
 
+
+                submitButton.disabled = true;
+
+                submitButton.textContent =
+                    "Sending...";
+
+
+                formStatus.textContent =
+                    "";
+
+
                 const formData =
                     new FormData(form);
 
-                formStatus.textContent =
-                    "Sending...";
 
                 try {
 
@@ -1171,7 +1996,9 @@
                             form.action,
                             {
                                 method: "POST",
+
                                 body: formData,
+
                                 headers: {
                                     "Accept":
                                         "application/json"
@@ -1184,8 +2011,10 @@
 
                         form.reset();
 
+
                         formStatus.textContent =
                             "✅ Message sent successfully! I'll get back to you soon.";
+
 
                     } else {
 
@@ -1194,6 +2023,7 @@
 
                     }
 
+
                 } catch (error) {
 
                     formStatus.textContent =
@@ -1201,10 +2031,17 @@
 
                 }
 
+
+                submitButton.disabled = false;
+
+                submitButton.textContent =
+                    "Send Message";
+
             }
         );
 
     </script>
+
 
 </body>
 </html>
