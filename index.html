@@ -12,15 +12,10 @@
     >
 
     <style>
-
-        /* =========================
-           GLOBAL
-        ========================= */
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -29,20 +24,14 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #fff;
-            color: #111;
+            background: #080808;
+            color: #f5f5f5;
             line-height: 1.6;
         }
 
         a {
-            text-decoration: none;
             color: inherit;
         }
-
-        img {
-            max-width: 100%;
-        }
-
 
         /* =========================
            NAVIGATION
@@ -52,27 +41,31 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
+            background: rgba(5, 5, 5, 0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
 
-            background: #111;
-            color: white;
-
-            padding: 16px 5%;
-
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            min-height: 72px;
+            padding: 0 7%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            justify-content: space-between;
+            gap: 25px;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
-
             font-size: 15px;
             font-weight: 700;
             letter-spacing: 1.5px;
+            white-space: nowrap;
         }
 
         .logo-mark {
@@ -81,907 +74,714 @@
             flex-shrink: 0;
         }
 
-        nav ul {
-            list-style: none;
-
+        .nav-links {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 22px;
+            list-style: none;
         }
 
-        nav a {
-            transition: 0.25s ease;
+        .nav-links a {
+            text-decoration: none;
+            font-size: 14px;
+            color: #ddd;
+            transition: 0.3s ease;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             color: #f5c451;
         }
-
-
-        /* =========================
-           GENERAL SECTIONS
-        ========================= */
-
-        section {
-            padding: 80px 7%;
-            text-align: center;
-        }
-
-        h2.section-title {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-
-        .section-intro {
-            max-width: 650px;
-            margin: 0 auto 40px;
-            color: #666;
-        }
-
 
         /* =========================
            HERO
         ========================= */
 
         .hero {
-    position: relative;
-    min-height: 90vh;
-    width: 100%;
-    overflow: hidden;
-    background: #050505;
-}
+            position: relative;
+            min-height: 90vh;
+            width: 100%;
+            overflow: hidden;
+            background: #050505;
+        }
 
-.hero-background-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    z-index: 0;
-}
+        .hero-background-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            z-index: 0;
+        }
 
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.08),
-        rgba(0,0,0,0.28)
-    );
-    z-index: 1;
-    pointer-events: none;
-}
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.08),
+                rgba(0,0,0,0.28)
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
 
-.hero-content {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 70px;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    padding: 0 20px;
-}
+        .hero-content {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 70px;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+        }
 
-.hero-buttons {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-.hero .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 140px;
-    padding: 14px 24px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: 0.3s ease;
-}
+        .hero .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+            padding: 14px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
 
-.hero .button.primary {
-    background: #f5c451;
-    color: #111;
-}
+        .hero .button.primary {
+            background: #f5c451;
+            color: #111;
+        }
 
-.hero .button.secondary {
-    background: rgba(0,0,0,0.45);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.55);
-    backdrop-filter: blur(8px);
-}
+        .hero .button.secondary {
+            background: rgba(0,0,0,0.45);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.55);
+            backdrop-filter: blur(8px);
+        }
 
-.hero .button:hover {
-    transform: translateY(-3px);
-}
+        .hero .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
 
-@media (max-width: 600px) {
-    .hero {
-        min-height: 78vh;
-    }
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
 
-    .hero-content {
-        bottom: 35px;
-    }
+        section:not(.hero) {
+            padding: 90px 7%;
+        }
 
-    .hero-buttons {
-        width: 100%;
-    }
+        .section-container {
+            max-width: 1100px;
+            margin: auto;
+        }
 
-    .hero .button {
-        width: 100%;
-        max-width: 280px;
-    }
-}
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
 
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #aaa;
+            max-width: 650px;
+            margin: auto;
+        }
 
         /* =========================
            ABOUT
         ========================= */
 
-        .about-text {
-            max-width: 750px;
-
-            margin: auto;
-
-            color: #555;
+        #about {
+            background: #0b0b0b;
         }
 
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: #c4c4c4;
+            font-size: 17px;
+            margin-bottom: 18px;
+        }
 
         /* =========================
            SERVICES
         ========================= */
 
         #services {
-            background: #f7f7f7;
+            background: #101010;
         }
 
         .cards {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
-
             max-width: 1100px;
-
             margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
         }
 
         .card {
-            padding: 30px 20px;
-
-            border: 1px solid #ddd;
-
-            border-radius: 14px;
-
-            background: white;
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.06);
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
+            background: #171717;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            padding: 32px 25px;
+            transition: 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            border-color: rgba(245,196,81,0.45);
+        }
 
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.10);
+        .card-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
         }
 
         .card h3 {
             margin-bottom: 10px;
+            font-size: 21px;
         }
 
         .card p {
-            color: #666;
+            color: #aaa;
+            font-size: 15px;
         }
-
 
         /* =========================
            WHY ME
         ========================= */
 
-        .why-list {
-            display: grid;
+        #why {
+            background: #080808;
+        }
 
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
-
+        .why-grid {
             max-width: 1000px;
-
             margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
         }
 
         .why-item {
-            padding: 25px;
+            text-align: center;
+            padding: 30px 20px;
+            background: #111;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.07);
         }
 
-        .why-item h3 {
-            margin-bottom: 8px;
+        .why-item strong {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
-        .why-item p {
-            color: #666;
+        .why-item span {
+            color: #aaa;
+            font-size: 14px;
         }
-
 
         /* =========================
            PROJECTS
         ========================= */
 
+        #projects {
+            background: #101010;
+        }
+
         .currency-box {
-            text-align: center;
-
-            margin: 0 auto 30px;
-
-            padding: 15px;
+            text-align: right;
+            max-width: 1100px;
+            margin: 0 auto 25px;
         }
 
         .currency-box label {
-            font-weight: bold;
-
+            color: #aaa;
             margin-right: 8px;
-        }
-
-        .currency-box select {
-            padding: 10px 14px;
-
-            border-radius: 8px;
-
-            border: 1px solid #ccc;
-
             font-size: 14px;
-
-            background: white;
-
-            cursor: pointer;
         }
 
-        .projects {
-            display: grid;
+        #currency {
+            background: #171717;
+            color: white;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 9px 12px;
+        }
 
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
-
-            max-width: 1150px;
-
+        .project-grid {
+            max-width: 1100px;
             margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
         }
 
         .project {
-            border: 1px solid #ddd;
-
-            border-radius: 14px;
-
-            padding: 20px;
-
-            background: white;
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.06);
-
-            transition:
-                transform 0.25s ease;
+            background: #171717;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.3s ease;
         }
 
         .project:hover {
-            transform: translateY(-5px);
-        }
-
-        .project h3 {
-            margin-bottom: 10px;
-        }
-
-        .project > p {
-            color: #666;
+            transform: translateY(-6px);
         }
 
         .project-preview {
-            margin: -5px -5px 25px;
-        }
-
-        .preview-browser {
-            background: #111;
-
-            border-radius: 12px;
-
-            overflow: hidden;
-
-            border: 1px solid #ddd;
-
-            box-shadow:
-                0 10px 25px rgba(0,0,0,0.12);
-        }
-
-        .browser-bar {
-            background: #222;
-
-            padding: 9px 12px;
-
-            text-align: left;
-        }
-
-        .browser-bar span {
-            display: inline-block;
-
-            width: 8px;
-            height: 8px;
-
-            background: #777;
-
-            border-radius: 50%;
-
-            margin-right: 5px;
-        }
-
-        .preview-content {
-            background: #f5f5f5;
-
-            padding: 28px 15px;
-
-            min-height: 145px;
-        }
-
-        .preview-title {
-            font-size: 16px;
-
-            font-weight: bold;
-
-            margin-bottom: 12px;
-        }
-
-        .preview-line {
-            width: 75%;
-
-            height: 7px;
-
-            background: #bbb;
-
-            border-radius: 10px;
-
-            margin: 7px auto;
-        }
-
-        .preview-line.short {
-            width: 45%;
-        }
-
-        .preview-boxes {
+            height: 190px;
             display: flex;
-
-            gap: 8px;
-
-            margin-top: 20px;
-        }
-
-        .preview-boxes div {
-            flex: 1;
-
-            height: 45px;
-
-            background: #ddd;
-
-            border-radius: 6px;
-
-            display: flex;
-
             align-items: center;
             justify-content: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #191919,
+                    #303030
+                );
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
-        .tech-tags {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            justify-content: center;
-
-            gap: 8px;
-
-            margin-top: 18px;
+        .project-content {
+            padding: 24px;
         }
 
-        .tech-tags span {
-            background: #111;
+        .project-content h3 {
+            margin-bottom: 8px;
+        }
 
-            color: white;
-
-            padding: 6px 10px;
-
-            border-radius: 20px;
-
-            font-size: 11px;
-
-            font-weight: bold;
+        .project-content p {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 14px;
         }
 
         .price {
-            font-size: 22px;
-
-            font-weight: bold;
-
-            margin: 15px 0;
+            display: block;
+            color: #f5c451;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
-        .project-button {
+        .project-link {
             display: inline-block;
-
-            margin-top: 20px;
-
-            padding: 11px 18px;
-
-            background: #111;
-
-            color: white;
-
-            border-radius: 7px;
-
-            font-weight: bold;
-
-            transition: 0.25s ease;
+            text-decoration: none;
+            padding: 10px 17px;
+            border-radius: 22px;
+            border: 1px solid #555;
+            font-size: 14px;
+            transition: 0.3s ease;
         }
 
-        .project-button:hover {
+        .project-link:hover {
             background: #f5c451;
-
             color: #111;
-
-            transform: translateY(-2px);
+            border-color: #f5c451;
         }
 
+        .tech-tags {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tech-tags span {
+            background: #242424;
+            color: #bbb;
+            padding: 5px 9px;
+            border-radius: 12px;
+            font-size: 11px;
+        }
 
         /* =========================
            TECH STACK
         ========================= */
 
-        .tech-stack {
-            display: grid;
+        #tech {
+            background: #080808;
+        }
 
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 18px;
-
-            max-width: 1000px;
-
+        .tech-grid {
+            max-width: 900px;
             margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
         }
 
-        .tech {
-            border: 1px solid #ddd;
-
-            padding: 20px;
-
-            border-radius: 12px;
-
-            font-weight: bold;
-
-            background: white;
-
-            transition: 0.25s ease;
-        }
-
-        .tech:hover {
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 8px 20px rgba(0,0,0,0.08);
-        }
-
-
-        /* =========================
-           QR CODE
-        ========================= */
-
-        .qr-section {
-            margin: 30px auto;
-
-            text-align: center;
-        }
-
-        .qr-section h3 {
-            margin-bottom: 15px;
-
-            font-size: 20px;
-        }
-
-        .website-qr {
-            width: 180px;
-            height: 180px;
-
-            display: block;
-
-            margin: 0 auto 12px;
-
-            border: 8px solid white;
-
-            border-radius: 10px;
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.12);
-        }
-
-        .qr-section p {
-            color: #666;
-
+        .tech-item {
+            padding: 13px 18px;
+            background: #151515;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 25px;
+            color: #ddd;
             font-size: 14px;
         }
-
 
         /* =========================
            CONTACT
         ========================= */
 
         #contact {
-            background: #f7f7f7;
+            background: #101010;
         }
 
-        .contact-info {
-            margin-bottom: 30px;
+        .contact-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 40px;
+            align-items: start;
         }
 
-        .contact-info p {
-            margin: 8px 0;
+        .contact-info h3 {
+            font-size: 27px;
+            margin-bottom: 15px;
         }
 
-        .contact-info a {
-            font-weight: bold;
-
-            transition: 0.2s ease;
+        .contact-info > p {
+            color: #aaa;
+            margin-bottom: 25px;
         }
 
-        .contact-info a:hover {
-            color: #d19f22;
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .contact-links a {
+            color: #f5c451;
+            text-decoration: none;
+        }
+
+        .qr-section {
+            margin-top: 30px;
+            padding: 22px;
+            background: #171717;
+            border-radius: 18px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .qr-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .website-qr {
+            width: 170px;
+            height: 170px;
+            object-fit: contain;
+            background: white;
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+        .qr-section p {
+            color: #aaa;
+            font-size: 13px;
+            margin-top: 10px;
         }
 
         form {
-            max-width: 650px;
+            background: #171717;
+            padding: 28px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
 
-            margin: auto;
+        .form-group {
+            margin-bottom: 17px;
+        }
 
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 15px;
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 13px;
+            color: #ccc;
         }
 
         input,
-        textarea,
-        select {
+        select,
+        textarea {
             width: 100%;
-
-            padding: 14px;
-
-            border: 1px solid #ccc;
-
-            border-radius: 8px;
-
+            padding: 13px 14px;
+            border-radius: 9px;
+            border: 1px solid #3d3d3d;
+            background: #0d0d0d;
+            color: white;
             font-family: inherit;
-
-            font-size: 15px;
-
-            background: white;
-
             outline: none;
         }
 
         input:focus,
-        textarea:focus,
-        select:focus {
-            border-color: #111;
-
-            box-shadow:
-                0 0 0 2px rgba(0,0,0,0.06);
+        select:focus,
+        textarea:focus {
+            border-color: #f5c451;
         }
 
         textarea {
-            min-height: 150px;
-
+            min-height: 130px;
             resize: vertical;
         }
 
-        button[type="submit"] {
+        .submit-button {
+            width: 100%;
             padding: 14px;
-
             border: none;
-
-            border-radius: 8px;
-
-            background: #111;
-
-            color: white;
-
-            font-size: 16px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            transition: 0.25s ease;
-        }
-
-        button[type="submit"]:hover {
+            border-radius: 28px;
             background: #f5c451;
-
             color: #111;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s ease;
         }
 
-        button[type="submit"]:disabled {
-            opacity: 0.6;
-
-            cursor: not-allowed;
+        .submit-button:hover {
+            transform: translateY(-2px);
         }
 
-        #form-status {
-            margin-top: 5px;
+        .submit-button:disabled {
+            opacity: 0.65;
+            cursor: wait;
+        }
 
-            font-weight: bold;
-
+        #formStatus {
+            margin-top: 15px;
             text-align: center;
-
-            min-height: 24px;
+            font-size: 14px;
         }
-
 
         /* =========================
            FOOTER
         ========================= */
 
         footer {
-            background: #111;
-
-            color: white;
-
+            background: #050505;
+            border-top: 1px solid rgba(255,255,255,0.08);
             text-align: center;
-
             padding: 35px 20px;
         }
 
+        footer strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
         footer p {
-            margin: 5px 0;
+            color: #777;
+            font-size: 13px;
         }
-
-
-        /* =========================
-           TABLET
-        ========================= */
-
-        @media (max-width: 800px) {
-
-            nav {
-                flex-direction: column;
-
-                gap: 12px;
-            }
-
-            nav ul {
-                gap: 10px;
-
-                flex-wrap: wrap;
-
-                justify-content: center;
-
-                font-size: 13px;
-            }
-
-            .cards,
-            .projects,
-            .why-list {
-                grid-template-columns: 1fr;
-            }
-
-            .tech-stack {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-        }
-
 
         /* =========================
            MOBILE
         ========================= */
 
-        @media (max-width: 600px) {
-
-            section {
-                padding: 60px 5%;
-            }
-
-            .hero {
-                min-height: 85vh;
-
-                padding:
-                    90px 5%;
-            }
-
-            .hero h1 {
-                font-size: 46px;
-            }
-
-            .hero h2 {
-                font-size: 22px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .buttons {
-                width: 100%;
-
+        @media (max-width: 900px) {
+            .nav-container {
+                padding: 15px 5%;
                 flex-direction: column;
             }
 
-            .button {
-                width: min(100%, 280px);
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 13px;
             }
 
-            h2.section-title {
+            .cards,
+            .why-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 13px;
+            }
+
+            .logo-mark {
+                width: 34px;
+                height: 34px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 78vh;
+            }
+
+            .hero-content {
+                bottom: 35px;
+            }
+
+            .hero-buttons {
+                width: 100%;
+            }
+
+            .hero .button {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            section:not(.hero) {
+                padding: 70px 5%;
+            }
+
+            .section-title h2 {
                 font-size: 30px;
             }
 
-            .tech-stack {
-                grid-template-columns:
-                    1fr 1fr;
+            .project-preview {
+                height: 170px;
             }
-
         }
-
     </style>
 </head>
 
-
 <body>
-
 
     <!-- =========================
          NAVIGATION
     ========================= -->
 
     <nav>
+        <div class="nav-container">
 
-        <div class="logo">
+            <a href="#home" style="text-decoration:none;">
+                <div class="logo">
 
-            <svg
-                class="logo-mark"
-                viewBox="0 0 100 100"
-                aria-label="BY monogram logo">
+                    <svg
+                        class="logo-mark"
+                        viewBox="0 0 100 100"
+                        aria-label="BY monogram logo"
+                    >
+                        <path
+                            d="M24 18
+                               C42 18 53 24 53 36
+                               C53 43 49 48 43 50
+                               C51 52 57 58 57 68
+                               C57 82 45 88 24 88
+                               Z
+                               M34 29
+                               V45
+                               H40
+                               C48 45 49 40 49 37
+                               C49 31 45 29 40 29
+                               Z
+                               M34 56
+                               V77
+                               H41
+                               C50 77 53 73 53 67
+                               C53 60 48 56 41 56
+                               Z"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linejoin="round"
+                        />
 
-                <!-- B -->
+                        <path
+                            d="M50 18
+                               L67 48
+                               L84 18
+                               M67 48
+                               V88"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="square"
+                            stroke-linejoin="miter"
+                        />
+                    </svg>
 
-                <path
-                    d="M24 18
-                       C42 18 53 24 53 36
-                       C53 43 49 48 43 50
-                       C51 52 57 58 57 68
-                       C57 82 45 88 24 88
-                       Z
+                    <span>BUILT BY YORYOR</span>
 
-                       M34 29
-                       V45
-                       H40
-                       C48 45 49 40 49 37
-                       C49 31 45 29 40 29
-                       Z
+                </div>
+            </a>
 
-                       M34 56
-                       V77
-                       H41
-                       C50 77 53 73 53 67
-                       C53 60 48 56 41 56
-                       Z"
-
-                    fill="none"
-
-                    stroke="currentColor"
-
-                    stroke-width="4"
-
-                    stroke-linejoin="round"
-                />
-
-
-                <!-- Y -->
-
-                <path
-                    d="M50 18
-                       L67 48
-                       L84 18
-                       M67 48
-                       V88"
-
-                    fill="none"
-
-                    stroke="currentColor"
-
-                    stroke-width="4"
-
-                    stroke-linecap="square"
-
-                    stroke-linejoin="miter"
-                />
-
-            </svg>
-
-
-            <span>BUILT BY YORYOR</span>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why">Why Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#tech">Tech Stack</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
 
         </div>
-
-
-        <ul>
-
-            <li>
-                <a href="#home">Home</a>
-            </li>
-
-            <li>
-                <a href="#about">About</a>
-            </li>
-
-            <li>
-                <a href="#services">Services</a>
-            </li>
-
-            <li>
-                <a href="#why">Why Me</a>
-            </li>
-
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
-
-            <li>
-                <a href="#tech">Tech Stack</a>
-            </li>
-
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-
-        </ul>
-
     </nav>
-
 
 
     <!-- =========================
          HERO
+         The image contains the
+         designed writing.
     ========================= -->
 
     <section class="hero" id="home">
-    <img
-        src="hero-background.png.PNG"
-        alt="Built by Yoryor web development"
-        class="hero-background-image"
-    >
 
-    <div class="hero-overlay"></div>
+        <img
+            src="hero-background.png.PNG"
+            alt="Built by Yoryor web development"
+            class="hero-background-image"
+        >
 
-    <div class="hero-content">
-        <div class="hero-buttons">
-            <a href="#contact" class="button primary">Hire Me</a>
-            <a href="#projects" class="button secondary">View My Work</a>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-buttons">
+
+                <a href="#contact" class="button primary">
+                    Hire Me
+                </a>
+
+                <a href="#projects" class="button secondary">
+                    View My Work
+                </a>
+
+            </div>
         </div>
-    </div>
-</section>
 
+    </section>
 
 
     <!-- =========================
@@ -990,29 +790,37 @@
 
     <section id="about">
 
-        <h2 class="section-title">
-            About Me
-        </h2>
+        <div class="section-container">
 
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Building modern digital experiences with purpose.</p>
+            </div>
 
-        <p class="section-intro">
+            <div class="about-content">
 
-            I build clean and modern websites designed to help
-            people and businesses establish a strong online presence.
+                <p>
+                    I’m Yoryor, a web developer focused on creating clean,
+                    modern and professional websites for businesses, brands
+                    and individuals.
+                </p>
 
-        </p>
+                <p>
+                    My goal is simple: build websites that look professional,
+                    work smoothly and give visitors a clear reason to take
+                    action.
+                </p>
 
+                <p>
+                    Every project is designed with responsiveness,
+                    usability and the client's goals in mind.
+                </p>
 
-        <p class="about-text">
+            </div>
 
-            My focus is on creating websites that look professional,
-            work smoothly on mobile devices and clearly communicate
-            what a business or individual has to offer.
-
-        </p>
+        </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -1021,73 +829,43 @@
 
     <section id="services">
 
-        <h2 class="section-title">
-            My Services
-        </h2>
-
-
-        <p class="section-intro">
-
-            Website solutions designed around your goals.
-
-        </p>
-
+        <div class="section-title">
+            <h2>What I Build</h2>
+            <p>Professional websites designed around your goals.</p>
+        </div>
 
         <div class="cards">
 
-
             <div class="card">
-
-                <h3>
-                    Business Websites
-                </h3>
-
+                <div class="card-icon">◈</div>
+                <h3>Business Websites</h3>
                 <p>
-
-                    Professional websites that help businesses
-                    establish credibility and attract customers.
-
+                    Professional websites that establish credibility,
+                    explain your services and help customers contact you.
                 </p>
-
             </div>
 
-
             <div class="card">
-
-                <h3>
-                    Online Stores
-                </h3>
-
+                <div class="card-icon">▣</div>
+                <h3>Online Stores</h3>
                 <p>
-
-                    Modern ecommerce websites designed to showcase
-                    products and make online shopping easier.
-
+                    Modern ecommerce experiences designed to present
+                    products clearly and make purchasing simple.
                 </p>
-
             </div>
 
-
             <div class="card">
-
-                <h3>
-                    Personal Websites
-                </h3>
-
+                <div class="card-icon">◇</div>
+                <h3>Personal Websites</h3>
                 <p>
-
-                    Clean personal websites for portfolios,
-                    professionals, creators and individuals.
-
+                    Clean personal and portfolio websites for individuals,
+                    creators and professionals.
                 </p>
-
             </div>
-
 
         </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -1096,65 +874,40 @@
 
     <section id="why">
 
-        <h2 class="section-title">
-            Why Work With Me?
-        </h2>
+        <div class="section-title">
+            <h2>Why Work With Me?</h2>
+            <p>A professional approach from design to delivery.</p>
+        </div>
 
-
-        <div class="why-list">
-
-
-            <div class="why-item">
-
-                <h3>
-                    📱 Mobile Friendly
-                </h3>
-
-                <p>
-
-                    Websites designed to work properly across
-                    phones, tablets and computers.
-
-                </p>
-
-            </div>
-
+        <div class="why-grid">
 
             <div class="why-item">
-
-                <h3>
-                    ⚡ Fast & Simple
-                </h3>
-
-                <p>
-
-                    Clean websites without unnecessary complexity.
-
-                </p>
-
+                <strong>Mobile Friendly</strong>
+                <span>
+                    Your website is designed to work across phones,
+                    tablets and desktop screens.
+                </span>
             </div>
-
 
             <div class="why-item">
-
-                <h3>
-                    🎯 Goal Focused
-                </h3>
-
-                <p>
-
-                    Every website is designed around the purpose
-                    you want it to achieve.
-
-                </p>
-
+                <strong>Fast & Simple</strong>
+                <span>
+                    Clean layouts and focused experiences make websites
+                    easier for visitors to use.
+                </span>
             </div>
 
+            <div class="why-item">
+                <strong>Goal Focused</strong>
+                <span>
+                    Every section has a purpose, whether that is getting
+                    enquiries, showcasing work or selling products.
+                </span>
+            </div>
 
         </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -1163,308 +916,157 @@
 
     <section id="projects">
 
-        <h2 class="section-title">
-            My Projects
-        </h2>
-
-
-        <p class="section-intro">
-
-            A selection of websites built to demonstrate my skills.
-
-        </p>
-
+        <div class="section-title">
+            <h2>Selected Projects</h2>
+            <p>Web experiences built for different business needs.</p>
+        </div>
 
         <div class="currency-box">
 
             <label for="currency">
-                Currency:
+                Display prices in:
             </label>
 
-
-            <select
-                id="currency">
-
-                <option value="USD">
-                    $ USD
-                </option>
-
-                <option value="NGN">
-                    ₦ NGN
-                </option>
-
+            <select id="currency">
+                <option value="USD">USD ($)</option>
+                <option value="NGN">NGN (₦)</option>
             </select>
 
         </div>
 
+        <div class="project-grid">
 
+            <!-- BUSINESS -->
 
-        <div class="projects">
-
-
-            <!-- PROJECT 1 -->
-
-            <div class="project">
+            <article class="project">
 
                 <div class="project-preview">
+                    BUSINESS WEBSITE
+                </div>
 
-                    <div class="preview-browser">
+                <div class="project-content">
 
-                        <div class="browser-bar">
+                    <h3>Business Website</h3>
 
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                    <p>
+                        A professional business website designed to
+                        establish trust and generate enquiries.
+                    </p>
 
-                        </div>
+                    <span
+                        class="price"
+                        data-usd="100"
+                    >
+                        $100
+                    </span>
 
+                    <a
+                        href="business.html"
+                        class="project-link"
+                    >
+                        View Project
+                    </a>
 
-                        <div class="preview-content">
-
-                            <div class="preview-title">
-                                Elite Business Solutions
-                            </div>
-
-                            <div class="preview-line"></div>
-
-                            <div class="preview-line short"></div>
-
-
-                            <div class="preview-boxes">
-
-                                <div></div>
-                                <div></div>
-                                <div></div>
-
-                            </div>
-
-                        </div>
-
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Responsive</span>
                     </div>
 
                 </div>
 
-
-                <h3>
-                    💼 Business Website
-                </h3>
+            </article>
 
 
-                <p>
+            <!-- RESTAURANT -->
 
-                    A professional business website designed
-                    to help a company establish a strong
-                    online presence.
-
-                </p>
-
-
-                <div
-                    class="price"
-                    data-usd="100">
-
-                    $100
-
-                </div>
-
-
-                <div class="tech-tags">
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>Responsive</span>
-
-                </div>
-
-
-                <a
-                    class="project-button"
-                    href="business.html">
-
-                    View Live Project
-
-                </a>
-
-            </div>
-
-
-
-            <!-- PROJECT 2 -->
-
-            <div class="project">
+            <article class="project">
 
                 <div class="project-preview">
+                    RESTAURANT WEBSITE
+                </div>
 
-                    <div class="preview-browser">
+                <div class="project-content">
 
-                        <div class="browser-bar">
+                    <h3>Restaurant Website</h3>
 
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                    <p>
+                        A modern restaurant experience for menus,
+                        services, locations and customer enquiries.
+                    </p>
 
-                        </div>
+                    <span
+                        class="price"
+                        data-usd="150"
+                    >
+                        $150
+                    </span>
 
+                    <a
+                        href="restaurant.html"
+                        class="project-link"
+                    >
+                        View Project
+                    </a>
 
-                        <div class="preview-content">
-
-                            <div class="preview-title">
-                                Savor House
-                            </div>
-
-                            <div class="preview-line"></div>
-
-                            <div class="preview-line short"></div>
-
-
-                            <div class="preview-boxes">
-
-                                <div>🍝</div>
-                                <div>🥩</div>
-                                <div>🍰</div>
-
-                            </div>
-
-                        </div>
-
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>UI Design</span>
                     </div>
 
                 </div>
 
-
-                <h3>
-                    🍽️ Restaurant Website
-                </h3>
+            </article>
 
 
-                <p>
+            <!-- PERSONAL -->
 
-                    A modern restaurant website featuring
-                    a menu, customer reviews and contact
-                    information.
-
-                </p>
-
-
-                <div
-                    class="price"
-                    data-usd="150">
-
-                    $150
-
-                </div>
-
-
-                <div class="tech-tags">
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>Responsive</span>
-
-                </div>
-
-
-                <a
-                    class="project-button"
-                    href="restaurant.html">
-
-                    View Live Project
-
-                </a>
-
-            </div>
-
-
-
-            <!-- PROJECT 3 -->
-
-            <div class="project">
+            <article class="project">
 
                 <div class="project-preview">
+                    PERSONAL PORTFOLIO
+                </div>
 
-                    <div class="preview-browser">
+                <div class="project-content">
 
-                        <div class="browser-bar">
+                    <h3>Personal Portfolio</h3>
 
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                    <p>
+                        A clean personal website for presenting skills,
+                        projects and professional information.
+                    </p>
 
-                        </div>
+                    <span
+                        class="price"
+                        data-usd="120"
+                    >
+                        $120
+                    </span>
 
+                    <a
+                        href="personal.html"
+                        class="project-link"
+                    >
+                        View Project
+                    </a>
 
-                        <div class="preview-content">
-
-                            <div class="preview-title">
-                                Alex Morgan
-                            </div>
-
-                            <div class="preview-line"></div>
-
-                            <div class="preview-line short"></div>
-
-
-                            <div class="preview-boxes">
-
-                                <div>💻</div>
-                                <div>🎨</div>
-                                <div>🚀</div>
-
-                            </div>
-
-                        </div>
-
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Responsive</span>
                     </div>
 
                 </div>
 
-
-                <h3>
-                    👤 Personal Portfolio
-                </h3>
-
-
-                <p>
-
-                    A clean personal portfolio website designed
-                    to showcase skills, experience and services.
-
-                </p>
-
-
-                <div
-                    class="price"
-                    data-usd="120">
-
-                    $120
-
-                </div>
-
-
-                <div class="tech-tags">
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>Responsive</span>
-
-                </div>
-
-
-                <a
-                    class="project-button"
-                    href="personal.html">
-
-                    View Live Project
-
-                </a>
-
-            </div>
-
+            </article>
 
         </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -1473,56 +1075,25 @@
 
     <section id="tech">
 
-        <h2 class="section-title">
-            Tech Stack
-        </h2>
+        <div class="section-title">
+            <h2>Tech Stack</h2>
+            <p>Tools and technologies I use to build websites.</p>
+        </div>
 
+        <div class="tech-grid">
 
-        <p class="section-intro">
-
-            Tools and technologies I use to build websites.
-
-        </p>
-
-
-        <div class="tech-stack">
-
-            <div class="tech">
-                HTML5
-            </div>
-
-            <div class="tech">
-                CSS3
-            </div>
-
-            <div class="tech">
-                JavaScript
-            </div>
-
-            <div class="tech">
-                Responsive Design
-            </div>
-
-            <div class="tech">
-                GitHub
-            </div>
-
-            <div class="tech">
-                Cloudflare
-            </div>
-
-            <div class="tech">
-                UI Design
-            </div>
-
-            <div class="tech">
-                Web Development
-            </div>
+            <div class="tech-item">HTML5</div>
+            <div class="tech-item">CSS3</div>
+            <div class="tech-item">JavaScript</div>
+            <div class="tech-item">Responsive Design</div>
+            <div class="tech-item">GitHub</div>
+            <div class="tech-item">Cloudflare</div>
+            <div class="tech-item">UI Design</div>
+            <div class="tech-item">Web Development</div>
 
         </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -1531,179 +1102,208 @@
 
     <section id="contact">
 
-        <h2 class="section-title">
-            Let's Work Together
-        </h2>
-
-
-        <p class="section-intro">
-
-            Have a website project in mind?
-            Send me the details.
-
-        </p>
-
-
-
-        <div class="qr-section">
-
-            <h3>
-                Scan to Visit My Website
-            </h3>
-
-
-            <img
-                src="built-by-yoryor-qr-code.png"
-                alt="QR code for Built by Yoryor"
-                class="website-qr"
-            >
-
-
+        <div class="section-title">
+            <h2>Let's Work Together</h2>
             <p>
-                Scan the QR code to visit Built by Yoryor.
+                Have a project in mind? Tell me what you need.
             </p>
-
         </div>
 
+        <div class="contact-grid">
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="contact-info">
+
+                <h3>Start Your Project</h3>
+
+                <p>
+                    Whether you need a business website, online store
+                    or personal website, send me your project details
+                    and I'll get back to you.
+                </p>
+
+                <div class="contact-links">
+
+                    <a href="mailto:builtbyyoryor@gmail.com">
+                        Email: builtbyyoryor@gmail.com
+                    </a>
+
+                    <a
+                        href="https://wa.me/2348068782377"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        WhatsApp: Chat With Me
+                    </a>
+
+                </div>
 
 
-        <div class="contact-info">
+                <!-- QR -->
 
-            <p>
+                <div class="qr-section">
 
-                📧
+                    <h3>Scan to Visit My Website</h3>
 
-                <a
-                    href="mailto:builtbyyoryor@gmail.com">
+                    <img
+                        src="built-by-yoryor-qr-code.png"
+                        alt="QR code for Built by Yoryor"
+                        class="website-qr"
+                    >
 
-                    builtbyyoryor@gmail.com
+                    <p>
+                        Scan the QR code to visit Built by Yoryor.
+                    </p>
 
-                </a>
+                </div>
 
-            </p>
+            </div>
 
 
-            <p>
+            <!-- CONTACT FORM -->
 
-                📱
+            <form
+                id="contactForm"
+                action="https://formspree.io/f/xbgjyekq"
+                method="POST"
+            >
 
-                <a
-                    href="https://wa.me/2348068782377"
-                    target="_blank"
-                    rel="noopener noreferrer">
+                <div class="form-group">
 
-                    WhatsApp
+                    <label for="projectType">
+                        Project Type
+                    </label>
 
-                </a>
+                    <select
+                        id="projectType"
+                        name="project_type"
+                        required
+                    >
+                        <option value="">
+                            Select project type
+                        </option>
 
-            </p>
+                        <option value="Business Website">
+                            Business Website
+                        </option>
+
+                        <option value="Online Store">
+                            Online Store
+                        </option>
+
+                        <option value="Personal Website">
+                            Personal Website
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="budget">
+                        Budget
+                    </label>
+
+                    <select
+                        id="budget"
+                        name="budget"
+                        required
+                    >
+                        <option value="">
+                            Select your budget
+                        </option>
+
+                        <option value="Under $100">
+                            Under $100
+                        </option>
+
+                        <option value="$100 - $250">
+                            $100 - $250
+                        </option>
+
+                        <option value="$250 - $500">
+                            $250 - $500
+                        </option>
+
+                        <option value="$500+">
+                            $500+
+                        </option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Your Name
+                    </label>
+
+                    <input
+                        id="name"
+                        type="text"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Tell Me About Your Project
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell me what you want to build..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                    id="submitButton"
+                >
+                    Send Project Request
+                </button>
+
+                <div id="formStatus"></div>
+
+            </form>
 
         </div>
-
-
-
-        <form
-            id="contact-form"
-            action="https://formspree.io/f/xbgjyekq"
-            method="POST">
-
-
-            <select
-                name="project_type"
-                required>
-
-                <option value="">
-                    What type of website do you need?
-                </option>
-
-                <option value="Business Website">
-                    Business Website
-                </option>
-
-                <option value="Online Store">
-                    Online Store
-                </option>
-
-                <option value="Personal Website">
-                    Personal Website
-                </option>
-
-                <option value="Other">
-                    Other
-                </option>
-
-            </select>
-
-
-
-            <select
-                name="budget"
-                required>
-
-                <option value="">
-                    What is your estimated budget?
-                </option>
-
-                <option value="Under $100">
-                    Under $100
-                </option>
-
-                <option value="$100 - $250">
-                    $100 - $250
-                </option>
-
-                <option value="$250 - $500">
-                    $250 - $500
-                </option>
-
-                <option value="$500+">
-                    $500+
-                </option>
-
-            </select>
-
-
-
-            <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-            >
-
-
-
-            <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-            >
-
-
-
-            <textarea
-                name="message"
-                placeholder="Tell me about your project..."
-                required></textarea>
-
-
-
-            <button
-                type="submit"
-                id="submit-button">
-
-                Send Message
-
-            </button>
-
-
-            <p id="form-status"></p>
-
-        </form>
 
     </section>
-
 
 
     <!-- =========================
@@ -1712,24 +1312,17 @@
 
     <footer>
 
-        <p>
-            <strong>
-                Built by Yoryor
-            </strong>
-        </p>
-
+        <strong>Built by Yoryor</strong>
 
         <p>
             Professional websites built with purpose.
         </p>
 
-
-        <p>
-            © 2026 Built by Yoryor
+        <p style="margin-top:8px;">
+            © 2026 Built by Yoryor. All rights reserved.
         </p>
 
     </footer>
-
 
 
     <!-- =========================
@@ -1739,112 +1332,90 @@
     <script>
 
         /* =========================
-           CURRENCY
+           CURRENCY CONVERSION
         ========================= */
-
-        const exchangeRate = 1323.47;
 
         const currencySelector =
             document.getElementById("currency");
 
+        const prices =
+            document.querySelectorAll(".price");
 
-        function changeCurrency() {
+        const exchangeRate = 1323.47;
+
+        function updatePrices() {
 
             const currency =
                 currencySelector.value;
 
+            prices.forEach(function(price) {
 
-            document
-                .querySelectorAll(".price")
-                .forEach(price => {
+                const usd =
+                    Number(price.dataset.usd);
 
-                    const usd =
-                        parseFloat(
-                            price.dataset.usd
-                        );
+                if (currency === "NGN") {
 
+                    const naira =
+                        Math.round(usd * exchangeRate);
 
-                    if (currency === "NGN") {
+                    price.textContent =
+                        "₦" + naira.toLocaleString("en-NG");
 
-                        price.textContent =
-                            "₦" +
-                            Math.round(
-                                usd * exchangeRate
-                            ).toLocaleString();
+                } else {
 
-                    } else {
+                    price.textContent =
+                        "$" + usd.toLocaleString();
 
-                        price.textContent =
-                            "$" +
-                            usd.toLocaleString();
+                }
 
-                    }
-
-                });
+            });
 
         }
 
-
         currencySelector.addEventListener(
             "change",
-            changeCurrency
+            updatePrices
         );
-
 
 
         /* =========================
            CONTACT FORM
         ========================= */
 
-        const form =
-            document.getElementById(
-                "contact-form"
-            );
-
+        const contactForm =
+            document.getElementById("contactForm");
 
         const formStatus =
-            document.getElementById(
-                "form-status"
-            );
-
+            document.getElementById("formStatus");
 
         const submitButton =
-            document.getElementById(
-                "submit-button"
-            );
+            document.getElementById("submitButton");
 
 
-        form.addEventListener(
+        contactForm.addEventListener(
             "submit",
             async function(event) {
 
                 event.preventDefault();
-
 
                 submitButton.disabled = true;
 
                 submitButton.textContent =
                     "Sending...";
 
-
-                formStatus.textContent =
-                    "";
-
+                formStatus.textContent = "";
 
                 const formData =
-                    new FormData(form);
-
+                    new FormData(contactForm);
 
                 try {
 
                     const response =
                         await fetch(
-                            form.action,
+                            contactForm.action,
                             {
                                 method: "POST",
-
                                 body: formData,
-
                                 headers: {
                                     "Accept":
                                         "application/json"
@@ -1852,42 +1423,45 @@
                             }
                         );
 
-
                     if (response.ok) {
 
-                        form.reset();
-
-
                         formStatus.textContent =
-                            "✅ Message sent successfully! I'll get back to you soon.";
+                            "Message sent successfully. I'll get back to you soon.";
 
+                        formStatus.style.color =
+                            "#7ee787";
+
+                        contactForm.reset();
 
                     } else {
 
                         formStatus.textContent =
-                            "❌ Something went wrong. Please try again.";
+                            "Something went wrong. Please try again.";
 
+                        formStatus.style.color =
+                            "#ff7b72";
                     }
-
 
                 } catch (error) {
 
                     formStatus.textContent =
-                        "❌ Something went wrong. Please try again.";
+                        "Unable to send the message right now. Please try again.";
 
+                    formStatus.style.color =
+                        "#ff7b72";
+
+                } finally {
+
+                    submitButton.disabled = false;
+
+                    submitButton.textContent =
+                        "Send Project Request";
                 }
-
-
-                submitButton.disabled = false;
-
-                submitButton.textContent =
-                    "Send Message";
 
             }
         );
 
     </script>
-
 
 </body>
 </html>
