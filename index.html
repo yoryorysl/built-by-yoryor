@@ -3,630 +3,1419 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Built by Yoryor | Web Developer</title>
-<meta name="description" content="Built by Yoryor — professional, modern and responsive websites for businesses, brands and individuals.">
+
+<meta
+  name="description"
+  content="Built by Yoryor — professional, modern and responsive websites for businesses, brands and individuals."
+>
+
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
+
 html{
     scroll-behavior:smooth;
-    overflow-x:hidden;
 }
+
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#080808;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:#050505;
     color:#fff;
     line-height:1.6;
     overflow-x:hidden;
 }
+
 a{
     color:inherit;
+    text-decoration:none;
 }
-img{
-    max-width:100%;
+
+button,
+select,
+input,
+textarea{
+    font:inherit;
 }
-/* =========================
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+    --gold:#d6b36a;
+    --gold-light:#f3d58e;
+    --dark:#050505;
+    --dark-2:#0b0b0d;
+    --dark-3:#111114;
+    --text:#f5f5f5;
+    --muted:#9d9da5;
+    --border:rgba(255,255,255,.09);
+}
+
+/* =========================================================
    NAVIGATION
-========================= */
-nav{
+========================================================= */
+
+.navbar{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(5,5,5,.96);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-.nav-container{
+
     width:100%;
-    max-width:1250px;
+
+    background:rgba(5,5,5,.88);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.nav-container{
+    width:min(1180px,92%);
     margin:auto;
-    padding:12px clamp(15px,5vw,60px);
+
+    min-height:72px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:20px;
+    gap:25px;
 }
+
 .logo{
     display:flex;
     align-items:center;
-    gap:9px;
-    font-size:clamp(11px,1.3vw,15px);
-    font-weight:700;
-    letter-spacing:1.5px;
+    gap:10px;
+
+    color:var(--gold);
+
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:2px;
+
     white-space:nowrap;
-    text-decoration:none;
-}
-.logo-mark{
-    width:38px;
-    height:38px;
-    flex-shrink:0;
-}
-.nav-links{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:flex-end;
-    align-items:center;
-    gap:clamp(9px,1.7vw,22px);
-    list-style:none;
-}
-.nav-links a{
-    text-decoration:none;
-    color:#ddd;
-    font-size:clamp(11px,1.2vw,14px);
-    transition:.3s;
-}
-.nav-links a:hover{
-    color:#f5c451;
-}
-/* =========================
-   HERO
-========================= */
-.hero{
-    position:relative;
-    width:100%;
-    background:#050505;
-    overflow:hidden;
-}
-/*
- IMPORTANT:
- The image is NOT cropped.
- It keeps its natural proportions and
- scales to the width of the device.
-*/
-.hero-art{
-    position:relative;
-    width:100%;
-    height:auto;
-    display:block;
-}
-/* invisible working buttons */
-.hero-hotspot{
-    position:absolute;
-    z-index:5;
-    display:block;
-    text-decoration:none;
-    background:transparent;
-}
-/*
- These two areas sit over the buttons
- already designed inside your artwork.
-*/
-.work-hotspot{
-    left:35%;
-    bottom:5%;
-    width:30%;
-    height:18%;
-    cursor:pointer;
 }
 
-.contact-hotspot{
-    left:65%;
-    bottom:5%;
-    width:30%;
-    height:18%;
-    cursor:pointer;
+.logo-mark{
+    width:36px;
+    height:36px;
 }
-/* =========================
-   SECTION SYSTEM
-========================= */
-section:not(.hero){
-    width:100%;
-    padding:clamp(65px,8vw,100px) clamp(18px,7vw,90px);
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
 }
-.section-container{
-    width:100%;
-    max-width:1100px;
-    margin:auto;
+
+.nav-links a{
+    color:#bdbdc3;
+    font-size:13px;
+    transition:.25s ease;
 }
-.section-title{
-    max-width:760px;
-    margin:0 auto 42px;
-    text-align:center;
+
+.nav-links a:hover{
+    color:var(--gold);
 }
-.section-title h2{
-    font-size:clamp(28px,4vw,42px);
-    line-height:1.15;
-    margin-bottom:12px;
+
+.nav-cta{
+    padding:10px 16px;
+
+    border:1px solid rgba(214,179,106,.5);
+    border-radius:999px;
+
+    color:var(--gold)!important;
 }
-.section-title p{
-    color:#aaa;
-    font-size:clamp(14px,1.6vw,17px);
+
+.nav-cta:hover{
+    background:var(--gold);
+    color:#050505!important;
 }
-/* =========================
-   ABOUT
-========================= */
-#about{
-    background:#0b0b0b;
-}
-.about-content{
-    max-width:850px;
-    margin:auto;
-    text-align:center;
-}
-.about-content p{
-    color:#c4c4c4;
-    font-size:clamp(15px,1.7vw,17px);
-    margin-bottom:18px;
-}
-/* =========================
-   SERVICES
-========================= */
-#services{
-    background:#101010;
-}
-.cards{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:24px;
-}
-.card{
-    background:#171717;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:18px;
-    padding:32px 25px;
-    transition:.3s;
-}
-.card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(245,196,81,.45);
-}
-.card-icon{
-    font-size:30px;
-    margin-bottom:15px;
-}
-.card h3{
-    margin-bottom:10px;
-    font-size:21px;
-}
-.card p{
-    color:#aaa;
-    font-size:15px;
-}
-/* =========================
-   WHY ME
-========================= */
-#why{
-    background:#080808;
-}
-.why-grid{
-    max-width:1000px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:22px;
-}
-.why-item{
-    text-align:center;
-    padding:32px 20px;
-    background:#111;
-    border-radius:18px;
-    border:1px solid rgba(255,255,255,.07);
-}
-.why-icon{
-    font-size:30px;
-    margin-bottom:12px;
-}
-.why-item strong{
-    display:block;
-    font-size:20px;
-    margin-bottom:9px;
-}
-.why-item span{
-    color:#aaa;
-    font-size:14px;
-}
-/* =========================
-   PROJECTS
-========================= */
-#projects{
-    background:#101010;
-}
-.currency-box{
-    max-width:1100px;
-    margin:0 auto 25px;
-    text-align:right;
-}
-.currency-box label{
-    color:#aaa;
-    margin-right:8px;
-    font-size:14px;
-}
-#currency{
-    background:#171717;
-    color:#fff;
-    border:1px solid #444;
-    border-radius:8px;
-    padding:9px 12px;
-}
-.project-grid{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:22px;
-}
-.project{
-    background:#171717;
-    border-radius:18px;
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+    min-height:calc(100vh - 72px);
+
+    display:flex;
+    align-items:center;
+
     overflow:hidden;
-    border:1px solid rgba(255,255,255,.08);
-    transition:.3s;
+
+    background:
+        radial-gradient(
+            circle at 75% 40%,
+            rgba(214,179,106,.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 20% 70%,
+            rgba(120,80,255,.07),
+            transparent 30%
+        ),
+        #050505;
 }
-.project:hover{
-    transform:translateY(-6px);
+
+/* Animated background grid */
+
+.hero-grid{
+    position:absolute;
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+
+    background-size:55px 55px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        transparent,
+        black 20%,
+        black 75%,
+        transparent
+    );
+
+    opacity:.35;
+
+    animation:gridMove 18s linear infinite;
 }
-.project-preview{
-    min-height:180px;
+
+@keyframes gridMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(55px);
+    }
+}
+
+/* Glow */
+
+.hero-glow{
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    background:rgba(214,179,106,.08);
+
+    filter:blur(70px);
+
+    right:10%;
+    top:20%;
+
+    animation:glowPulse 5s ease-in-out infinite;
+}
+
+@keyframes glowPulse{
+
+    0%,100%{
+        transform:scale(1);
+        opacity:.55;
+    }
+
+    50%{
+        transform:scale(1.2);
+        opacity:.9;
+    }
+}
+
+/* Hero container */
+
+.hero-container{
+    position:relative;
+    z-index:5;
+
+    width:min(1180px,92%);
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+
+    gap:70px;
+
+    padding:90px 0;
+}
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.hero-copy{
+    position:relative;
+    z-index:10;
+}
+
+.hero-label{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:7px 13px;
+
+    border:1px solid rgba(214,179,106,.25);
+    border-radius:999px;
+
+    color:var(--gold-light);
+
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px;
+
+    background:rgba(214,179,106,.04);
+
+    margin-bottom:25px;
+
+    animation:fadeUp .8s ease both;
+}
+
+.hero-label span{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    box-shadow:0 0 15px var(--gold);
+
+    animation:statusPulse 2s infinite;
+}
+
+@keyframes statusPulse{
+
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.4;
+        transform:scale(.7);
+    }
+}
+
+.hero h1{
+    font-size:clamp(48px,7vw,88px);
+    line-height:.98;
+    letter-spacing:-4px;
+
+    margin-bottom:24px;
+
+    animation:fadeUp .9s .1s ease both;
+}
+
+.hero h1 .gold{
+    color:var(--gold);
+}
+
+.hero-description{
+    max-width:590px;
+
+    color:#aaaab2;
+
+    font-size:17px;
+
+    margin-bottom:35px;
+
+    animation:fadeUp .9s .2s ease both;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+
+    animation:fadeUp .9s .3s ease both;
+}
+
+.primary-btn,
+.secondary-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-height:50px;
+
+    padding:0 22px;
+
+    border-radius:10px;
+
+    font-size:13px;
+    font-weight:700;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.primary-btn{
+    background:var(--gold);
+    color:#050505;
+
+    box-shadow:
+        0 10px 35px rgba(214,179,106,.16);
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 40px rgba(214,179,106,.3);
+}
+
+.secondary-btn{
+    border:1px solid rgba(255,255,255,.16);
+    color:#fff;
+
+    background:rgba(255,255,255,.025);
+}
+
+.secondary-btn:hover{
+    transform:translateY(-3px);
+
+    border-color:rgba(214,179,106,.55);
+
+    color:var(--gold);
+}
+
+/* =========================================================
+   ANIMATED BY DISPLAY
+========================================================= */
+
+.hero-visual{
+    position:relative;
+
+    min-height:540px;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:20px;
-    text-align:center;
-    background:linear-gradient(135deg,#191919,#303030);
-    font-size:17px;
-    font-weight:700;
+}
+
+/* Main circle */
+
+.by-orbit{
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border:1px solid rgba(214,179,106,.15);
+
+    border-radius:50%;
+
+    animation:orbitRotate 18s linear infinite;
+}
+
+.by-orbit::before{
+    content:"";
+
+    position:absolute;
+
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    box-shadow:
+        0 0 15px var(--gold),
+        0 0 40px rgba(214,179,106,.7);
+
+    top:25px;
+    left:75px;
+}
+
+.by-orbit::after{
+    content:"";
+
+    position:absolute;
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:0 0 18px #fff;
+
+    bottom:55px;
+    right:35px;
+}
+
+@keyframes orbitRotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* Second orbit */
+
+.by-orbit-two{
+    position:absolute;
+
+    width:310px;
+    height:310px;
+
+    border:1px dashed rgba(214,179,106,.18);
+
+    border-radius:50%;
+
+    animation:orbitReverse 13s linear infinite;
+}
+
+@keyframes orbitReverse{
+
+    from{
+        transform:rotate(360deg);
+    }
+
+    to{
+        transform:rotate(0deg);
+    }
+}
+
+/* BY logo */
+
+.by-monogram{
+    position:relative;
+    z-index:4;
+
+    width:220px;
+    height:220px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(214,179,106,.13),
+            rgba(10,10,10,.92) 65%
+        );
+
+    border:1px solid rgba(214,179,106,.3);
+
+    box-shadow:
+        0 0 50px rgba(214,179,106,.09),
+        inset 0 0 50px rgba(214,179,106,.04);
+
+    animation:monogramFloat 4s ease-in-out infinite;
+}
+
+@keyframes monogramFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.by-monogram span{
+    color:var(--gold);
+
+    font-size:95px;
+
+    font-weight:900;
+
+    letter-spacing:-13px;
+
+    transform:translateX(-7px);
+
+    text-shadow:
+        0 0 15px rgba(214,179,106,.3);
+}
+
+.by-wordmark{
+    position:absolute;
+
+    bottom:38px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#fff;
+
+    font-size:12px;
+    font-weight:800;
+
+    letter-spacing:5px;
+
+    white-space:nowrap;
+}
+
+/* Floating UI cards */
+
+.ui-card{
+    position:absolute;
+
+    z-index:7;
+
+    padding:13px 15px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:12px;
+
+    background:rgba(12,12,14,.78);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4);
+
+    animation:cardFloat 5s ease-in-out infinite;
+}
+
+.ui-card small{
+    display:block;
+
+    color:#777;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    margin-bottom:4px;
+}
+
+.ui-card strong{
+    display:block;
+
+    color:#eee;
+
+    font-size:12px;
+}
+
+.ui-card.one{
+    top:65px;
+    right:30px;
+}
+
+.ui-card.two{
+    left:0;
+    top:170px;
+
+    animation-delay:-2s;
+}
+
+.ui-card.three{
+    right:15px;
+    bottom:100px;
+
+    animation-delay:-3.5s;
+}
+
+@keyframes cardFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* Small code window */
+
+.code-window{
+    position:absolute;
+
+    left:10px;
+    bottom:40px;
+
+    width:210px;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    background:#0c0c0e;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45);
+
+    animation:cardFloat 6s ease-in-out infinite;
+    animation-delay:-1s;
+}
+
+.window-top{
+    display:flex;
+    gap:5px;
+
+    margin-bottom:12px;
+}
+
+.window-top i{
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#555;
+}
+
+.code-line{
+    height:5px;
+
+    border-radius:20px;
+
+    background:#29292d;
+
+    margin:7px 0;
+}
+
+.code-line.short{
+    width:55%;
+}
+
+.code-line.gold{
+    width:75%;
+    background:rgba(214,179,106,.45);
+}
+
+.code-line.medium{
+    width:85%;
+}
+
+/* =========================================================
+   ANIMATION HELPERS
+========================================================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================================================
+   SECTION SYSTEM
+========================================================= */
+
+.section{
+    padding:110px 0;
+}
+
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+}
+
+.section-heading{
+    max-width:650px;
+
+    margin-bottom:55px;
+}
+
+.section-heading span{
+    color:var(--gold);
+
+    font-size:11px;
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.section-heading h2{
+    margin-top:12px;
+
+    font-size:clamp(32px,5vw,55px);
+
+    line-height:1.05;
+
+    letter-spacing:-2px;
+}
+
+.section-heading p{
+    margin-top:18px;
+
+    color:var(--muted);
+
+    font-size:16px;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about{
+    background:#08080a;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+}
+
+.about-text p{
+    color:#a6a6ad;
+
+    margin-bottom:18px;
+
+    font-size:16px;
+}
+
+.about-highlight{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+}
+
+.highlight{
+    padding:25px;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.025);
+}
+
+.highlight strong{
+    display:block;
+
+    color:var(--gold);
+
+    font-size:28px;
+
+    margin-bottom:4px;
+}
+
+.highlight span{
+    color:#8d8d94;
+
+    font-size:12px;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services{
+    background:#050505;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.card{
+    position:relative;
+
+    padding:32px;
+
+    min-height:230px;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        );
+
+    overflow:hidden;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
+}
+
+.card::after{
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:rgba(214,179,106,.06);
+
+    filter:blur(30px);
+
+    right:-50px;
+    bottom:-50px;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+
+    border-color:rgba(214,179,106,.35);
+}
+
+.card-number{
+    color:var(--gold);
+
+    font-size:11px;
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+.card h3{
+    margin:28px 0 10px;
+
+    font-size:21px;
+}
+
+.card p{
+    color:#909097;
+
+    font-size:14px;
+}
+
+/* =========================================================
+   WHY ME
+========================================================= */
+
+.why{
+    background:#08080a;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.why-item{
+    padding:30px;
+
+    border-left:1px solid rgba(214,179,106,.35);
+}
+
+.why-item h3{
+    margin-bottom:10px;
+
+    font-size:19px;
+}
+
+.why-item p{
+    color:#909097;
+
+    font-size:14px;
+}
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects{
+    background:#050505;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.project{
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    background:#0b0b0d;
+
+    transition:.3s ease;
+}
+
+.project:hover{
+    transform:translateY(-7px);
+
+    border-color:rgba(214,179,106,.35);
+}
+
+.project-preview{
+    height:180px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214,179,106,.13),
+            transparent 55%
+        ),
+        #101012;
+
+    border-bottom:1px solid var(--border);
+}
+
+.project-preview span{
+    color:var(--gold);
+
+    font-size:38px;
+
+    font-weight:900;
+
+    letter-spacing:-2px;
+}
+
+.project-body{
+    padding:23px;
+}
+
+.project-body h3{
+    margin-bottom:7px;
+}
+
+.project-body p{
+    color:#8f8f96;
+
+    font-size:13px;
+
+    margin-bottom:18px;
+}
+
+.project-link{
+    color:var(--gold);
+
+    font-size:12px;
+
+    font-weight:800;
+
     letter-spacing:1px;
 }
-.project-content{
-    padding:25px;
-}
-.project-content h3{
-    margin-bottom:8px;
-}
-.project-content p{
-    color:#aaa;
-    font-size:14px;
-    margin-bottom:14px;
-}
-.price{
-    display:block;
-    color:#f5c451;
-    font-size:20px;
-    font-weight:700;
-    margin-bottom:15px;
-}
-.project-link{
-    display:inline-block;
-    text-decoration:none;
-    padding:10px 17px;
-    border-radius:22px;
-    border:1px solid #555;
-    font-size:14px;
-    transition:.3s;
-}
-.project-link:hover{
-    background:#f5c451;
-    color:#111;
-    border-color:#f5c451;
-}
-.tech-tags{
-    margin-top:14px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:7px;
-}
-.tech-tags span{
-    background:#242424;
-    color:#bbb;
-    padding:5px 9px;
-    border-radius:12px;
-    font-size:11px;
-}
-/* =========================
+
+/* =========================================================
    TECH STACK
-========================= */
-#tech{
-    background:#080808;
+========================================================= */
+
+.tech{
+    background:#08080a;
 }
+
 .tech-grid{
-    max-width:900px;
-    margin:auto;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:11px;
-}
-.tech-item{
-    padding:13px 18px;
-    background:#151515;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:25px;
-    color:#ddd;
-    font-size:14px;
-}
-/* =========================
-   CONTACT
-========================= */
-#contact{
-    background:#101010;
-}
-.contact-grid{
-    max-width:1050px;
-    margin:auto;
     display:grid;
-    grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
-    gap:40px;
-    align-items:start;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
 }
-.contact-info h3{
-    font-size:27px;
-    margin-bottom:15px;
+
+.tech-item{
+    padding:20px;
+
+    text-align:center;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    color:#c3c3c8;
+
+    font-size:13px;
+
+    background:rgba(255,255,255,.018);
+
+    transition:.25s ease;
 }
-.contact-info>p{
-    color:#aaa;
+
+.tech-item:hover{
+    color:var(--gold);
+
+    border-color:rgba(214,179,106,.3);
+
+    transform:translateY(-3px);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+    background:#050505;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+
+    gap:60px;
+}
+
+.contact-info p{
+    color:#96969d;
+
     margin-bottom:25px;
 }
-.contact-links{
+
+.contact-details{
     display:flex;
     flex-direction:column;
-    gap:13px;
+
+    gap:14px;
 }
-.contact-links a{
-    color:#f5c451;
-    text-decoration:none;
-    overflow-wrap:anywhere;
+
+.contact-details a{
+    color:#ddd;
+
+    font-size:14px;
+
+    transition:.2s ease;
 }
-.qr-section{
-    margin-top:30px;
-    padding:22px;
-    background:#171717;
-    border-radius:18px;
-    text-align:center;
-    border:1px solid rgba(255,255,255,.08);
+
+.contact-details a:hover{
+    color:var(--gold);
 }
-.qr-section h3{
-    margin-bottom:15px;
-    font-size:18px;
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+
+    gap:14px;
 }
-.website-qr{
-    width:170px;
-    height:170px;
-    object-fit:contain;
-    background:#fff;
-    padding:8px;
-    border-radius:10px;
-}
-.qr-section p{
-    color:#aaa;
-    font-size:13px;
-    margin-top:10px;
-}
-/* =========================
-   FORM
-========================= */
-form{
-    background:#171717;
-    padding:28px;
-    border-radius:18px;
-    border:1px solid rgba(255,255,255,.08);
-}
-.form-group{
-    margin-bottom:17px;
-}
-.form-group label{
-    display:block;
-    margin-bottom:7px;
-    font-size:13px;
-    color:#ccc;
-}
-input,
-select,
-textarea{
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select{
     width:100%;
-    padding:13px 14px;
-    border-radius:9px;
-    border:1px solid #3d3d3d;
-    background:#0d0d0d;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    background:#0d0d0f;
+
     color:#fff;
-    font-family:inherit;
-    font-size:16px;
+
+    padding:15px;
+
     outline:none;
+
+    transition:.25s ease;
 }
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:#f5c451;
-}
-textarea{
-    min-height:130px;
+
+.contact-form textarea{
+    min-height:150px;
+
     resize:vertical;
 }
-.submit-button{
-    width:100%;
-    padding:14px;
-    border:0;
-    border-radius:28px;
-    background:#f5c451;
-    color:#111;
-    font-weight:700;
-    cursor:pointer;
-    transition:.3s;
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus{
+    border-color:rgba(214,179,106,.5);
 }
-.submit-button:hover{
-    transform:translateY(-2px);
-}
-.submit-button:disabled{
-    opacity:.65;
-    cursor:wait;
-}
-#formStatus{
-    margin-top:15px;
-    text-align:center;
-    font-size:14px;
-}
-/* =========================
-   FOOTER
-========================= */
-footer{
-    background:#050505;
-    border-top:1px solid rgba(255,255,255,.08);
-    text-align:center;
-    padding:35px 20px;
-}
-footer strong{
-    display:block;
-    font-size:18px;
-    margin-bottom:5px;
-}
-footer p{
-    color:#777;
+
+.form-status{
     font-size:13px;
+
+    color:var(--gold);
 }
-/* =========================
-   TABLET
-========================= */
-@media(max-width:950px){
-    .nav-container{
-        flex-direction:column;
-        padding-top:14px;
-        padding-bottom:14px;
-    }
-    .nav-links{
-        justify-content:center;
-    }
-    .cards,
-    .why-grid,
-    .project-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-    }
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
-    .contact-info{
-        max-width:700px;
-        margin:auto;
-    }
+
+/* =========================================================
+   QR
+========================================================= */
+
+.qr-box{
+    margin-top:30px;
+
+    padding:20px;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    width:max-content;
+
+    background:#0b0b0d;
 }
-/* =========================
-   PHONE
-========================= */
-@media(max-width:650px){
-    .nav-container{
-        padding-left:12px;
-        padding-right:12px;
-    }
+
+.website-qr{
+    width:120px;
+    height:120px;
+
+    display:block;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:35px 0;
+
+    border-top:1px solid var(--border);
+
+    background:#030303;
+}
+
+.footer-container{
+    width:min(1100px,92%);
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+}
+
+.footer-container p{
+    color:#777;
+
+    font-size:12px;
+}
+
+.footer-brand{
+    color:var(--gold);
+
+    font-size:13px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
     .nav-links{
-        width:100%;
-        justify-content:center;
-        gap:8px 12px;
+        display:none;
     }
-    .nav-links a{
-        font-size:12px;
-    }
-    /*
-       The hero image remains FULL WIDTH.
-       It is no longer forced into a fixed
-       height, so it cannot be vertically
-       chopped by the browser.
-    */
-    .hero{
-        height:auto;
-        min-height:0;
-    }
-    .hero-art{
-        width:100%;
-        height:auto;
-    }
-    /*
-       Make the invisible image buttons
-       easier to tap on a phone.
-    */
-    .work-hotspot{
-        left:47%;
-        bottom:8%;
-        width:24%;
-        height:10%;
-    }
-    .contact-hotspot{
-        left:72%;
-        bottom:8%;
-        width:25%;
-        height:10%;
-    }
-    section:not(.hero){
-        padding-left:18px;
-        padding-right:18px;
-    }
-    .cards,
-    .why-grid,
-    .project-grid{
+
+    .hero-container{
         grid-template-columns:1fr;
-    }
-    .currency-box{
-        text-align:left;
-    }
-    .currency-box label{
-        display:block;
-        margin-bottom:7px;
-    }
-    #currency{
-        width:100%;
-    }
-    .contact-grid{
+
         gap:25px;
+
+        padding:75px 0 60px;
+
+        text-align:center;
     }
-    .website-qr{
-        width:155px;
-        height:155px;
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-visual{
+        min-height:440px;
+        transform:scale(.88);
+    }
+
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards,
+    .why-grid,
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tech-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-container{
+        flex-direction:column;
+        text-align:center;
     }
 }
-/* =========================
-   VERY SMALL PHONES
-========================= */
-@media(max-width:380px){
+
+@media(max-width:600px){
+
+    .nav-container{
+        min-height:64px;
+    }
+
     .logo{
         font-size:11px;
-        letter-spacing:1px;
+        letter-spacing:1.5px;
     }
+
     .logo-mark{
-        width:30px;
-        height:30px;
+        width:31px;
+        height:31px;
     }
-    .nav-links{
-        gap:7px 9px;
+
+    .hero{
+        min-height:auto;
     }
-    .nav-links a{
-        font-size:11px;
+
+    .hero-container{
+        width:90%;
+
+        padding-top:65px;
+    }
+
+    .hero h1{
+        font-size:46px;
+
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .hero-visual{
+        min-height:390px;
+
+        transform:scale(.72);
+
+        margin-top:-25px;
+        margin-bottom:-40px;
+    }
+
+    .by-orbit{
+        width:420px;
+        height:420px;
+    }
+
+    .ui-card.one{
+        right:-15px;
+    }
+
+    .ui-card.two{
+        left:-25px;
+    }
+
+    .ui-card.three{
+        right:-10px;
+    }
+
+    .code-window{
+        left:-20px;
+    }
+
+    .section{
+        padding:80px 0;
+    }
+
+    .section-heading{
+        margin-bottom:40px;
+    }
+
+    .about-highlight{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        width:100%;
+    }
+
+    .hero-buttons{
+        width:100%;
+    }
+
+    .tech-grid{
+        grid-template-columns:1fr 1fr;
     }
 }
+
 </style>
+</head>
+
 <body>
-<!-- =========================
+
+<!-- =======================================================
      NAVIGATION
-========================= -->
-<nav>
+======================================================= -->
+
+<header class="navbar">
+
     <div class="nav-container">
+
         <a href="#home" class="logo">
+
             <svg
                 class="logo-mark"
                 viewBox="0 0 100 100"
-                aria-label="BY monogram logo"
+                aria-label="BY logo"
             >
+
                 <path
                     d="M24 18
                        C42 18 53 24 53 36
@@ -651,6 +1440,7 @@ footer p{
                     stroke-width="4"
                     stroke-linejoin="round"
                 />
+
                 <path
                     d="M50 18
                        L67 48
@@ -660,489 +1450,937 @@ footer p{
                     fill="none"
                     stroke="currentColor"
                     stroke-width="4"
-                    stroke-linecap="square"
-                    stroke-linejoin="miter"
                 />
+
             </svg>
+
             <span>BUILT BY YORYOR</span>
+
         </a>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#why">Why Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#tech">Tech Stack</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+
+        <nav class="nav-links">
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#why">Why Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#tech">Tech Stack</a>
+
+            <a href="#contact" class="nav-cta">
+                Contact
+            </a>
+
+        </nav>
+
     </div>
-</nav>
-<!-- =========================
+
+</header>
+
+
+<!-- =======================================================
      HERO
-     The complete artwork is shown
-     without cropping.
-     The invisible hotspots make the
-     artwork's own buttons functional.
-========================= -->
+======================================================= -->
+
 <section class="hero" id="home">
-    <img
-        src="hero-background.png.PNG"
-        alt="Built by Yoryor professional web development"
-        class="hero-art"
-    >
-    
-</section>
-<!-- =========================
-     ABOUT
-========================= -->
-<section id="about">
-    <div class="section-container">
-        <div class="section-title">
-            <h2>About Me</h2>
-            <p>Building modern digital experiences with purpose.</p>
-        </div>
-        <div class="about-content">
-            <p>
-                I’m Yoryor, a web developer focused on creating clean,
-                modern and professional websites for businesses,
-                brands and individuals.
-            </p>
-            <p>
-                My goal is simple: build websites that look professional,
-                work smoothly and give visitors a clear reason to take
-                action.
-            </p>
-            <p>
-                Every project is designed with responsiveness,
-                usability and the client's goals in mind.
-            </p>
-        </div>
-    </div>
-</section>
-<!-- =========================
-     SERVICES
-========================= -->
-<section id="services">
-    <div class="section-title">
-        <h2>What I Build</h2>
-        <p>Professional websites designed around your goals.</p>
-    </div>
-    <div class="cards">
-        <div class="card">
-            <div class="card-icon">◈</div>
-            <h3>Business Websites</h3>
-            <p>
-                Professional websites that establish credibility,
-                explain your services and help customers contact you.
-            </p>
-        </div>
-        <div class="card">
-            <div class="card-icon">▣</div>
-            <h3>Online Stores</h3>
-            <p>
-                Modern ecommerce experiences designed to present
-                products clearly and make purchasing simple.
-            </p>
-        </div>
-        <div class="card">
-            <div class="card-icon">◇</div>
-            <h3>Personal Websites</h3>
-            <p>
-                Clean personal and portfolio websites for individuals,
-                creators and professionals.
-            </p>
-        </div>
-    </div>
-</section>
-<!-- =========================
-     WHY ME
-========================= -->
-<section id="why">
-    <div class="section-title">
-        <h2>Why Work With Me?</h2>
-        <p>A professional approach from design to delivery.</p>
-    </div>
-    <div class="why-grid">
-        <div class="why-item">
-            <div class="why-icon">◉</div>
-            <strong>Mobile Friendly</strong>
-            <span>
-                Your website is designed to work across phones,
-                tablets and desktop screens.
-            </span>
-        </div>
-        <div class="why-item">
-            <div class="why-icon">⚡</div>
-            <strong>Fast & Simple</strong>
-            <span>
-                Clean layouts and focused experiences make websites
-                easier for visitors to use.
-            </span>
-        </div>
-        <div class="why-item">
-            <div class="why-icon">◎</div>
-            <strong>Goal Focused</strong>
-            <span>
-                Every section has a purpose, whether that is getting
-                enquiries, showcasing work or selling products.
-            </span>
-        </div>
-    </div>
-</section>
-<!-- =========================
-     PROJECTS
-========================= -->
-<section id="projects">
-    <div class="section-title">
-        <h2>Selected Projects</h2>
-        <p>Web experiences built for different business needs.</p>
-    </div>
-    <div class="currency-box">
-        <label for="currency">
-            Display prices in:
-        </label>
-        <select id="currency">
-            <option value="USD">USD ($)</option>
-            <option value="NGN">NGN (₦)</option>
-        </select>
-    </div>
-    <div class="project-grid">
-        <article class="project">
-            <div class="project-preview">
-                BUSINESS WEBSITE
+
+    <div class="hero-grid"></div>
+
+    <div class="hero-glow"></div>
+
+
+    <div class="hero-container">
+
+
+        <!-- HERO TEXT -->
+
+        <div class="hero-copy">
+
+            <div class="hero-label">
+
+                <span></span>
+
+                AVAILABLE FOR NEW PROJECTS
+
             </div>
-            <div class="project-content">
-                <h3>Business Website</h3>
-                <p>
-                    A professional business website designed to
-                    establish trust and generate enquiries.
-                </p>
-                <span class="price" data-usd="100">
-                    $100
+
+
+            <h1>
+
+                Professional
+                <br>
+
+                <span class="gold">
+                    Digital Experiences.
                 </span>
-                <a href="business.html" class="project-link">
-                    View Project
-                </a>
-                <div class="tech-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Responsive</span>
-                </div>
-            </div>
-        </article>
-        <article class="project">
-            <div class="project-preview">
-                RESTAURANT WEBSITE
-            </div>
-            <div class="project-content">
-                <h3>Restaurant Website</h3>
-                <p>
-                    A modern restaurant experience for menus,
-                    services, locations and customer enquiries.
-                </p>
-                <span class="price" data-usd="150">
-                    $150
-                </span>
-                <a href="restaurant.html" class="project-link">
-                    View Project
-                </a>
-                <div class="tech-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>UI Design</span>
-                </div>
-            </div>
-        </article>
-        <article class="project">
-            <div class="project-preview">
-                PERSONAL PORTFOLIO
-            </div>
-            <div class="project-content">
-                <h3>Personal Portfolio</h3>
-                <p>
-                    A clean personal website for presenting skills,
-                    projects and professional information.
-                </p>
-                <span class="price" data-usd="120">
-                    $120
-                </span>
-                <a href="personal.html" class="project-link">
-                    View Project
-                </a>
-                <div class="tech-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Responsive</span>
-                </div>
-            </div>
-        </article>
-    </div>
-</section>
-<!-- =========================
-     TECH STACK
-========================= -->
-<section id="tech">
-    <div class="section-title">
-        <h2>Tech Stack</h2>
-        <p>Tools and technologies I use to build websites.</p>
-    </div>
-    <div class="tech-grid">
-        <div class="tech-item">HTML5</div>
-        <div class="tech-item">CSS3</div>
-        <div class="tech-item">JavaScript</div>
-        <div class="tech-item">Responsive Design</div>
-        <div class="tech-item">GitHub</div>
-        <div class="tech-item">Cloudflare</div>
-        <div class="tech-item">UI Design</div>
-        <div class="tech-item">Web Development</div>
-    </div>
-</section>
-<!-- =========================
-     CONTACT
-========================= -->
-<section id="contact">
-    <div class="section-title">
-        <h2>Let's Work Together</h2>
-        <p>
-            Have a project in mind? Tell me what you need.
-        </p>
-    </div>
-    <div class="contact-grid">
-        <div class="contact-info">
-            <h3>Start Your Project</h3>
-            <p>
-                Whether you need a business website, online store
-                or personal website, send me your project details
-                and I'll get back to you.
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                I design and build modern, responsive websites
+                that help businesses, brands and individuals
+                create a stronger presence online.
+
             </p>
-            <div class="contact-links">
-                <a href="mailto:builtbyyoryor@gmail.com">
-                    Email: builtbyyoryor@gmail.com
-                </a>
+
+
+            <div class="hero-buttons">
+
                 <a
-                    href="https://wa.me/2348068782377"
-                    target="_blank"
-                    rel="noopener"
+                    href="#projects"
+                    class="primary-btn"
                 >
-                    WhatsApp: Chat With Me
+                    View My Work
                 </a>
-            </div>
-            <div class="qr-section">
-                <h3>Scan to Visit My Website</h3>
-                <img
-                    src="built-by-yoryor-qr-code.png"
-                    alt="QR code for Built by Yoryor"
-                    class="website-qr"
+
+
+                <a
+                    href="#contact"
+                    class="secondary-btn"
                 >
-                <p>
-                    Scan the QR code to visit Built by Yoryor.
-                </p>
+                    Get In Touch
+                </a>
+
             </div>
+
         </div>
-        <form
-            id="contactForm"
-            action="https://formspree.io/f/xbgjyekq"
-            method="POST"
-        >
-            <div class="form-group">
-                <label for="projectType">
-                    Project Type
-                </label>
-                <select
-                    id="projectType"
-                    name="project_type"
-                    required
-                >
-                    <option value="">
-                        Select project type
-                    </option>
-                    <option value="Business Website">
+
+
+        <!-- ANIMATED VISUAL -->
+
+        <div class="hero-visual">
+
+
+            <div class="by-orbit"></div>
+
+            <div class="by-orbit-two"></div>
+
+
+            <!-- BY MONOGRAM -->
+
+            <div class="by-monogram">
+
+                <span>BY</span>
+
+            </div>
+
+
+            <div class="by-wordmark">
+                BUILT BY YORYOR
+            </div>
+
+
+            <!-- FLOATING CARD -->
+
+            <div class="ui-card one">
+
+                <small>DESIGN SYSTEM</small>
+
+                <strong>Modern UI / UX</strong>
+
+            </div>
+
+
+            <div class="ui-card two">
+
+                <small>RESPONSIVE</small>
+
+                <strong>Mobile First</strong>
+
+            </div>
+
+
+            <div class="ui-card three">
+
+                <small>DEVELOPMENT</small>
+
+                <strong>Clean Code</strong>
+
+            </div>
+
+
+            <!-- CODE WINDOW -->
+
+            <div class="code-window">
+
+                <div class="window-top">
+
+                    <i></i>
+                    <i></i>
+                    <i></i>
+
+                </div>
+
+
+                <div class="code-line gold"></div>
+
+                <div class="code-line medium"></div>
+
+                <div class="code-line short"></div>
+
+                <div class="code-line gold"></div>
+
+                <div class="code-line medium"></div>
+
+                <div class="code-line short"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     ABOUT
+======================================================= -->
+
+<section class="section about" id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>ABOUT</span>
+
+            <h2>
+                Building with purpose.
+            </h2>
+
+            <p>
+                Modern websites should do more than look good.
+                They should communicate, perform and help people
+                take action.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-text">
+
+                <p>
+                    I'm Yoryor, the person behind Built by Yoryor.
+                    I build modern digital experiences for businesses,
+                    brands and individuals.
+                </p>
+
+                <p>
+                    My focus is on clean layouts, responsive design,
+                    strong visual presentation and websites that are
+                    simple for visitors to understand.
+                </p>
+
+                <p>
+                    Every project is approached with the goal of
+                    creating something professional, useful and
+                    built around the client's objectives.
+                </p>
+
+            </div>
+
+
+            <div class="about-highlight">
+
+                <div class="highlight">
+
+                    <strong>01</strong>
+
+                    <span>
+                        Modern Design
+                    </span>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <strong>02</strong>
+
+                    <span>
+                        Responsive Layouts
+                    </span>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <strong>03</strong>
+
+                    <span>
+                        Clean Development
+                    </span>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <strong>04</strong>
+
+                    <span>
+                        Business Focused
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     SERVICES
+======================================================= -->
+
+<section class="section services" id="services">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>SERVICES</span>
+
+            <h2>
+                What I build.
+            </h2>
+
+            <p>
+                Digital experiences designed around the needs
+                of each project.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <span class="card-number">01</span>
+
+                <h3>
+                    Business Websites
+                </h3>
+
+                <p>
+                    Professional websites for businesses that
+                    need a strong and credible online presence.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="card-number">02</span>
+
+                <h3>
+                    Online Stores
+                </h3>
+
+                <p>
+                    Modern ecommerce experiences with product
+                    presentation, shopping functionality and
+                    responsive layouts.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="card-number">03</span>
+
+                <h3>
+                    Personal Websites
+                </h3>
+
+                <p>
+                    Clean portfolios and personal websites
+                    designed to present skills, work and identity.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     WHY ME
+======================================================= -->
+
+<section class="section why" id="why">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>WHY BUILT BY YORYOR</span>
+
+            <h2>
+                Designed to make an impression.
+            </h2>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-item">
+
+                <h3>
+                    Mobile Friendly
+                </h3>
+
+                <p>
+                    Websites are designed to work smoothly
+                    across phones, tablets and larger screens.
+                </p>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <h3>
+                    Clean & Modern
+                </h3>
+
+                <p>
+                    Strong visual hierarchy and thoughtful
+                    layouts create a professional experience.
+                </p>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <h3>
+                    Goal Focused
+                </h3>
+
+                <p>
+                    Every page is built around what the website
+                    needs visitors to understand or do.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     PROJECTS
+======================================================= -->
+
+<section class="section projects" id="projects">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>SELECTED WORK</span>
+
+            <h2>
+                Projects I've built.
+            </h2>
+
+            <p>
+                A selection of web experiences created with
+                different business and personal goals in mind.
+            </p>
+
+        </div>
+
+
+        <div class="project-grid">
+
+
+            <article class="project">
+
+                <div class="project-preview">
+
+                    <span>BUSINESS</span>
+
+                </div>
+
+                <div class="project-body">
+
+                    <h3>
                         Business Website
-                    </option>
-                    <option value="Online Store">
-                        Online Store
-                    </option>
-                    <option value="Personal Website">
-                        Personal Website
-                    </option>
-                    <option value="Other">
-                        Other
-                    </option>
-                </select>
+                    </h3>
+
+                    <p>
+                        Professional business website concept
+                        with responsive design.
+                    </p>
+
+                    <a
+                        href="business.html"
+                        class="project-link"
+                    >
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project">
+
+                <div class="project-preview">
+
+                    <span>RESTAURANT</span>
+
+                </div>
+
+                <div class="project-body">
+
+                    <h3>
+                        Restaurant Website
+                    </h3>
+
+                    <p>
+                        Modern restaurant website concept
+                        designed around presentation and conversion.
+                    </p>
+
+                    <a
+                        href="restaurant.html"
+                        class="project-link"
+                    >
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="project">
+
+                <div class="project-preview">
+
+                    <span>PERSONAL</span>
+
+                </div>
+
+                <div class="project-body">
+
+                    <h3>
+                        Personal Portfolio
+                    </h3>
+
+                    <p>
+                        A clean personal web experience focused
+                        on identity, work and skills.
+                    </p>
+
+                    <a
+                        href="personal.html"
+                        class="project-link"
+                    >
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     TECH STACK
+======================================================= -->
+
+<section class="section tech" id="tech">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>TECH STACK</span>
+
+            <h2>
+                Tools behind the work.
+            </h2>
+
+        </div>
+
+
+        <div class="tech-grid">
+
+            <div class="tech-item">
+                HTML5
             </div>
-            <div class="form-group">
-                <label for="budget">
-                    Budget
-                </label>
-                <select
-                    id="budget"
-                    name="budget"
-                    required
-                >
-                    <option value="">
-                        Select your budget
-                    </option>
-                    <option value="Under $100">
-                        Under $100
-                    </option>
-                    <option value="$100 - $250">
-                        $100 - $250
-                    </option>
-                    <option value="$250 - $500">
-                        $250 - $500
-                    </option>
-                    <option value="$500+">
-                        $500+
-                    </option>
-                </select>
+
+            <div class="tech-item">
+                CSS3
             </div>
-            <div class="form-group">
-                <label for="name">
-                    Your Name
-                </label>
+
+            <div class="tech-item">
+                JavaScript
+            </div>
+
+            <div class="tech-item">
+                Responsive Design
+            </div>
+
+            <div class="tech-item">
+                GitHub
+            </div>
+
+            <div class="tech-item">
+                Cloudflare
+            </div>
+
+            <div class="tech-item">
+                UI Design
+            </div>
+
+            <div class="tech-item">
+                Web Development
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CONTACT
+======================================================= -->
+
+<section class="section contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>CONTACT</span>
+
+            <h2>
+                Let's build something.
+            </h2>
+
+            <p>
+                Have a website idea, business project or
+                digital concept? Tell me about it.
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <div class="contact-info">
+
+                <p>
+                    I'm available for website projects,
+                    business websites, ecommerce concepts
+                    and personal portfolio websites.
+                </p>
+
+
+                <div class="contact-details">
+
+                    <a href="mailto:builtbyyoryor@gmail.com">
+                        builtbyyoryor@gmail.com
+                    </a>
+
+                    <a
+                        href="https://wa.me/2348068782377"
+                        target="_blank"
+                    >
+                        WhatsApp
+                    </a>
+
+                </div>
+
+
+                <div class="qr-box">
+
+                    <img
+                        src="built-by-yoryor-qr-code.png"
+                        alt="Built by Yoryor QR Code"
+                        class="website-qr"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <form
+                class="contact-form"
+                id="contactForm"
+                action="https://formspree.io/f/xbgjyekq"
+                method="POST"
+            >
+
                 <input
-                    id="name"
                     type="text"
                     name="name"
                     placeholder="Your name"
                     required
                 >
-            </div>
-            <div class="form-group">
-                <label for="email">
-                    Email Address
-                </label>
+
                 <input
-                    id="email"
                     type="email"
                     name="email"
-                    placeholder="you@example.com"
+                    placeholder="Your email"
                     required
                 >
-            </div>
-            <div class="form-group">
-                <label for="message">
-                    Tell Me About Your Project
-                </label>
+
+                <select
+                    name="project"
+                    required
+                >
+
+                    <option value="">
+                        What do you need?
+                    </option>
+
+                    <option>
+                        Business Website
+                    </option>
+
+                    <option>
+                        Online Store
+                    </option>
+
+                    <option>
+                        Personal Website
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                </select>
+
+
+                <select
+                    name="budget"
+                    required
+                >
+
+                    <option value="">
+                        Project budget
+                    </option>
+
+                    <option>
+                        Under $100
+                    </option>
+
+                    <option>
+                        $100 - $250
+                    </option>
+
+                    <option>
+                        $250 - $500
+                    </option>
+
+                    <option>
+                        $500+
+                    </option>
+
+                </select>
+
+
                 <textarea
-                    id="message"
                     name="message"
-                    placeholder="Tell me what you want to build..."
+                    placeholder="Tell me about your project..."
                     required
                 ></textarea>
-            </div>
-            <button
-                type="submit"
-                class="submit-button"
-                id="submitButton"
-            >
-                Send Project Request
-            </button>
-            <div id="formStatus"></div>
-        </form>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    Send Project Request
+                </button>
+
+
+                <div
+                    class="form-status"
+                    id="formStatus"
+                ></div>
+
+            </form>
+
+        </div>
+
     </div>
+
 </section>
-<!-- =========================
+
+
+<!-- =======================================================
      FOOTER
-========================= -->
+======================================================= -->
+
 <footer>
-    <strong>Built by Yoryor</strong>
-    <p>
-        Professional websites built with purpose.
-    </p>
-    <p style="margin-top:8px;">
-        © 2026 Built by Yoryor. All rights reserved.
-    </p>
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+            BUILT BY YORYOR
+        </div>
+
+        <p>
+            Professional websites built with purpose.
+        </p>
+
+        <p>
+            © 2026 Built by Yoryor. All rights reserved.
+        </p>
+
+    </div>
+
 </footer>
+
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
 <script>
-/* =========================
-   CURRENCY
-========================= */
-const currencySelector =
-    document.getElementById("currency");
-const prices =
-    document.querySelectorAll(".price");
-const exchangeRate = 1323.47;
-function updatePrices(){
-    const currency =
-        currencySelector.value;
-    prices.forEach(function(price){
-        const usd =
-            Number(price.dataset.usd);
-        if(currency === "NGN"){
-            const naira =
-                Math.round(usd * exchangeRate);
-            price.textContent =
-                "₦" + naira.toLocaleString("en-NG");
-        }else{
-            price.textContent =
-                "$" + usd.toLocaleString();
-        }
-    });
-}
-currencySelector.addEventListener(
-    "change",
-    updatePrices
-);
-/* =========================
+
+/* =========================================================
    CONTACT FORM
-========================= */
+========================================================= */
+
 const contactForm =
     document.getElementById("contactForm");
+
 const formStatus =
     document.getElementById("formStatus");
-const submitButton =
-    document.getElementById("submitButton");
-contactForm.addEventListener(
-    "submit",
-    async function(event){
-        event.preventDefault();
-        submitButton.disabled = true;
-        submitButton.textContent =
-            "Sending...";
-        formStatus.textContent = "";
-        const formData =
-            new FormData(contactForm);
-        try{
-            const response =
-                await fetch(
-                    contactForm.action,
-                    {
-                        method:"POST",
-                        body:formData,
-                        headers:{
-                            "Accept":
-                                "application/json"
-                        }
+
+
+contactForm.addEventListener("submit", async function(event){
+
+    event.preventDefault();
+
+    formStatus.textContent =
+        "Sending your message...";
+
+
+    const formData =
+        new FormData(contactForm);
+
+
+    try{
+
+        const response =
+            await fetch(
+                contactForm.action,
+                {
+                    method:"POST",
+                    body:formData,
+                    headers:{
+                        "Accept":"application/json"
                     }
-                );
-            if(response.ok){
-                formStatus.textContent =
-                    "Message sent successfully. I'll get back to you soon.";
-                formStatus.style.color =
-                    "#7ee787";
-                contactForm.reset();
-            }else{
-                formStatus.textContent =
-                    "Something went wrong. Please try again.";
-                formStatus.style.color =
-                    "#ff7b72";
-            }
-        }catch(error){
+                }
+            );
+
+
+        if(response.ok){
+
             formStatus.textContent =
-                "Unable to send the message right now. Please try again.";
-            formStatus.style.color =
-                "#ff7b72";
-        }finally{
-            submitButton.disabled = false;
-            submitButton.textContent =
-                "Send Project Request";
+                "Message sent successfully.";
+
+            contactForm.reset();
+
+        }else{
+
+            formStatus.textContent =
+                "Something went wrong. Please try again.";
+
         }
+
+    }catch(error){
+
+        formStatus.textContent =
+            "Unable to send right now. Please try again.";
+
     }
-);
+
+});
+
+
+/* =========================================================
+   SMALL PARALLAX EFFECT
+========================================================= */
+
+const visual =
+    document.querySelector(".hero-visual");
+
+
+window.addEventListener("mousemove", function(event){
+
+    if(window.innerWidth < 901){
+        return;
+    }
+
+    const x =
+        (event.clientX / window.innerWidth - .5) * 10;
+
+    const y =
+        (event.clientY / window.innerHeight - .5) * 10;
+
+
+    visual.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+});
+
+
+window.addEventListener("mouseleave", function(){
+
+    if(window.innerWidth < 901){
+        return;
+    }
+
+    visual.style.transform =
+        "translate(0,0)";
+
+});
+
 </script>
+
 </body>
 </html>
