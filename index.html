@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Built by Yoryor — Digital Studio</title>
-<meta name="description" content="Built by Yoryor — UI/UX, web design and modern digital experiences.">
+<title>Built by Yoryor | Digital Studio</title>
+
+<meta
+name=“description”
+content=“Built by Yoryor — modern UI/UX, responsive websites and digital experiences for businesses, brands and individuals.”
+
 <style>
+/* =========================================================
+   RESET
+========================================================= */
 *{
     margin:0;
     padding:0;
@@ -15,64 +22,78 @@ html{
     scroll-behavior:smooth;
 }
 body{
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
     background:#050505;
-    color:#f5f5f5;
-    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:#fff;
+    line-height:1.6;
     overflow-x:hidden;
 }
 a{
     color:inherit;
     text-decoration:none;
 }
-:root{
-    --gold:#d8b56c;
-    --gold2:#f1d99d;
-    --bg:#050505;
-    --panel:#0c0c0e;
-    --line:rgba(255,255,255,.09);
-    --muted:#888890;
+button,
+select,
+input,
+textarea{
+    font:inherit;
 }
-/* =====================================================
-   NAV
-===================================================== */
-nav{
-    position:fixed;
+/* =========================================================
+   VARIABLES
+========================================================= */
+:root{
+    --gold:#d6b36a;
+    --gold-light:#f3d58e;
+    --gold-soft:rgba(214,179,106,.14);
+    --dark:#050505;
+    --dark-2:#08080a;
+    --dark-3:#101012;
+    --text:#f5f5f5;
+    --muted:#9d9da5;
+    --border:rgba(255,255,255,.09);
+}
+/* =========================================================
+   NAVIGATION
+========================================================= */
+.navbar{
+    position:sticky;
     top:0;
-    left:0;
-    width:100%;
     z-index:1000;
-    background:rgba(5,5,5,.7);
+    width:100%;
+    background:rgba(5,5,5,.82);
     backdrop-filter:blur(20px);
     -webkit-backdrop-filter:blur(20px);
-    border-bottom:1px solid var(--line);
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
-.nav-inner{
-    width:min(1200px,92%);
-    min-height:72px;
+.nav-container{
+    width:min(1180px,92%);
     margin:auto;
+    min-height:72px;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:25px;
 }
 .logo{
     display:flex;
     align-items:center;
     gap:10px;
     color:var(--gold);
-    font-size:12px;
-    font-weight:900;
+    font-size:13px;
+    font-weight:800;
     letter-spacing:2px;
+    white-space:nowrap;
 }
-.logo-box{
-    width:35px;
-    height:35px;
-    display:grid;
-    place-items:center;
-    border:1px solid rgba(216,181,108,.5);
-    border-radius:10px;
-    font-size:11px;
-    box-shadow:
-        0 0 20px rgba(216,181,108,.1);
+.logo-mark{
+    width:36px;
+    height:36px;
 }
 .nav-links{
     display:flex;
@@ -80,420 +101,734 @@ nav{
     gap:25px;
 }
 .nav-links a{
-    color:#9999a1;
-    font-size:12px;
-    transition:.25s;
+    color:#bdbdc3;
+    font-size:13px;
+    transition:.25s ease;
 }
 .nav-links a:hover{
     color:var(--gold);
 }
-.nav-project{
-    padding:10px 16px;
-    border:1px solid rgba(216,181,108,.4);
+.nav-cta{
+    padding:10px 17px;
+    border:1px solid rgba(214,179,106,.5);
     border-radius:999px;
     color:var(--gold)!important;
+    transition:.25s ease;
 }
-/* =====================================================
+.nav-cta:hover{
+    background:var(--gold);
+    color:#050505!important;
+    box-shadow:
+        0 8px 25px rgba(214,179,106,.2);
+}
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 .hero{
-    min-height:100vh;
-    padding-top:72px;
     position:relative;
-    overflow:hidden;
+    min-height:calc(100vh - 72px);
     display:flex;
     align-items:center;
+    overflow:hidden;
     background:
         radial-gradient(
-            circle at 75% 45%,
-            rgba(216,181,108,.1),
-            transparent 25%
+            circle at 75% 40%,
+            rgba(214,179,106,.13),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 15% 75%,
+            rgba(94,70,180,.09),
+            transparent 30%
         ),
         #050505;
 }
-/* grid */
+/* Animated grid */
 .hero-grid{
     position:absolute;
     inset:0;
     background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-    background-size:50px 50px;
-    mask-image:linear-gradient(
-        to bottom,
-        transparent,
-        black 20%,
-        black 80%,
-        transparent
-    );
-    animation:grid 15s linear infinite;
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+    background-size:55px 55px;
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 20%,
+            black 75%,
+            transparent
+        );
+    opacity:.35;
+    animation:gridMove 18s linear infinite;
 }
-@keyframes grid{
+@keyframes gridMove{
+    from{
+        transform:translateY(0);
+    }
     to{
-        transform:translateY(50px);
+        transform:translateY(55px);
     }
 }
-/* moving light */
-.scan{
+/* Moving scan line */
+.hero::after{
+    content:"";
     position:absolute;
-    width:100%;
+    left:0;
+    right:0;
     height:1px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(216,181,108,.6),
-        transparent
-    );
-    top:35%;
-    animation:scan 7s linear infinite;
-    opacity:.45;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(214,179,106,.45),
+            transparent
+        );
+    opacity:.35;
+    animation:scanLine 8s linear infinite;
 }
-@keyframes scan{
-    0%{
-        transform:translateY(-300px);
+@keyframes scanLine{
+    from{
+        top:-5%;
     }
-    100%{
-        transform:translateY(700px);
+    to{
+        top:105%;
     }
 }
-.hero-inner{
-    width:min(1200px,92%);
-    margin:auto;
+/* Glow */
+.hero-glow{
+    position:absolute;
+    width:480px;
+    height:480px;
+    border-radius:50%;
+    background:rgba(214,179,106,.08);
+    filter:blur(80px);
+    right:8%;
+    top:18%;
+    animation:glowPulse 5s ease-in-out infinite;
+}
+@keyframes glowPulse{
+    0%,100%{
+        transform:scale(1);
+        opacity:.55;
+    }
+    50%{
+        transform:scale(1.18);
+        opacity:.9;
+    }
+}
+/* Hero layout */
+.hero-container{
     position:relative;
     z-index:5;
+    width:min(1180px,92%);
+    margin:auto;
     display:grid;
-    grid-template-columns:.85fr 1.15fr;
-    gap:60px;
+    grid-template-columns:
+        minmax(0,.9fr)
+        minmax(0,1.1fr);
     align-items:center;
-    padding:80px 0;
+    gap:45px;
+    padding:90px 0;
 }
-/* =====================================================
-   HERO COPY
-===================================================== */
-.hero-copy small{
+/* =========================================================
+   HERO TEXT
+========================================================= */
+.hero-copy{
+    position:relative;
+    z-index:20;
+}
+.hero-label{
     display:inline-flex;
     align-items:center;
-    gap:8px;
-    padding:8px 12px;
-    border:1px solid rgba(216,181,108,.25);
+    gap:10px;
+    padding:7px 13px;
+    border:1px solid rgba(214,179,106,.25);
     border-radius:999px;
-    color:var(--gold2);
-    font-size:9px;
+    color:var(--gold-light);
+    font-size:10px;
     font-weight:800;
     letter-spacing:2px;
+    background:rgba(214,179,106,.04);
     margin-bottom:25px;
+    animation:fadeUp .8s ease both;
 }
-.hero-copy small i{
-    width:6px;
-    height:6px;
+.hero-label span{
+    width:7px;
+    height:7px;
     border-radius:50%;
-    background:#6cff9b;
-    box-shadow:0 0 12px #6cff9b;
+    background:var(--gold);
+    box-shadow:
+        0 0 15px var(--gold);
+    animation:statusPulse 2s infinite;
 }
-.hero-copy h1{
-    font-size:clamp(55px,7vw,94px);
-    line-height:.88;
-    letter-spacing:-6px;
+@keyframes statusPulse{
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+    50%{
+        opacity:.4;
+        transform:scale(.7);
+    }
 }
-.hero-copy h1 span{
-    display:block;
+.hero h1{
+    font-size:
+        clamp(
+            48px,
+            7vw,
+            86px
+        );
+    line-height:.96;
+    letter-spacing:-4px;
+    margin-bottom:24px;
+    animation:
+        fadeUp .9s .1s ease both;
+}
+.hero h1 .gold{
     color:var(--gold);
+    text-shadow:
+        0 0 35px rgba(214,179,106,.12);
 }
-.hero-copy p{
-    max-width:530px;
-    color:#919198;
-    font-size:16px;
-    line-height:1.8;
-    margin:28px 0 32px;
+.hero-description{
+    max-width:560px;
+    color:#aaaab2;
+    font-size:17px;
+    margin-bottom:35px;
+    animation:
+        fadeUp .9s .2s ease both;
 }
-.hero-actions{
+.hero-buttons{
     display:flex;
-    gap:12px;
     flex-wrap:wrap;
+    gap:14px;
+    animation:
+        fadeUp .9s .3s ease both;
 }
-.btn{
-    min-height:50px;
-    padding:0 22px;
+.primary-btn,
+.secondary-btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
+    min-height:50px;
+    padding:0 22px;
     border-radius:10px;
-    font-size:11px;
-    font-weight:900;
-    letter-spacing:.5px;
-    transition:.3s;
+    font-size:13px;
+    font-weight:800;
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
 }
-.btn-main{
-    color:#050505;
+.primary-btn{
     background:var(--gold);
+    color:#050505;
+    box-shadow:
+        0 10px 35px rgba(214,179,106,.16);
 }
-.btn-main:hover{
-    transform:translateY(-4px);
-    box-shadow:0 15px 40px rgba(216,181,108,.25);
+.primary-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 15px 45px rgba(214,179,106,.3);
 }
-.btn-dark{
-    border:1px solid var(--line);
+.secondary-btn{
+    border:1px solid rgba(255,255,255,.16);
+    color:#fff;
     background:rgba(255,255,255,.025);
 }
-.btn-dark:hover{
-    transform:translateY(-4px);
-    border-color:rgba(216,181,108,.45);
+.secondary-btn:hover{
+    transform:translateY(-3px);
+    border-color:
+        rgba(214,179,106,.55);
     color:var(--gold);
 }
-/* =====================================================
-   HERO PRODUCT UI
-===================================================== */
-.product-stage{
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+.hero-visual{
     position:relative;
-    min-height:550px;
+    min-height:570px;
     display:flex;
     align-items:center;
     justify-content:center;
+    transition:
+        transform .3s ease;
 }
-/* glow behind product */
-.product-glow{
-    position:absolute;
-    width:380px;
-    height:380px;
-    border-radius:50%;
-    background:rgba(216,181,108,.08);
-    filter:blur(80px);
-    animation:productGlow 4s ease-in-out infinite;
-}
-@keyframes productGlow{
-    50%{
-        transform:scale(1.25);
-        opacity:.7;
-    }
-}
-/* main browser */
-.browser{
+/* =========================================================
+   UI/UX DASHBOARD
+========================================================= */
+.dashboard{
     position:relative;
     z-index:5;
-    width:min(560px,100%);
-    height:360px;
-    border:1px solid rgba(255,255,255,.13);
-    border-radius:16px;
-    background:#09090b;
+    width:470px;
+    max-width:90vw;
+    height:315px;
+    border-radius:17px;
+    border:1px solid
+        rgba(255,255,255,.13);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,24,27,.96),
+            rgba(8,8,10,.94)
+        );
     box-shadow:
         0 40px 100px rgba(0,0,0,.65),
-        0 0 70px rgba(216,181,108,.07);
+        0 0 80px rgba(214,179,106,.08);
     overflow:hidden;
     transform:
-        perspective(1200px)
-        rotateY(-8deg)
+        perspective(1100px)
+        rotateY(-7deg)
         rotateX(3deg);
-    animation:browserFloat 5s ease-in-out infinite;
+    animation:
+        dashboardFloat 6s ease-in-out infinite;
 }
-@keyframes browserFloat{
+@keyframes dashboardFloat{
+    0%,100%{
+        transform:
+            perspective(1100px)
+            rotateY(-7deg)
+            rotateX(3deg)
+            translateY(0);
+    }
     50%{
         transform:
-            perspective(1200px)
-            rotateY(-4deg)
-            rotateX(1deg)
-            translateY(-12px);
+            perspective(1100px)
+            rotateY(-7deg)
+            rotateX(3deg)
+            translateY(-9px);
     }
 }
-/* browser header */
-.browser-head{
+/* Browser top */
+.browser-top{
     height:42px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    padding:0 14px;
-    border-bottom:1px solid var(--line);
-    background:#0e0e10;
+    gap:7px;
+    padding:0 15px;
+    border-bottom:1px solid
+        rgba(255,255,255,.08);
+    background:
+        rgba(255,255,255,.025);
 }
-.browser-dots{
-    display:flex;
-    gap:5px;
-}
-.browser-dots i{
+.browser-dot{
     width:7px;
     height:7px;
     border-radius:50%;
     background:#555;
 }
 .browser-url{
-    width:230px;
+    margin-left:12px;
+    flex:1;
     height:22px;
-    border:1px solid var(--line);
-    border-radius:5px;
-    color:#555;
-    font-size:8px;
+    border-radius:6px;
+    background:
+        rgba(255,255,255,.045);
+    color:#696970;
     display:flex;
     align-items:center;
-    padding-left:10px;
+    padding:0 10px;
+    font-size:8px;
+    letter-spacing:.5px;
 }
-/* actual UI */
-.browser-content{
-    height:calc(100% - 42px);
+/* Dashboard body */
+.dashboard-body{
     display:grid;
     grid-template-columns:75px 1fr;
+    height:273px;
 }
-/* sidebar */
-.sidebar{
-    border-right:1px solid var(--line);
-    padding:14px 10px;
+/* Sidebar */
+.dashboard-sidebar{
+    padding:18px 10px;
+    border-right:1px solid
+        rgba(255,255,255,.07);
+    background:
+        rgba(255,255,255,.018);
+}
+.side-logo{
+    width:34px;
+    height:34px;
+    margin:0 auto 24px;
+    border-radius:10px;
     display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-.sidebar-logo{
-    width:35px;
-    height:35px;
-    margin:auto;
-    border-radius:9px;
-    background:var(--gold);
-    color:#050505;
-    display:grid;
-    place-items:center;
-    font-size:9px;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold);
+    border:1px solid
+        rgba(214,179,106,.25);
+    font-size:12px;
     font-weight:900;
 }
 .side-line{
+    width:32px;
     height:7px;
-    border-radius:20px;
-    background:#1c1c20;
+    border-radius:5px;
+    background:#242428;
+    margin:0 auto 14px;
 }
 .side-line.active{
-    background:rgba(216,181,108,.5);
+    background:
+        rgba(214,179,106,.45);
+    box-shadow:
+        0 0 12px rgba(214,179,106,.15);
 }
-/* dashboard */
-.dashboard{
-    padding:20px;
-}
-.dashboard-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
+/* Main dashboard */
+.dashboard-main{
+    padding:19px;
 }
 .dashboard-title{
-    width:100px;
-    height:9px;
-    border-radius:20px;
-    background:#ddd;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:16px;
 }
-.dashboard-button{
-    width:70px;
-    height:22px;
-    border-radius:6px;
-    background:var(--gold);
+.dashboard-title strong{
+    font-size:13px;
 }
-/* metrics */
-.metrics{
+.dashboard-title span{
+    color:#777;
+    font-size:8px;
+}
+/* Stats */
+.dashboard-stats{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-    margin-bottom:18px;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:9px;
+    margin-bottom:13px;
 }
-.metric{
-    padding:13px;
-    border:1px solid var(--line);
-    border-radius:8px;
-    background:#0d0d10;
-}
-.metric small{
-    display:block;
-    color:#555;
-    font-size:6px;
-}
-.metric strong{
-    display:block;
-    margin-top:7px;
-    color:#eee;
-    font-size:16px;
-}
-/* chart */
-.chart{
-    height:120px;
-    border:1px solid var(--line);
+.stat-box{
+    padding:10px;
     border-radius:9px;
+    border:1px solid
+        rgba(255,255,255,.07);
+    background:
+        rgba(255,255,255,.025);
+}
+.stat-box small{
+    display:block;
+    color:#666;
+    font-size:7px;
+    margin-bottom:4px;
+}
+.stat-box strong{
+    color:#eee;
+    font-size:13px;
+}
+/* Fake chart */
+.chart-box{
+    height:108px;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid
+        rgba(255,255,255,.07);
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.025),
+            transparent
+        );
     position:relative;
     overflow:hidden;
-    background:
+}
+.chart-lines{
+    position:absolute;
+    inset:0;
+    background-image:
         linear-gradient(
             rgba(255,255,255,.025) 1px,
             transparent 1px
         );
-    background-size:100% 25px;
+    background-size:
+        100% 25px;
 }
-.chart-line{
+.chart-path{
     position:absolute;
-    left:5%;
-    right:5%;
-    bottom:25%;
-    height:2px;
+    left:12px;
+    right:12px;
+    bottom:18px;
+    height:60px;
+}
+.chart-path::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:
+        linear-gradient(
+            140deg,
+            transparent 0 12%,
+            rgba(214,179,106,.8) 13% 14%,
+            transparent 15% 25%,
+            rgba(214,179,106,.8) 26% 27%,
+            transparent 28% 42%,
+            rgba(214,179,106,.8) 43% 44%,
+            transparent 45% 57%,
+            rgba(214,179,106,.8) 58% 59%,
+            transparent 60% 73%,
+            rgba(214,179,106,.8) 74% 75%,
+            transparent 76%
+        );
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(214,179,106,.4)
+        );
+}
+/* =========================================================
+   BY ORBITS
+========================================================= */
+.by-orbit{
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid
+        rgba(214,179,106,.13);
+    border-radius:50%;
+    animation:
+        orbitRotate 20s linear infinite;
+}
+.by-orbit::before{
+    content:"";
+    position:absolute;
+    width:9px;
+    height:9px;
+    border-radius:50%;
     background:var(--gold);
-    transform:
-        rotate(-5deg);
     box-shadow:
-        40px -20px 0 -0px var(--gold),
-        90px 5px 0 -0px var(--gold),
-        150px -35px 0 -0px var(--gold),
-        210px -10px 0 -0px var(--gold),
-        270px -45px 0 -0px var(--gold);
+        0 0 15px var(--gold),
+        0 0 40px rgba(214,179,106,.7);
+    top:25px;
+    left:90px;
 }
-/* =====================================================
-   FLOATING UI CARDS
-===================================================== */
-.float-card{
+.by-orbit::after{
+    content:"";
     position:absolute;
-    z-index:10;
-    padding:14px 16px;
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:12px;
-    background:rgba(10,10,12,.85);
-    backdrop-filter:blur(14px);
-    box-shadow:0 25px 60px rgba(0,0,0,.45);
-    animation:floatCard 5s ease-in-out infinite;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:
+        0 0 18px #fff;
+    bottom:55px;
+    right:35px;
 }
-.float-card small{
-    display:block;
-    color:#666;
-    font-size:8px;
-    letter-spacing:1.5px;
-    margin-bottom:5px;
+@keyframes orbitRotate{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
 }
-.float-card strong{
-    font-size:12px;
+.by-orbit-two{
+    position:absolute;
+    width:365px;
+    height:365px;
+    border:
+        1px dashed
+        rgba(214,179,106,.18);
+    border-radius:50%;
+    animation:
+        orbitReverse 14s linear infinite;
 }
-.float-one{
-    top:55px;
-    right:-5px;
+@keyframes orbitReverse{
+    from{
+        transform:rotate(360deg);
+    }
+    to{
+        transform:rotate(0deg);
+    }
 }
-.float-two{
-    bottom:65px;
-    left:-20px;
-    animation-delay:-2s;
+/* =========================================================
+   BY MONOGRAM
+========================================================= */
+.by-monogram{
+    position:absolute;
+    z-index:7;
+    width:155px;
+    height:155px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(214,179,106,.14),
+            rgba(10,10,10,.94) 68%
+        );
+    border:
+        1px solid
+        rgba(214,179,106,.32);
+    box-shadow:
+        0 0 60px rgba(214,179,106,.1),
+        inset 0 0 50px rgba(214,179,106,.05);
+    animation:
+        monogramFloat 4s ease-in-out infinite;
 }
-.float-three{
-    bottom:5px;
-    right:30px;
-    animation-delay:-3.5s;
-}
-@keyframes floatCard{
+@keyframes monogramFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
     50%{
         transform:translateY(-12px);
     }
 }
-/* =====================================================
-   BY WATERMARK
-===================================================== */
-.watermark{
-    position:absolute;
-    right:5%;
-    bottom:2%;
-    color:rgba(216,181,108,.035);
-    font-size:160px;
+.by-monogram span{
+    color:var(--gold);
+    font-size:65px;
     font-weight:900;
-    letter-spacing:-15px;
-    pointer-events:none;
+    letter-spacing:-9px;
+    transform:translateX(-5px);
+    text-shadow:
+        0 0 20px
+        rgba(214,179,106,.35);
 }
-/* =====================================================
-   SECTIONS
-===================================================== */
+.by-wordmark{
+    position:absolute;
+    z-index:8;
+    bottom:38px;
+    left:50%;
+    transform:
+        translateX(-50%);
+    color:#fff;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:4px;
+    white-space:nowrap;
+    opacity:.9;
+}
+/* =========================================================
+   FLOATING UI CARDS
+========================================================= */
+.ui-card{
+    position:absolute;
+    z-index:12;
+    padding:13px 15px;
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+    border-radius:12px;
+    background:
+        rgba(12,12,14,.78);
+    backdrop-filter:
+        blur(14px);
+    -webkit-backdrop-filter:
+        blur(14px);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4);
+    animation:
+        cardFloat 5s ease-in-out infinite;
+}
+.ui-card small{
+    display:block;
+    color:#777;
+    font-size:8px;
+    letter-spacing:1px;
+    margin-bottom:4px;
+}
+.ui-card strong{
+    display:block;
+    color:#eee;
+    font-size:11px;
+}
+.ui-card.one{
+    top:40px;
+    right:-15px;
+}
+.ui-card.two{
+    left:-10px;
+    top:185px;
+    animation-delay:-2s;
+}
+.ui-card.three{
+    right:0;
+    bottom:80px;
+    animation-delay:-3.5s;
+}
+@keyframes cardFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+/* =========================================================
+   CODE WINDOW
+========================================================= */
+.code-window{
+    position:absolute;
+    z-index:12;
+    left:-10px;
+    bottom:38px;
+    width:190px;
+    padding:14px;
+    border-radius:12px;
+    background:
+        rgba(10,10,12,.92);
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45);
+    animation:
+        cardFloat 6s ease-in-out infinite;
+    animation-delay:-1s;
+}
+.window-top{
+    display:flex;
+    gap:5px;
+    margin-bottom:12px;
+}
+.window-top i{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#555;
+}
+.code-line{
+    height:5px;
+    border-radius:20px;
+    background:#29292d;
+    margin:7px 0;
+}
+.code-line.short{
+    width:55%;
+}
+.code-line.medium{
+    width:85%;
+}
+.code-line.gold{
+    width:75%;
+    background:
+        rgba(214,179,106,.45);
+}
+/* =========================================================
+   ANIMATION
+========================================================= */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+/* =========================================================
+   SECTION SYSTEM
+========================================================= */
 .section{
     padding:110px 0;
 }
@@ -501,1114 +836,1372 @@ nav{
     width:min(1100px,92%);
     margin:auto;
 }
-.heading{
-    max-width:700px;
+.section-heading{
+    max-width:650px;
     margin-bottom:55px;
 }
-.heading span{
+.section-heading span{
     color:var(--gold);
-    font-size:9px;
-    font-weight:900;
+    font-size:11px;
+    font-weight:800;
     letter-spacing:3px;
+    text-transform:uppercase;
 }
-.heading h2{
+.section-heading h2{
     margin-top:12px;
-    font-size:clamp(38px,5vw,62px);
-    line-height:.95;
-    letter-spacing:-3px;
+    font-size:
+        clamp(
+            32px,
+            5vw,
+            55px
+        );
+    line-height:1.05;
+    letter-spacing:-2px;
 }
-.heading p{
+.section-heading p{
     margin-top:18px;
     color:var(--muted);
-    font-size:15px;
+    font-size:16px;
 }
-/* =====================================================
+/* =========================================================
    ABOUT
-===================================================== */
+========================================================= */
 .about{
     background:#08080a;
 }
-.about-ui{
+.about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:18px;
+    gap:60px;
 }
-.profile{
-    min-height:330px;
-    padding:30px;
-    border:1px solid var(--line);
-    border-radius:18px;
-    background:
-        radial-gradient(
-            circle at 100% 0,
-            rgba(216,181,108,.08),
-            transparent 35%
-        ),
-        #0b0b0d;
-}
-.profile-head{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-.avatar{
-    width:58px;
-    height:58px;
-    border-radius:15px;
-    display:grid;
-    place-items:center;
-    background:var(--gold);
-    color:#050505;
-    font-size:14px;
-    font-weight:900;
-}
-.profile-head small{
-    display:block;
-    color:#666;
-    font-size:8px;
-    letter-spacing:2px;
-}
-.profile-head strong{
-    font-size:18px;
-}
-.profile p{
-    color:#888890;
-    font-size:14px;
-    line-height:1.8;
-    margin:30px 0;
-}
-.profile-status{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    color:#777;
-    font-size:10px;
-}
-.profile-status i{
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    background:#6cff9b;
-}
-/* about cards */
-.about-cards{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-.about-card{
-    padding:25px;
-    border:1px solid var(--line);
-    border-radius:15px;
-    background:#0b0b0d;
-}
-.about-card b{
-    color:var(--gold);
-    font-size:10px;
-}
-.about-card h3{
-    margin:35px 0 8px;
+.about-text p{
+    color:#a6a6ad;
+    margin-bottom:18px;
     font-size:16px;
 }
-.about-card p{
-    color:#72727a;
-    font-size:11px;
+.about-highlight{
+    display:grid;
+    grid-template-columns:
+        repeat(2,1fr);
+    gap:15px;
 }
-/* =====================================================
+.highlight{
+    padding:25px;
+    border:
+        1px solid
+        var(--border);
+    border-radius:15px;
+    background:
+        rgba(255,255,255,.025);
+}
+.highlight strong{
+    display:block;
+    color:var(--gold);
+    font-size:28px;
+    margin-bottom:4px;
+}
+.highlight span{
+    color:#8d8d94;
+    font-size:12px;
+}
+/* =========================================================
    SERVICES
-===================================================== */
+========================================================= */
 .services{
     background:#050505;
 }
-.service-grid{
+.cards{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:20px;
 }
-.service{
-    min-height:270px;
-    padding:28px;
-    border:1px solid var(--line);
-    border-radius:18px;
-    background:#0b0b0d;
+.card{
     position:relative;
+    padding:32px;
+    min-height:230px;
+    border:
+        1px solid
+        var(--border);
+    border-radius:18px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        );
     overflow:hidden;
-    transition:.35s;
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
 }
-.service:hover{
-    transform:translateY(-8px);
-    border-color:rgba(216,181,108,.35);
+.card::after{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:
+        rgba(214,179,106,.06);
+    filter:blur(30px);
+    right:-50px;
+    bottom:-50px;
 }
-.service-number{
+.card:hover{
+    transform:translateY(-7px);
+    border-color:
+        rgba(214,179,106,.35);
+}
+.card-number{
     color:var(--gold);
-    font-size:9px;
-    font-weight:900;
+    font-size:11px;
+    font-weight:800;
     letter-spacing:2px;
 }
-.service h3{
-    margin-top:70px;
-    margin-bottom:10px;
+.card h3{
+    margin:28px 0 10px;
+    font-size:21px;
 }
-.service p{
-    color:#77777f;
-    font-size:12px;
+.card p{
+    color:#909097;
+    font-size:14px;
 }
-.service-line{
-    position:absolute;
-    left:28px;
-    right:28px;
-    bottom:25px;
-    height:1px;
-    background:linear-gradient(
-        90deg,
-        var(--gold),
-        transparent
-    );
-}
-/* =====================================================
-   WORK
-===================================================== */
-.work{
+/* =========================================================
+   WHY ME
+========================================================= */
+.why{
     background:#08080a;
 }
-.work-grid{
+.why-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:20px;
 }
-.work-card{
-    border:1px solid var(--line);
+.why-item{
+    padding:30px;
+    border-left:
+        1px solid
+        rgba(214,179,106,.35);
+}
+.why-item h3{
+    margin-bottom:10px;
+    font-size:19px;
+}
+.why-item p{
+    color:#909097;
+    font-size:14px;
+}
+/* =========================================================
+   PROJECTS
+========================================================= */
+.projects{
+    background:#050505;
+}
+.project-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:20px;
+}
+.project{
+    border:
+        1px solid
+        var(--border);
     border-radius:18px;
     overflow:hidden;
     background:#0b0b0d;
-    transition:.35s;
+    transition:.3s ease;
 }
-.work-card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(216,181,108,.35);
+.project:hover{
+    transform:translateY(-7px);
+    border-color:
+        rgba(214,179,106,.35);
 }
-.work-preview{
-    height:210px;
-    padding:16px;
-    background:
-        radial-gradient(
-            circle,
-            rgba(216,181,108,.12),
-            transparent 60%
-        );
-}
-.mini-browser{
-    width:100%;
-    height:100%;
-    border:1px solid var(--line);
-    border-radius:9px;
-    background:#070709;
-    overflow:hidden;
-}
-.mini-top{
-    height:23px;
-    border-bottom:1px solid var(--line);
+.project-preview{
+    height:180px;
     display:flex;
     align-items:center;
-    gap:4px;
-    padding-left:8px;
+    justify-content:center;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214,179,106,.13),
+            transparent 55%
+        ),
+        #101012;
+    border-bottom:
+        1px solid
+        var(--border);
+    position:relative;
+    overflow:hidden;
 }
-.mini-top i{
-    width:5px;
-    height:5px;
-    border-radius:50%;
-    background:#555;
+/* Project preview grid */
+.project-preview::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+    background-size:25px 25px;
+    opacity:.5;
 }
-.mini-content{
-    padding:15px;
+.project-preview span{
+    position:relative;
+    z-index:2;
+    color:var(--gold);
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:-1px;
 }
-.mini-gold{
-    width:55%;
-    height:7px;
-    background:var(--gold);
-    border-radius:20px;
-    margin-bottom:13px;
+.project-body{
+    padding:23px;
 }
-.mini-line{
-    width:85%;
-    height:5px;
-    background:#242428;
-    border-radius:20px;
-    margin:7px 0;
+.project-body h3{
+    margin-bottom:7px;
 }
-.mini-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:6px;
-    margin-top:15px;
-}
-.mini-grid div{
-    height:50px;
-    border:1px solid var(--line);
-    border-radius:5px;
-}
-.work-body{
-    padding:22px;
-}
-.work-body h3{
-    margin-bottom:6px;
-}
-.work-body p{
-    color:#777;
-    font-size:12px;
+.project-body p{
+    color:#8f8f96;
+    font-size:13px;
     margin-bottom:18px;
 }
-.work-body a{
+.project-link{
     color:var(--gold);
-    font-size:9px;
-    font-weight:900;
-    letter-spacing:1.5px;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1px;
 }
-/* =====================================================
-   TECH
-===================================================== */
+/* =========================================================
+   TECH STACK
+========================================================= */
 .tech{
-    background:#050505;
+    background:#08080a;
 }
 .tech-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
+    grid-template-columns:
+        repeat(4,1fr);
+    gap:12px;
 }
 .tech-item{
-    padding:22px;
+    padding:20px;
     text-align:center;
-    border:1px solid var(--line);
+    border:
+        1px solid
+        var(--border);
     border-radius:12px;
-    background:#0b0b0d;
-    color:#888;
-    font-size:11px;
-    transition:.25s;
+    color:#c3c3c8;
+    font-size:13px;
+    background:
+        rgba(255,255,255,.018);
+    transition:.25s ease;
 }
 .tech-item:hover{
     color:var(--gold);
-    border-color:rgba(216,181,108,.35);
-    transform:translateY(-4px);
+    border-color:
+        rgba(214,179,106,.3);
+    transform:translateY(-3px);
 }
-/* =====================================================
+/* =========================================================
    CONTACT
-===================================================== */
+========================================================= */
 .contact{
-    background:#08080a;
+    background:#050505;
 }
-.contact-ui{
+.contact-grid{
     display:grid;
-    grid-template-columns:.8fr 1.2fr;
-    gap:18px;
-}
-.contact-info,
-.contact-form{
-    border:1px solid var(--line);
-    border-radius:18px;
-    background:#0b0b0d;
-    padding:30px;
-}
-.contact-info h3{
-    font-size:25px;
+    grid-template-columns:
+        .8fr 1.2fr;
+    gap:60px;
 }
 .contact-info p{
-    color:#777;
-    font-size:13px;
-    line-height:1.8;
-    margin:18px 0 25px;
+    color:#96969d;
+    margin-bottom:25px;
 }
-.contact-link{
-    display:block;
-    padding:15px;
-    border:1px solid var(--line);
-    border-radius:10px;
-    color:#aaa;
-    font-size:11px;
-    margin-bottom:9px;
-    transition:.25s;
+.contact-details{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
 }
-.contact-link:hover{
+.contact-details a{
+    color:#ddd;
+    font-size:14px;
+    transition:.2s ease;
+}
+.contact-details a:hover{
     color:var(--gold);
-    border-color:rgba(216,181,108,.35);
-}
-.qr{
-    width:100px;
-    padding:8px;
-    background:#fff;
-    border-radius:9px;
-    margin-top:18px;
-}
-.qr img{
-    width:100%;
-    display:block;
 }
 .contact-form{
-    display:grid;
-    gap:12px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
 }
 .contact-form input,
-.contact-form select,
-.contact-form textarea{
+.contact-form textarea,
+.contact-form select{
     width:100%;
-    background:#070709;
-    border:1px solid var(--line);
+    border:
+        1px solid
+        var(--border);
     border-radius:10px;
+    background:#0d0d0f;
     color:#fff;
     padding:15px;
     outline:none;
+    transition:.25s ease;
 }
 .contact-form textarea{
-    min-height:145px;
+    min-height:150px;
     resize:vertical;
 }
 .contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus{
-    border-color:rgba(216,181,108,.5);
+.contact-form textarea:focus,
+.contact-form select:focus{
+    border-color:
+        rgba(214,179,106,.5);
 }
 .form-status{
+    font-size:13px;
     color:var(--gold);
-    font-size:11px;
 }
-/* =====================================================
+/* =========================================================
+   QR
+========================================================= */
+.qr-box{
+    margin-top:30px;
+    padding:20px;
+    border:
+        1px solid
+        var(--border);
+    border-radius:15px;
+    width:max-content;
+    background:#0b0b0d;
+}
+.website-qr{
+    width:120px;
+    height:120px;
+    display:block;
+}
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 footer{
-    border-top:1px solid var(--line);
+    padding:35px 0;
+    border-top:
+        1px solid
+        var(--border);
     background:#030303;
 }
-.footer{
+.footer-container{
     width:min(1100px,92%);
     margin:auto;
-    padding:30px 0;
     display:flex;
     justify-content:space-between;
+    align-items:center;
     gap:20px;
 }
-.footer strong{
+.footer-container p{
+    color:#777;
+    font-size:12px;
+}
+.footer-brand{
     color:var(--gold);
-    font-size:11px;
+    font-size:13px;
+    font-weight:800;
     letter-spacing:2px;
 }
-.footer span{
-    color:#5e5e65;
-    font-size:10px;
-}
-/* =====================================================
-   MOBILE
-===================================================== */
-@media(max-width:900px){
+/* =========================================================
+   TABLET
+========================================================= */
+@media(max-width:1000px){
     .nav-links{
-        display:none;
+        gap:16px;
     }
-    .hero-inner{
+    .hero-container{
         grid-template-columns:1fr;
         text-align:center;
+        gap:15px;
     }
-    .hero-copy p{
+    .hero-copy{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+    .hero-description{
         margin-left:auto;
         margin-right:auto;
     }
-    .hero-actions{
+    .hero-buttons{
         justify-content:center;
     }
-    .product-stage{
-        min-height:470px;
-        transform:scale(.82);
-        margin-top:-20px;
+    .hero-visual{
+        min-height:560px;
+        margin-top:-25px;
     }
-    .about-ui,
-    .contact-ui{
+    .about-grid,
+    .contact-grid{
         grid-template-columns:1fr;
     }
-    .service-grid,
-    .work-grid{
+    .cards,
+    .why-grid,
+    .project-grid{
         grid-template-columns:1fr;
     }
     .tech-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 }
-@media(max-width:600px){
-    .nav-inner{
+/* =========================================================
+   MOBILE
+========================================================= */
+@media(max-width:700px){
+    .nav-container{
         min-height:64px;
+    }
+    .nav-links{
+        display:none;
+    }
+    .logo{
+        font-size:11px;
+        letter-spacing:1.5px;
+    }
+    .logo-mark{
+        width:31px;
+        height:31px;
     }
     .hero{
         min-height:auto;
     }
-    .hero-inner{
+    .hero-container{
         width:90%;
-        padding:70px 0 30px;
+        padding:
+            65px 0
+            20px;
     }
-    .hero-copy h1{
-        font-size:48px;
-        letter-spacing:-4px;
+    .hero h1{
+        font-size:46px;
+        letter-spacing:-3px;
     }
-    .hero-copy p{
-        font-size:14px;
+    .hero-description{
+        font-size:15px;
     }
-    .hero-actions{
-        flex-direction:column;
-    }
-    .btn{
+    .hero-buttons{
         width:100%;
     }
-    .product-stage{
-        min-height:370px;
-        transform:scale(.62);
-        margin-top:-70px;
-        margin-bottom:-80px;
+    .primary-btn,
+    .secondary-btn{
+        width:100%;
     }
-    .browser{
-        transform:none;
+    .hero-visual{
+        min-height:440px;
+        transform:scale(.78);
+        margin-top:-20px;
+        margin-bottom:-40px;
+        width:128%;
+        margin-left:-14%;
     }
-    .float-one{
-        right:-15px;
+    .dashboard{
+        width:420px;
     }
-    .float-two{
-        left:-20px;
+    .by-orbit{
+        width:420px;
+        height:420px;
     }
-    .float-three{
+    .by-orbit-two{
+        width:310px;
+        height:310px;
+    }
+    .ui-card.one{
         right:-5px;
     }
-    .about-cards{
-        grid-template-columns:1fr;
+    .ui-card.two{
+        left:-10px;
+    }
+    .ui-card.three{
+        right:0;
+    }
+    .code-window{
+        left:-5px;
+    }
+    .section{
+        padding:80px 0;
+    }
+    .section-heading{
+        margin-bottom:40px;
+    }
+    .about-highlight{
+        grid-template-columns:
+            repeat(2,1fr);
     }
     .tech-grid{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+            repeat(2,1fr);
     }
-    .footer{
+    .footer-container{
         flex-direction:column;
         text-align:center;
-        align-items:center;
+    }
+}
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+@media(max-width:430px){
+    .hero h1{
+        font-size:41px;
+    }
+    .hero-label{
+        font-size:8px;
+        letter-spacing:1.5px;
+    }
+    .hero-visual{
+        transform:scale(.67);
+        width:145%;
+        margin-left:-22.5%;
+    }
+    .about-highlight{
+        grid-template-columns:1fr;
     }
 }
 </style>
 </head>
 <body>
-<!-- =====================================================
-     NAV
-===================================================== -->
-<nav>
-<div class="nav-inner">
-<a href="#home" class="logo">
-<div class="logo-box">
-BY
+<!-- =======================================================
+     NAVIGATION
+======================================================= -->
+<header class="navbar">
+<div class="nav-container">
+    <a href="#home" class="logo">
+        <svg
+            class="logo-mark"
+            viewBox="0 0 100 100"
+            aria-label="BY logo"
+        >
+            <path
+                d="M24 18
+                C42 18 53 24 53 36
+                C53 43 49 48 43 50
+                C51 52 57 58 57 68
+                C57 82 45 88 24 88
+                Z
+                M34 29
+                V45
+                H40
+                C48 45 49 40 49 37
+                C49 31 45 29 40 29
+                Z
+                M34 56
+                V77
+                H41
+                C50 77 53 73 53 67
+                C53 60 48 56 41 56
+                Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="4"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M50 18
+                L67 48
+                L84 18
+                M67 48
+                V88"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="4"
+            />
+        </svg>
+        <span>
+            BUILT BY YORYOR
+        </span>
+    </a>
+    <nav class="nav-links">
+        <a href="#home">
+            Home
+        </a>
+        <a href="#about">
+            About
+        </a>
+        <a href="#services">
+            Services
+        </a>
+        <a href="#why">
+            Why Me
+        </a>
+        <a href="#projects">
+            Projects
+        </a>
+        <a href="#tech">
+            Tech Stack
+        </a>
+        <a
+            href="#contact"
+            class="nav-cta"
+        >
+            Contact
+        </a>
+    </nav>
 </div>
-BUILT BY YORYOR
-</a>
-<div class="nav-links">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#work">Work</a>
-<a href="#tech">Tech</a>
-<a href="#contact" class="nav-project">
-Start a Project
-</a>
-</div>
-</div>
-</nav>
-<!-- =====================================================
+</header>
+<!-- =======================================================
      HERO
-===================================================== -->
-<section class="hero" id="home">
+======================================================= -->
+<section
+    class="hero"
+    id="home"
+>
 <div class="hero-grid"></div>
-<div class="scan"></div>
-<div class="hero-inner">
-<div class="hero-copy">
-<small>
-<i></i>
-DIGITAL STUDIO / AVAILABLE
-</small>
-<h1>
-BUILD
-<span>BETTER.</span>
-</h1>
-<p>
-UI/UX design, web development and digital experiences
-built to make businesses, brands and ideas look
-as good online as they deserve to.
-</p>
-<div class="hero-actions">
-<a href="#work" class="btn btn-main">
-Explore My Work
-</a>
-<a href="#contact" class="btn btn-dark">
-Start a Project
-</a>
-</div>
-</div>
-<!-- PRODUCT UI -->
-<div class="product-stage">
-<div class="product-glow"></div>
-<div class="browser">
-<div class="browser-head">
-<div class="browser-dots">
-<i></i>
-<i></i>
-<i></i>
-</div>
-<div class="browser-url">
-builtbyyoryor.dev
-</div>
-</div>
-<div class="browser-content">
-<div class="sidebar">
-<div class="sidebar-logo">
-BY
-</div>
-<div class="side-line active"></div>
-<div class="side-line"></div>
-<div class="side-line"></div>
-<div class="side-line"></div>
-<div class="side-line"></div>
-</div>
-<div class="dashboard">
-<div class="dashboard-top">
-<div class="dashboard-title"></div>
-<div class="dashboard-button"></div>
-</div>
-<div class="metrics">
-<div class="metric">
-<small>PROJECTS</small>
-<strong>12</strong>
-</div>
-<div class="metric">
-<small>DESIGN</small>
-<strong>24</strong>
-</div>
-<div class="metric">
-<small>BUILD</small>
-<strong>08</strong>
-</div>
-</div>
-<div class="chart">
-<div class="chart-line"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="float-card float-one">
-<small>UI / UX</small>
-<strong>
-Designed with intent
-</strong>
-</div>
-<div class="float-card float-two">
-<small>RESPONSIVE</small>
-<strong>
-Built for every screen
-</strong>
-</div>
-<div class="float-card float-three">
-<small>DEVELOPMENT</small>
-<strong>
-Clean + scalable
-</strong>
-</div>
-</div>
-</div>
-<div class="watermark">
-BY
+<div class="hero-glow"></div>
+<div class="hero-container">
+    <!-- HERO COPY -->
+    <div class="hero-copy">
+        <div class="hero-label">
+            <span></span>
+            AVAILABLE FOR NEW PROJECTS
+        </div>
+        <h1>
+            Professional
+            <br>
+            <span class="gold">
+                Digital Experiences.
+            </span>
+        </h1>
+        <p class="hero-description">
+            I design and build modern,
+            responsive websites and
+            digital experiences that help
+            businesses, brands and
+            individuals stand out online.
+        </p>
+        <div class="hero-buttons">
+            <a
+                href="#projects"
+                class="primary-btn"
+            >
+                View My Work
+            </a>
+            <a
+                href="#contact"
+                class="secondary-btn"
+            >
+                Start a Project
+            </a>
+        </div>
+    </div>
+    <!-- =================================================
+         HERO VISUAL
+    ================================================== -->
+    <div class="hero-visual">
+        <!-- ORBITS -->
+        <div class="by-orbit"></div>
+        <div class="by-orbit-two"></div>
+        <!-- UI DASHBOARD -->
+        <div class="dashboard">
+            <div class="browser-top">
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <div class="browser-url">
+                    builtbyyoryor
+                    /studio
+                </div>
+            </div>
+            <div class="dashboard-body">
+                <!-- SIDEBAR -->
+                <div class="dashboard-sidebar">
+                    <div class="side-logo">
+                        BY
+                    </div>
+                    <div class="side-line active"></div>
+                    <div class="side-line"></div>
+                    <div class="side-line"></div>
+                    <div class="side-line"></div>
+                    <div class="side-line"></div>
+                </div>
+                <!-- MAIN -->
+                <div class="dashboard-main">
+                    <div class="dashboard-title">
+                        <strong>
+                            Digital Studio
+                        </strong>
+                        <span>
+                            LIVE
+                        </span>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div class="stat-box">
+                            <small>
+                                DESIGN
+                            </small>
+                            <strong>
+                                UI/UX
+                            </strong>
+                        </div>
+                        <div class="stat-box">
+                            <small>
+                                WEB
+                            </small>
+                            <strong>
+                                100%
+                            </strong>
+                        </div>
+                        <div class="stat-box">
+                            <small>
+                                STATUS
+                            </small>
+                            <strong>
+                                READY
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <div class="chart-lines"></div>
+                        <div class="chart-path"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- BY CENTER -->
+        <div class="by-monogram">
+            <span>
+                BY
+            </span>
+        </div>
+        <div class="by-wordmark">
+            BUILT BY YORYOR
+        </div>
+        <!-- FLOATING CARDS -->
+        <div class="ui-card one">
+            <small>
+                DESIGN SYSTEM
+            </small>
+            <strong>
+                Modern UI / UX
+            </strong>
+        </div>
+        <div class="ui-card two">
+            <small>
+                RESPONSIVE
+            </small>
+            <strong>
+                Mobile First
+            </strong>
+        </div>
+        <div class="ui-card three">
+            <small>
+                DEVELOPMENT
+            </small>
+            <strong>
+                Clean Code
+            </strong>
+        </div>
+        <!-- CODE WINDOW -->
+        <div class="code-window">
+            <div class="window-top">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+            <div class="code-line gold"></div>
+            <div class="code-line medium"></div>
+            <div class="code-line short"></div>
+            <div class="code-line gold"></div>
+            <div class="code-line medium"></div>
+            <div class="code-line short"></div>
+        </div>
+    </div>
 </div>
 </section>
-<!-- =====================================================
+<!-- =======================================================
      ABOUT
-===================================================== -->
-<section class="section about" id="about">
+======================================================= -->
+<section
+    class="section about"
+    id="about"
+>
 <div class="container">
-<div class="heading">
-<span>THE STUDIO</span>
-<h2>
-Not just websites.
-Digital experiences.
-</h2>
-<p>
-Built by Yoryor combines visual design, UI/UX thinking
-and web development to create digital products that
-feel intentional.
-</p>
-</div>
-<div class="about-ui">
-<div class="profile">
-<div class="profile-head">
-<div class="avatar">
-BY
-</div>
-<div>
-<small>CREATIVE DEVELOPER</small>
-<strong>
-Yoryor
-</strong>
-</div>
-</div>
-<p>
-I build modern websites for businesses, brands and
-individuals. My goal is simple: create something that
-looks professional, feels easy to use and gives the
-visitor a reason to take action.
-</p>
-<div class="profile-status">
-<i></i>
-Currently accepting selected projects
-</div>
-</div>
-<div class="about-cards">
-<div class="about-card">
-<b>01</b>
-<h3>
-UI / UX
-</h3>
-<p>
-Interfaces designed around clarity, hierarchy and user experience.
-</p>
-</div>
-<div class="about-card">
-<b>02</b>
-<h3>
-WEB
-</h3>
-<p>
-Responsive websites built for phones, tablets and desktop.
-</p>
-</div>
-<div class="about-card">
-<b>03</b>
-<h3>
-MOTION
-</h3>
-<p>
-Subtle animation that gives interfaces personality.
-</p>
-</div>
-<div class="about-card">
-<b>04</b>
-<h3>
-PURPOSE
-</h3>
-<p>
-Design decisions connected to real business goals.
-</p>
-</div>
-</div>
-</div>
+    <div class="section-heading">
+        <span>
+            ABOUT
+        </span>
+        <h2>
+            Building with purpose.
+        </h2>
+        <p>
+            Modern websites should do
+            more than look good. They
+            should communicate, perform
+            and help people take action.
+        </p>
+    </div>
+    <div class="about-grid">
+        <div class="about-text">
+            <p>
+                I'm Yoryor, the person
+                behind Built by Yoryor.
+                I build modern digital
+                experiences for businesses,
+                brands and individuals.
+            </p>
+            <p>
+                My focus is on clean layouts,
+                responsive design, strong
+                visual presentation and
+                websites that are simple
+                for visitors to understand.
+            </p>
+            <p>
+                Every project is approached
+                with the goal of creating
+                something professional,
+                useful and built around
+                the client's objectives.
+            </p>
+        </div>
+        <div class="about-highlight">
+            <div class="highlight">
+                <strong>
+                    01
+                </strong>
+                <span>
+                    Modern Design
+                </span>
+            </div>
+            <div class="highlight">
+                <strong>
+                    02
+                </strong>
+                <span>
+                    Responsive Layouts
+                </span>
+            </div>
+            <div class="highlight">
+                <strong>
+                    03
+                </strong>
+                <span>
+                    Clean Development
+                </span>
+            </div>
+            <div class="highlight">
+                <strong>
+                    04
+                </strong>
+                <span>
+                    Business Focused
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
 </section>
-<!-- =====================================================
+<!-- =======================================================
      SERVICES
-===================================================== -->
-<section class="section services" id="services">
+======================================================= -->
+<section
+    class="section services"
+    id="services"
+>
 <div class="container">
-<div class="heading">
-<span>SERVICES</span>
-<h2>
-What can we build?
-</h2>
-<p>
-From a simple business website to a complete digital
-experience.
-</p>
-</div>
-<div class="service-grid">
-<div class="service">
-<div class="service-number">
-01 / BUSINESS
-</div>
-<h3>
-Business Websites
-</h3>
-<p>
-Professional websites that establish credibility,
-explain your services and help customers take action.
-</p>
-<div class="service-line"></div>
-</div>
-<div class="service">
-<div class="service-number">
-02 / COMMERCE
-</div>
-<h3>
-Online Stores
-</h3>
-<p>
-Product-focused ecommerce experiences designed to
-make browsing and purchasing simple.
-</p>
-<div class="service-line"></div>
-</div>
-<div class="service">
-<div class="service-number">
-03 / PERSONAL
-</div>
-<h3>
-Personal Brands
-</h3>
-<p>
-Portfolio and personal websites that turn your work
-and identity into a strong digital presence.
-</p>
-<div class="service-line"></div>
-</div>
-</div>
+    <div class="section-heading">
+        <span>
+            SERVICES
+        </span>
+        <h2>
+            What I build.
+        </h2>
+        <p>
+            Digital experiences designed
+            around the needs of each project.
+        </p>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <span class="card-number">
+                01
+            </span>
+            <h3>
+                Business Websites
+            </h3>
+            <p>
+                Professional websites for
+                businesses that need a strong
+                and credible online presence.
+            </p>
+        </div>
+        <div class="card">
+            <span class="card-number">
+                02
+            </span>
+            <h3>
+                Online Stores
+            </h3>
+            <p>
+                Modern ecommerce experiences
+                with product presentation,
+                shopping functionality and
+                responsive layouts.
+            </p>
+        </div>
+        <div class="card">
+            <span class="card-number">
+                03
+            </span>
+            <h3>
+                Personal Websites
+            </h3>
+            <p>
+                Clean portfolios and personal
+                websites designed to present
+                skills, work and identity.
+            </p>
+        </div>
+    </div>
 </div>
 </section>
-<!-- =====================================================
-     WORK
-===================================================== -->
-<section class="section work" id="work">
+<!-- =======================================================
+     WHY ME
+======================================================= -->
+<section
+    class="section why"
+    id="why"
+>
 <div class="container">
-<div class="heading">
-<span>SELECTED WORK</span>
-<h2>
-Interfaces I've built.
-</h2>
-<p>
-Real project directions presented as digital product
-interfaces.
-</p>
-</div>
-<div class="work-grid">
-<article class="work-card">
-<div class="work-preview">
-<div class="mini-browser">
-<div class="mini-top">
-<i></i>
-<i></i>
-<i></i>
-</div>
-<div class="mini-content">
-<div class="mini-gold"></div>
-<div class="mini-line"></div>
-<div class="mini-line"></div>
-<div class="mini-grid">
-<div></div>
-<div></div>
-<div></div>
-</div>
-</div>
-</div>
-</div>
-<div class="work-body">
-<h3>
-Business Website
-</h3>
-<p>
-Professional business interface designed for credibility
-and conversion.
-</p>
-<a href="business.html">
-VIEW PROJECT →
-</a>
-</div>
-</article>
-<article class="work-card">
-<div class="work-preview">
-<div class="mini-browser">
-<div class="mini-top">
-<i></i>
-<i></i>
-<i></i>
-</div>
-<div class="mini-content">
-<div class="mini-gold"></div>
-<div class="mini-line"></div>
-<div class="mini-line"></div>
-<div class="mini-grid">
-<div></div>
-<div></div>
-<div></div>
-</div>
-</div>
-</div>
-</div>
-<div class="work-body">
-<h3>
-Restaurant Website
-</h3>
-<p>
-Visual restaurant experience built around presentation
-and customer action.
-</p>
-<a href="restaurant.html">
-VIEW PROJECT →
-</a>
-</div>
-</article>
-<article class="work-card">
-<div class="work-preview">
-<div class="mini-browser">
-<div class="mini-top">
-<i></i>
-<i></i>
-<i></i>
-</div>
-<div class="mini-content">
-<div class="mini-gold"></div>
-<div class="mini-line"></div>
-<div class="mini-line"></div>
-<div class="mini-grid">
-<div></div>
-<div></div>
-<div></div>
-</div>
-</div>
-</div>
-</div>
-<div class="work-body">
-<h3>
-Personal Portfolio
-</h3>
-<p>
-Personal brand interface designed to showcase work,
-skills and identity.
-</p>
-<a href="personal.html">
-VIEW PROJECT →
-</a>
-</div>
-</article>
-</div>
+    <div class="section-heading">
+        <span>
+            WHY BUILT BY YORYOR
+        </span>
+        <h2>
+            Designed to make an impression.
+        </h2>
+    </div>
+    <div class="why-grid">
+        <div class="why-item">
+            <h3>
+                Mobile Friendly
+            </h3>
+            <p>
+                Websites are designed to
+                work smoothly across phones,
+                tablets and larger screens.
+            </p>
+        </div>
+        <div class="why-item">
+            <h3>
+                Clean & Modern
+            </h3>
+            <p>
+                Strong visual hierarchy and
+                thoughtful layouts create a
+                professional experience.
+            </p>
+        </div>
+        <div class="why-item">
+            <h3>
+                Goal Focused
+            </h3>
+            <p>
+                Every page is built around
+                what the website needs visitors
+                to understand or do.
+            </p>
+        </div>
+    </div>
 </div>
 </section>
-<!-- =====================================================
-     TECH
-===================================================== -->
-<section class="section tech" id="tech">
+<!-- =======================================================
+     PROJECTS
+======================================================= -->
+<section
+    class="section projects"
+    id="projects"
+>
 <div class="container">
-<div class="heading">
-<span>STACK</span>
-<h2>
-The tools behind it.
-</h2>
-</div>
-<div class="tech-grid">
-<div class="tech-item">
-HTML5
-</div>
-<div class="tech-item">
-CSS3
-</div>
-<div class="tech-item">
-JavaScript
-</div>
-<div class="tech-item">
-UI / UX
-</div>
-<div class="tech-item">
-Responsive Design
-</div>
-<div class="tech-item">
-GitHub
-</div>
-<div class="tech-item">
-Cloudflare
-</div>
-<div class="tech-item">
-Web Development
-</div>
-</div>
+    <div class="section-heading">
+        <span>
+            SELECTED WORK
+        </span>
+        <h2>
+            Projects I've built.
+        </h2>
+        <p>
+            A selection of web experiences
+            created with different business
+            and personal goals in mind.
+        </p>
+    </div>
+    <div class="project-grid">
+        <article class="project">
+            <div class="project-preview">
+                <span>
+                    BUSINESS
+                </span>
+            </div>
+            <div class="project-body">
+                <h3>
+                    Business Website
+                </h3>
+                <p>
+                    Professional business
+                    website concept with
+                    responsive design.
+                </p>
+                <a
+                    href="business.html"
+                    class="project-link"
+                >
+                    VIEW PROJECT →
+                </a>
+            </div>
+        </article>
+        <article class="project">
+            <div class="project-preview">
+                <span>
+                    RESTAURANT
+                </span>
+            </div>
+            <div class="project-body">
+                <h3>
+                    Restaurant Website
+                </h3>
+                <p>
+                    Modern restaurant website
+                    concept designed around
+                    presentation and conversion.
+                </p>
+                <a
+                    href="restaurant.html"
+                    class="project-link"
+                >
+                    VIEW PROJECT →
+                </a>
+            </div>
+        </article>
+        <article class="project">
+            <div class="project-preview">
+                <span>
+                    PERSONAL
+                </span>
+            </div>
+            <div class="project-body">
+                <h3>
+                    Personal Portfolio
+                </h3>
+                <p>
+                    A clean personal web
+                    experience focused on
+                    identity, work and skills.
+                </p>
+                <a
+                    href="personal.html"
+                    class="project-link"
+                >
+                    VIEW PROJECT →
+                </a>
+            </div>
+        </article>
+    </div>
 </div>
 </section>
-<!-- =====================================================
+<!-- =======================================================
+     TECH STACK
+======================================================= -->
+<section
+    class="section tech"
+    id="tech"
+>
+<div class="container">
+    <div class="section-heading">
+        <span>
+            TECH STACK
+        </span>
+        <h2>
+            Tools behind the work.
+        </h2>
+    </div>
+    <div class="tech-grid">
+        <div class="tech-item">
+            HTML5
+        </div>
+        <div class="tech-item">
+            CSS3
+        </div>
+        <div class="tech-item">
+            JavaScript
+        </div>
+        <div class="tech-item">
+            Responsive Design
+        </div>
+        <div class="tech-item">
+            GitHub
+        </div>
+        <div class="tech-item">
+            Cloudflare
+        </div>
+        <div class="tech-item">
+            UI / UX
+        </div>
+        <div class="tech-item">
+            Web Development
+        </div>
+    </div>
+</div>
+</section>
+<!-- =======================================================
      CONTACT
-===================================================== -->
-<section class="section contact" id="contact">
+======================================================= -->
+<section
+    class="section contact"
+    id="contact"
+>
 <div class="container">
-<div class="heading">
-<span>LET'S BUILD</span>
-<h2>
-Have an idea?
-Let's turn it into an interface.
-</h2>
-<p>
-Tell me what you're building and let's figure out
-the right digital experience for it.
-</p>
-</div>
-<div class="contact-ui">
-<div class="contact-info">
-<h3>
-Start a conversation.
-</h3>
-<p>
-Whether you're launching a business, creating a brand,
-building an online store or need a professional website,
-send the details.
-</p>
-<a
-href="mailto:builtbyyoryor@gmail.com"
-class="contact-link"
->
-EMAIL — builtbyyoryor@gmail.com
-</a>
-<a
-href="https://wa.me/2348068782377"
-target="_blank"
-class="contact-link"
->
-WHATSAPP — CHAT WITH YORYOR
-</a>
-<div class="qr">
-<img
-src="built-by-yoryor-qr-code.png"
-alt="Built by Yoryor QR code"
->
-</div>
-</div>
-<form
-class="contact-form"
-id="contactForm"
-action="https://formspree.io/f/xbgjyekq"
-method="POST"
->
-<input
-type="text"
-name="name"
-placeholder="Your name"
-required
->
-<input
-type="email"
-name="email"
-placeholder="Your email"
-required
->
-<select
-name="project"
-required
->
-<option value="">
-Project type
-</option>
-<option>
-Business Website
-</option>
-<option>
-Online Store
-</option>
-<option>
-Personal Website
-</option>
-<option>
-UI / UX Design
-</option>
-<option>
-Other
-</option>
-</select>
-<select
-name="budget"
-required
->
-<option value="">
-Project budget
-</option>
-<option>
-Under $100
-</option>
-<option>
-$100 - $250
-</option>
-<option>
-$250 - $500
-</option>
-<option>
-$500+
-</option>
-</select>
-<textarea
-name="message"
-placeholder="Tell me about your idea..."
-required
-></textarea>
-<button
-type="submit"
-class="btn btn-main"
->
-SEND PROJECT REQUEST
-</button>
-<div
-class="form-status"
-id="formStatus"
-></div>
-</form>
-</div>
+    <div class="section-heading">
+        <span>
+            CONTACT
+        </span>
+        <h2>
+            Let's build something.
+        </h2>
+        <p>
+            Have a website idea, business
+            project or digital concept?
+            Tell me about it.
+        </p>
+    </div>
+    <div class="contact-grid">
+        <div class="contact-info">
+            <p>
+                I'm available for website
+                projects, business websites,
+                ecommerce concepts and
+                personal portfolio websites.
+            </p>
+            <div class="contact-details">
+                <a
+                    href="mailto:builtbyyoryor@gmail.com"
+                >
+                    builtbyyoryor@gmail.com
+                </a>
+                <a
+                    href="https://wa.me/2348068782377"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    WhatsApp
+                </a>
+            </div>
+            <div class="qr-box">
+                <img
+                    src="built-by-yoryor-qr-code.png"
+                    alt="Built by Yoryor QR Code"
+                    class="website-qr"
+                >
+            </div>
+        </div>
+        <form
+            class="contact-form"
+            id="contactForm"
+            action="https://formspree.io/f/xbgjyekq"
+            method="POST"
+        >
+            <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+            >
+            <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                required
+            >
+            <select
+                name="project"
+                required
+            >
+                <option value="">
+                    What do you need?
+                </option>
+                <option>
+                    Business Website
+                </option>
+                <option>
+                    Online Store
+                </option>
+                <option>
+                    Personal Website
+                </option>
+                <option>
+                    Other
+                </option>
+            </select>
+            <select
+                name="budget"
+                required
+            >
+                <option value="">
+                    Project budget
+                </option>
+                <option>
+                    Under $100
+                </option>
+                <option>
+                    $100 - $250
+                </option>
+                <option>
+                    $250 - $500
+                </option>
+                <option>
+                    $500+
+                </option>
+            </select>
+            <textarea
+                name="message"
+                placeholder="Tell me about your project..."
+                required
+            ></textarea>
+            <button
+                type="submit"
+                class="primary-btn"
+            >
+                Send Project Request
+            </button>
+            <div
+                class="form-status"
+                id="formStatus"
+            ></div>
+        </form>
+    </div>
 </div>
 </section>
-<!-- =====================================================
+<!-- =======================================================
      FOOTER
-===================================================== -->
+======================================================= -->
 <footer>
-<div class="footer">
-<strong>
-BUILT BY YORYOR
-</strong>
-<span>
-Digital experiences built with purpose.
-</span>
-<span>
-© 2026 Built by Yoryor
-</span>
+<div class="footer-container">
+    <div class="footer-brand">
+        BUILT BY YORYOR
+    </div>
+    <p>
+        Professional websites built with purpose.
+    </p>
+    <p>
+        © 2026 Built by Yoryor.
+        All rights reserved.
+    </p>
 </div>
 </footer>
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
 <script>
-/* =====================================================
+/* =========================================================
    CONTACT FORM
-===================================================== */
-const form =
-document.getElementById("contactForm");
-const status =
-document.getElementById("formStatus");
-form.addEventListener("submit",async function(e){
-e.preventDefault();
-status.textContent="Sending...";
-try{
-const response =
-await fetch(
-form.action,
-{
-method:"POST",
-body:new FormData(form),
-headers:{
-"Accept":"application/json"
-}
-}
+========================================================= */
+const contactForm =
+    document.getElementById(
+        "contactForm"
+    );
+const formStatus =
+    document.getElementById(
+        "formStatus"
+    );
+contactForm.addEventListener(
+    "submit",
+    async function(event){
+        event.preventDefault();
+        formStatus.textContent =
+            "Sending your message...";
+        const formData =
+            new FormData(
+                contactForm
+            );
+        try{
+            const response =
+                await fetch(
+                    contactForm.action,
+                    {
+                        method:"POST",
+                        body:formData,
+                        headers:{
+                            "Accept":
+                                "application/json"
+                        }
+                    }
+                );
+            if(response.ok){
+                formStatus.textContent =
+                    "Message sent successfully.";
+                contactForm.reset();
+            }else{
+                formStatus.textContent =
+                    "Something went wrong. Please try again.";
+            }
+        }catch(error){
+            formStatus.textContent =
+                "Unable to send right now. Please try again.";
+        }
+    }
 );
-if(response.ok){
-status.textContent=
-"✓ Project request sent successfully.";
-form.reset();
-}else{
-status.textContent=
-"Something went wrong. Please try again.";
-}
-}catch(error){
-status.textContent=
-"Unable to send right now. Please try again.";
-}
-});
-/* =====================================================
-   HERO 3D MOVEMENT
-===================================================== */
-const browser =
-document.querySelector(".browser");
-const stage =
-document.querySelector(".product-stage");
-window.addEventListener("mousemove",function(e){
-if(window.innerWidth < 901) return;
-const x =
-(e.clientX / window.innerWidth - .5);
-const y =
-(e.clientY / window.innerHeight - .5);
-browser.style.transform =
-`perspective(1200px)
- rotateY(${-8 + x * 10}deg)
- rotateX(${3 + y * -6}deg)
- translateY(${y * -8}px)`;
-stage.style.transform =
-`translate(${x * 5}px,${y * 5}px)`;
-});
+/* =========================================================
+   HERO INTERACTION
+========================================================= */
+const visual =
+    document.querySelector(
+        ".hero-visual"
+    );
+const dashboard =
+    document.querySelector(
+        ".dashboard"
+    );
+window.addEventListener(
+    "mousemove",
+    function(event){
+        if(window.innerWidth < 901){
+            return;
+        }
+        const x =
+            (event.clientX /
+            window.innerWidth - .5);
+        const y =
+            (event.clientY /
+            window.innerHeight - .5);
+        visual.style.transform =
+            `translate(${x * 8}px, ${y * 8}px)`;
+        dashboard.style.transform =
+            `perspective(1100px)
+             rotateY(${-7 + x * 8}deg)
+             rotateX(${3 - y * 5}deg)
+             translateY(-3px)`;
+    }
+);
+/* =========================================================
+   RESET HERO POSITION
+========================================================= */
+window.addEventListener(
+    "mouseleave",
+    function(){
+        if(window.innerWidth < 901){
+            return;
+        }
+        visual.style.transform =
+            "translate(0,0)";
+        dashboard.style.transform =
+            "perspective(1100px)
+             rotateY(-7deg)
+             rotateX(3deg)";
+    }
+);
 </script>
 </body>
 </html>
